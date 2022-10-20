@@ -8,7 +8,7 @@ clean:
 	rm -rf build
 
 generate:
-	cmake -S . -B build/ -DBUILD_DEV=$(BUILD_DEV)
+	cmake -S src/ -B build/ -DBUILD_DEV=$(BUILD_DEV)
 
 silent-build:
 	cmake --build build/ --config $(BUILD_DEV)
@@ -42,3 +42,15 @@ format:
 valgrind:
 	@echo "Not implemented"
 
+build-docker:
+	docker build . -f Dockerfile -t app 
+dev:
+	docker run --rm -it \
+		-v $(PWD):/project \
+		--user $$(id -u):$$(id -g) \
+		app 
+
+dev-sudo:
+	docker run --rm -it \
+		-v $(PWD):/project \
+		app

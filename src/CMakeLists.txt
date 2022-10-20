@@ -6,7 +6,6 @@ set(PROJECT_NAME "What a contest!")
 
 project(${PROJECT_NAME})
 
-add_subdirectory(numbers_counter)
 add_subdirectory(db)
 
 

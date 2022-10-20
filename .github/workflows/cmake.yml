@@ -1,0 +1,94 @@
+name: CMake
+
+on:
+  push:
+  #  branches: ["main"]
+  pull_request:
+  #  branches: ["main"]
+
+env:
+  # Customize the CMake build type
+  BUILD_DEV: True
+
+jobs:
+  Format:
+    runs-on: ubuntu-latest
+    container: t1d333/cpp-app
+    steps:
+      - uses: actions/checkout@v3
+      - run: make format
+
+  Lint:
+    runs-on: ubuntu-latest
+    container: t1d333/cpp-app
+    
+    steps:
+      - uses: actions/checkout@v3
+      - run: make lint
+
+  Build:
+    runs-on: ubuntu-latest
+    container: t1d333/cpp-app
+    needs: [Lint, Format]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Configure CMake
+        run: make generate
+
+      - name: Build project
+        run: make build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifact
+          path: build/
+
+  Valgrind:
+    runs-on: ubuntu-latest
+    container: t1d333/cpp-app
+    needs: [Build]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run valgrind
+        run: make valgrind
+
+  Unit-test:
+    runs-on: ubuntu-latest
+    container: t1d333/cpp-app
+    needs: [Build]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: build-artifact
+          path: build/
+
+      - name: Run tests
+        run: make test
+
+      - name: Upload test artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-artifact
+          path: build/
+
+  Coverage:
+    runs-on: ubuntu-latest
+    container: t1d333/cpp-app
+    needs: [Unit-test]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download test artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: test-artifact
+          path: build/
+
+      - name: Coverage
+        run: make coverage-stat

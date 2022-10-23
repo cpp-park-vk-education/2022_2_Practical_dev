@@ -44,6 +44,7 @@ valgrind:
 
 build-docker:
 	docker build . -f Dockerfile -t app 
+	
 dev:
 	docker run --rm -it \
 		-v $(PWD):/project \

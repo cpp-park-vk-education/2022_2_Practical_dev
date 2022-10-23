@@ -20,11 +20,33 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 file(GLOB TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+message("${TEST_SOURCES}")
 
 include(GoogleTest)
 add_executable(${PROJECT_NAME} ${TEST_SOURCES})
 
 target_link_libraries(${PROJECT_NAME} PRIVATE ${DB_Lib_LIB} GTest::gtest_main)
 target_include_directories(${PROJECT_NAME} PUBLIC ${DB_Lib_INCLUDE_DIRS})
+target_compile_options(${PROJECT_NAME} PUBLIC --coverage)
+target_link_options(${PROJECT_NAME} PUBLIC --coverage)
 
 gtest_discover_tests(${PROJECT_NAME})
+
+add_custom_target(
+  ${PROJECT_NAME}_COVERAGE
+  COMMAND ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}
+  COMMAND gcovr ${CMAKE_CURRENT_BINARY_DIR} -r ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+add_custom_target(
+  ${PROJECT_NAME}_COVERAGE_FILE
+  COMMAND ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}
+  COMMAND rm -r ${CMAKE_CURRENT_BINARY_DIR}/report || echo "There is no reports"
+  COMMAND mkdir ${CMAKE_CURRENT_BINARY_DIR}/report
+  COMMAND gcovr ${CMAKE_CURRENT_BINARY_DIR} -r ${CMAKE_CURRENT_SOURCE_DIR} --html-details report/report.html
+)
+
+add_custom_target(
+  ${PROJECT_NAME}_VALGRIND
+  COMMAND valgrind ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}
+)

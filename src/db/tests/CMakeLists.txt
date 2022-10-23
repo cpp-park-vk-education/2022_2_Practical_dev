@@ -5,7 +5,7 @@ project(db_tests)
 set(CMAKE_CXX_STANDARD 14)
 
 if(BUILD_TYPE)
-    set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-fprofile-arcs -ftest-coverage -O0")
+    set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-fprofile-arcs -ftest-coverage -O0 -g")
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage -lgcov" )
 endif(BUILD_TYPE)
 
@@ -45,7 +45,7 @@ add_custom_target(
 
 add_custom_target(
   ${PROJECT_NAME}_COVERAGE_FILE
-  COMMAND rm -r ${CMAKE_CURRENT_BINARY_DIR}/report || echo "There is no reports"
+  COMMAND rm -r ${CMAKE_CURRENT_BINARY_DIR}/report || echo "There are no reports"
   COMMAND mkdir ${CMAKE_CURRENT_BINARY_DIR}/report
   COMMAND gcovr ${CMAKE_CURRENT_BINARY_DIR} -r ${CMAKE_CURRENT_SOURCE_DIR} --html-details report/report.html
   DEPENDS ${PROJECT_NAME}_TEST
@@ -53,5 +53,5 @@ add_custom_target(
 
 add_custom_target(
   ${PROJECT_NAME}_VALGRIND
-  COMMAND valgrind ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}
+  COMMAND valgrind -s --leak-check=full --show-leak-kinds=all ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}
 )

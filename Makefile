@@ -28,10 +28,10 @@ test: build
 	cd build && ctest -VV -C $(BUILD_DEV)
 
 coverage-stat:
-	cmake --build build/ --target full_test_COVERAGE
+	scripts/coverage_stat.sh
 
 coverage: 
-	cmake --build build/ --target full_test_COVERAGE_FILE
+	cmake --build build/ --target full_test_COVERAGE_FILE -s
 
 lint:
 	./run_linters.sh
@@ -40,7 +40,7 @@ format:
 	./run_format.sh
 
 valgrind:
-	cmake --build build/ --target full_test_VALGRIND
+	cmake --build build/ --target full_test_VALGRIND -s
 
 build-docker:
 	docker build . -f Dockerfile -t app 

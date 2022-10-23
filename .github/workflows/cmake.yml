@@ -45,12 +45,15 @@ jobs:
           name: build-artifact
           path: build/
 
-  Valgrind:
+  Memtest:
     runs-on: ubuntu-latest
     container: t1d333/cpp-app
     needs: [Build]
     steps:
       - uses: actions/checkout@v3
+
+      - name: Build project
+        run: make generate
 
       - name: Run valgrind
         run: make valgrind

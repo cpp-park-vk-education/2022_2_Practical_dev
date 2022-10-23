@@ -11,4 +11,6 @@ class DBConnection {
     ~DBConnection();
 };
 
+int foo();
+
 #endif  // SRC_DB_INCLUDE_DB_HPP_

@@ -33,17 +33,22 @@ target_link_options(${PROJECT_NAME} PUBLIC --coverage)
 gtest_discover_tests(${PROJECT_NAME})
 
 add_custom_target(
-  ${PROJECT_NAME}_COVERAGE
+  ${PROJECT_NAME}_TEST
   COMMAND ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}
+)
+
+add_custom_target(
+  ${PROJECT_NAME}_COVERAGE
   COMMAND gcovr ${CMAKE_CURRENT_BINARY_DIR} -r ${CMAKE_CURRENT_SOURCE_DIR}
+  DEPENDS ${PROJECT_NAME}_TEST
 )
 
 add_custom_target(
   ${PROJECT_NAME}_COVERAGE_FILE
-  COMMAND ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}
   COMMAND rm -r ${CMAKE_CURRENT_BINARY_DIR}/report || echo "There is no reports"
   COMMAND mkdir ${CMAKE_CURRENT_BINARY_DIR}/report
   COMMAND gcovr ${CMAKE_CURRENT_BINARY_DIR} -r ${CMAKE_CURRENT_SOURCE_DIR} --html-details report/report.html
+  DEPENDS ${PROJECT_NAME}_TEST
 )
 
 add_custom_target(

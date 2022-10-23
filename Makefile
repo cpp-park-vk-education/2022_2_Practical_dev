@@ -28,10 +28,10 @@ test: build
 	cd build && ctest -VV -C $(BUILD_DEV)
 
 coverage-stat:
-	@echo "Not implemented"
+	cmake --build build/ --target full_test_COVERAGE
 
 coverage: 
-	@echo "Not implemented"
+	cmake --build build/ --target full_test_COVERAGE_FILE
 
 lint:
 	./run_linters.sh
@@ -40,7 +40,7 @@ format:
 	./run_format.sh
 
 valgrind:
-	@echo "Not implemented"
+	cmake --build build/ --target full_test_VALGRIND
 
 build-docker:
 	docker build . -f Dockerfile -t app 

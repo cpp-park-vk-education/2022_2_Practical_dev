@@ -49,3 +49,18 @@ if((BUILD_MODE STREQUAL ${BUILD_CLIENT}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}))
     message("BUILD CLIENT")
 endif()
 
+set(TEST_TARGETS db_tests)
+set(TARGET_TYPES TEST COVERAGE COVERAGE_FILE VALGRIND)
+
+foreach(TEST_TARGET IN LISTS TEST_TARGETS)
+    foreach(TARGET_TYPE IN LISTS TARGET_TYPES)
+        list(APPEND TEST_${TARGET_TYPE}_TARGETS ${TEST_TARGET}_${TARGET_TYPE})
+    endforeach()
+endforeach()
+
+foreach(TARGET_TYPE IN LISTS TARGET_TYPES)
+    add_custom_target(
+        full_test_${TARGET_TYPE}
+        DEPENDS ${TEST_${TARGET_TYPE}_TARGETS}
+    )
+endforeach()

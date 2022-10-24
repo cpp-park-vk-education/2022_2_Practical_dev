@@ -18,7 +18,7 @@ build:
 
 build-tests:
 	cmake -S src/ -B build/ -DSANITIZE_BUILD=ON
-	cmake --build build/ --target db_tests
+	cmake --build build/ --target db_tests -s
 
 rebuild: clean generate
 
@@ -43,7 +43,7 @@ lint:
 format:
 	./run_format.sh
 
-valgrind: build
+valgrind: build-tests
 	cmake --build build/ --target full_test_VALGRIND -s
 
 build-docker:

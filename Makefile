@@ -43,7 +43,7 @@ lint:
 format:
 	./run_format.sh
 
-valgrind:
+valgrind: build
 	cmake --build build/ --target full_test_VALGRIND -s
 
 build-docker:

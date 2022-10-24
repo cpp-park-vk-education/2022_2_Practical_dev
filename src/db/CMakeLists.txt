@@ -12,6 +12,8 @@ message("HEADERS = ${HEADERS}")
 
 set(PQXX /usr/local/include/pqxx)
 
+find_library(PQXX_LIB pqxx)
+find_library(PQ_LIB pq)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -g -Wall -Wextra -O2 -pedantic -Wformat=2 -Wfloat-equal -Wconversion \
 -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align")
@@ -21,6 +23,7 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lpqxx -lpq")
 
 add_library(${LIB_NAME} ${SOURCES} ${HEADERS})
 target_include_directories(${LIB_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(${LIB_NAME} ${PQ_LIB} ${PQXX_LIB})
 
 set(DB_Lib_LIB ${LIB_NAME})
 set(DB_Lib_LIB ${DB_Lib_LIB} PARENT_SCOPE)

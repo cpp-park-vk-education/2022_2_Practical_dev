@@ -16,6 +16,10 @@ silent-build:
 build: 
 	@make -s silent-build 
 
+build-tests:
+	cmake -S src/ -B build/ -DSANITIZE_BUILD=ON
+	cmake --build build/ --target db_tests
+
 rebuild: clean generate
 
 server:
@@ -24,13 +28,13 @@ server:
 client:
 	@echo "Not implemented"
 
-test: build
+test: build-tests
 	cd build && ctest -VV -C $(BUILD_DEV)
 
-coverage-stat:
+coverage-stat: build-tests
 	scripts/coverage_stat.sh
 
-coverage: 
+coverage: build-tests
 	cmake --build build/ --target full_test_COVERAGE_FILE -s
 
 lint:

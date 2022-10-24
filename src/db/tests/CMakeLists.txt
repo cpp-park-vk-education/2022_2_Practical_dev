@@ -40,7 +40,7 @@ add_custom_target(
 add_custom_target(
   ${PROJECT_NAME}_COVERAGE
   COMMAND gcovr ${CMAKE_CURRENT_BINARY_DIR} -r ${CMAKE_CURRENT_SOURCE_DIR}
-  DEPENDS ${PROJECT_NAME}_TEST
+  # DEPENDS ${PROJECT_NAME}_TEST
 )
 
 add_custom_target(
@@ -48,7 +48,7 @@ add_custom_target(
   COMMAND rm -r ${CMAKE_CURRENT_BINARY_DIR}/report || echo "There are no reports"
   COMMAND mkdir ${CMAKE_CURRENT_BINARY_DIR}/report
   COMMAND gcovr ${CMAKE_CURRENT_BINARY_DIR} -r ${CMAKE_CURRENT_SOURCE_DIR} --html-details report/report.html
-  DEPENDS ${PROJECT_NAME}_TEST
+  # DEPENDS ${PROJECT_NAME}_TEST
 )
 
 add_custom_target(

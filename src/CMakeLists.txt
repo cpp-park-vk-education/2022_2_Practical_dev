@@ -6,14 +6,6 @@ set(PROJECT_NAME "What a contest!")
 
 project(${PROJECT_NAME})
 
-enable_testing()
-add_subdirectory(internal)
-
-
-message("DB_Lib_LIB = ${DB_Lib_LIB}")
-message("DB_Lib_INCLUDE_DIRS = ${DB_Lib_INCLUDE_DIRS}")
-
-
 # SANITIZE_BUILD - санитайзеры;
 set(BUILD_DEV TRUE CACHE BOOL "build dev version")
 set(SANITIZE_BUILD TRUE CACHE BOOL "build with sanitizers")
@@ -37,7 +29,13 @@ set(BUILD_ALL "BUILD_ALL")
 
 set(BUILD_MODE ${BUILD_SERVER})
 
-add_subdirectory(cmd)
+if((BUILD_MODE STREQUAL ${BUILD_SERVER}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}))
+    add_subdirectory(client)
+endif()
+
+if((BUILD_MODE STREQUAL ${BUILD_CLIENT}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}) OR True)
+    add_subdirectory(server)
+endif()
 
 set(TEST_TARGETS db_tests)
 set(TARGET_TYPES TEST COVERAGE COVERAGE_FILE VALGRIND)

@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 3.10)
-
 add_subdirectory(db)
 
 set(DB_Lib_LIB ${DB_Lib_LIB} PARENT_SCOPE)

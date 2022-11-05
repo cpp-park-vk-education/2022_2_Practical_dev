@@ -23,10 +23,10 @@ build-tests:
 rebuild: clean generate
 
 server:
-	./build/cmd/server/Server
+	./build/server/cmd/Server
 
 client:
-	./build/cmd/client/Client
+	./build/client/cmd/Client
 
 test: build-tests
 	cd build && ctest -VV -C $(BUILD_DEV)

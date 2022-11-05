@@ -6,11 +6,12 @@ set(PROJECT_NAME "What a contest!")
 
 project(${PROJECT_NAME})
 
-add_subdirectory(db)
+enable_testing()
+add_subdirectory(internal)
 
 
-message("NumbersCounterLib_LIB = ${NumbersCounterLib_LIB}")
-message("NumbersCounterLib_INCLUDE_DIRS = ${NumbersCounterLib_INCLUDE_DIRS}")
+message("DB_Lib_LIB = ${DB_Lib_LIB}")
+message("DB_Lib_INCLUDE_DIRS = ${DB_Lib_INCLUDE_DIRS}")
 
 
 # SANITIZE_BUILD - санитайзеры;
@@ -36,18 +37,7 @@ set(BUILD_ALL "BUILD_ALL")
 
 set(BUILD_MODE ${BUILD_SERVER})
 
-if((BUILD_MODE STREQUAL ${BUILD_SERVER}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}))
-    add_executable(Server server/main.cpp)
-    target_link_libraries(Server PRIVATE ${NumbersCounterLib_LIB})
-    target_include_directories(Server PUBLIC ${NumbersCounterLib_INCLUDE_DIRS})
-    message("BUILD SERVER")
-endif()
-if((BUILD_MODE STREQUAL ${BUILD_CLIENT}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}))
-    add_executable(Client client/main.cpp)
-    target_link_libraries(Client PRIVATE ${NumbersCounterLib_LIB})
-    target_include_directories(Client PUBLIC ${NumbersCounterLib_INCLUDE_DIRS})
-    message("BUILD CLIENT")
-endif()
+add_subdirectory(cmd)
 
 set(TEST_TARGETS db_tests)
 set(TARGET_TYPES TEST COVERAGE COVERAGE_FILE VALGRIND)

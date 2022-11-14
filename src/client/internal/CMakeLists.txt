@@ -23,3 +23,12 @@ file(GLOB_RECURSE QT_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINK
 add_executable(what_a_contest_gui ${QT_SOURCES} ${QT_FORMS_HPP} ${QT_MOC_HPP})
 
 target_link_libraries(what_a_contest_gui Qt5::Widgets)
+
+add_subdirectory(network)
+
+set(NETWORK_Lib_LIB ${NETWORK_Lib_LIB} PARENT_SCOPE)
+set(NETWORK_Lib_INCLUDE_DIRS ${NETWORK_Lib_INCLUDE_DIRS} PARENT_SCOPE)
+
+
+
+

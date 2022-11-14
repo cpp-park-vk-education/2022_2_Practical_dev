@@ -7,6 +7,9 @@ set(PROJECT_NAME "Client")
 project(${PROJECT_NAME})
 
 add_executable(Client main.cpp)
-target_link_libraries(Client PRIVATE ${NumbersCounterLib_LIB})
-target_include_directories(Client PUBLIC ${NumbersCounterLib_INCLUDE_DIRS})
+target_link_libraries(Client PRIVATE ${NETWORK_Lib_LIB})
+target_include_directories(Client PUBLIC ${NETWORK_Lib_INCLUDE_DIRS})
+
+message("Client libraries include = ${NETWORK_Lib_INCLUDE_DIRS}")
+
 message("BUILD CLIENT")

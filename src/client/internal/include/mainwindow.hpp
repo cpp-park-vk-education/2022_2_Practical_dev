@@ -1,22 +1,25 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once  // NOLINT
 
 #include <QMainWindow>
+#include <QStackedWidget>
+#include <QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui {
+class MainWindow;
+}
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow {
     Q_OBJECT
 
-public:
-    MainWindow(QWidget *parent = nullptr);
+ public:
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-private:
+ private:
     Ui::MainWindow *ui;
+    QVBoxLayout *layout;
+    QStackedWidget *mainTab;
+    void initStyles();
 };
-#endif // MAINWINDOW_H
-

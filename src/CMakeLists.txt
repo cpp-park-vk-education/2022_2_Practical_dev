@@ -20,7 +20,7 @@ if(BUILD_DEV)
         message("Sanitizers ON")
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fsanitize=address,undefined -fno-sanitize-recover=all -fsanitize-undefined-trap-on-error")
     endif(SANITIZE_BUILD)
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage -lgcov -lpq -lpqxx")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage -lgcov -lpq -lpqxx  -lboost_filesystem")
 endif(BUILD_DEV)
 
 set(BUILD_SERVER "BUILD_SERVER")

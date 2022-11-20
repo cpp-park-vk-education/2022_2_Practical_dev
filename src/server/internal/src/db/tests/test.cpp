@@ -2,7 +2,20 @@
 
 #include <sstream>
 
-#include "DBManager.hpp"
+#include "DBConnection.hpp"
+
+TEST(DBConnectionTest, BaseWork) {
+    pqxx::work worker(*DBConnection::getInstance().conn);
+
+    pqxx::result response = worker.exec("SELECT * FROM users");
+    for (size_t i = 0; i < response.size(); i++) {
+        std::cout << "id: " << response[i][0] << " Username: " << response[i][1]
+                  << " Password: " << response[i][2]
+                  << " Email: " << response[i][3] << std::endl;
+    }
+}
+
+/* #include "DBManager.hpp"
 
 class DBManagerTest : public DBManager {
  public:
@@ -40,3 +53,4 @@ TEST(DB, BaseTest) {
     EXPECT_NO_THROW(manager.InsertIntoSlavaParams());
     EXPECT_NO_THROW(manager.SelectOutOfSlava());
 }
+ */

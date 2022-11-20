@@ -28,6 +28,9 @@ server:
 client:
 	./build/client/cmd/Client
 
+checker:
+	./build/server/cmd/Checker
+
 test: build-tests
 	cd build && ctest -VV -C $(BUILD_DEV)
 
@@ -35,7 +38,7 @@ coverage-stat: build-tests
 	scripts/coverage_stat.sh
 
 coverage: build-tests
-	cmake --build build/ --target full_test_COVERAGE_FILE
+	cmake --build build/ --target full_test_COVERAGE_FILE -s
 
 lint:
 	./run_linters.sh
@@ -59,5 +62,6 @@ dev:
 dev-sudo:
 	docker run --rm -it \
 		-v $(PWD):/project \
+		-v /var/run/docker.sock:/var/run/docker.sock \
 		--env-file .env \
 		app

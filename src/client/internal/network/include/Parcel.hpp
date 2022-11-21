@@ -10,18 +10,18 @@ class Parcel: public Entity {
     size_t taskId;
     char result;
     bool isBest;
-    std::time_t runningTime;
+    Data runningTime;
     float runningMemory;
     size_t failedTest;
-    stze_t points;
+    size_t points;
 
  public:
-    stze_t getId();
+    size_t getId();
     size_t getUserId();
     size_t getTaskId();
-    charn getResult();
+    char getResult();
     bool getIsBest();
-    std::time_t getRunningTime();
+    Data getRunningTime();
     float getRunningMemory();
     size_t getFailedTest();
     size_t getPoints();
@@ -31,7 +31,7 @@ class Parcel: public Entity {
     void setTaskId(size_t TaskId);
     void setResult(char result);
     void setIsBest(bool isBest);
-    void setRunningTime(std::time_t time);
+    void setRunningTime(Data runningTime);
     void setRunningMemory(float memory);
     void setFailedTest(size_t failedTest);
     void setPoints(size_t points);

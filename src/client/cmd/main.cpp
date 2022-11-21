@@ -1,11 +1,9 @@
 #include <iostream>
 
-#include "testing.hpp"
+#include "Distribute.hpp"
 
 int main() {
     std::cout << "Hello, Client!" << std::endl;
-
-    print_working();
 
     return 0;
 }

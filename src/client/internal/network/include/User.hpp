@@ -10,8 +10,8 @@ class User: public Entity {
     size_t owner_id;
     std::string name;
     std::string description;
-    std::time_t start_time;
-    std::time_t end_time;
+    Data start_time;
+    Data end_time;
  public:
     size_t getId();
     std::string getEmail();

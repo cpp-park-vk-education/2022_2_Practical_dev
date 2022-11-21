@@ -2,15 +2,15 @@
 
 #include <iostream>
 
-#include "Contest.hpp"
-#include "Parcel.hpp"
-#include "Task.hpp"
-#include "User.hpp"
+#include "iContestAPI.hpp"
+#include "IParcelAPI.hpp"
+#include "ITaskAPI.hpp"
+#include "IUserAPI.hpp"
 
 class Distribute {
  public:
-    *IUserAPI user;
-    *IContestAPI contest;
-    *ITaskAPI task;
-    *IParcelAPI parcel;
+    IUserAPI* user;
+    IContestAPI* contest;
+    ITaskAPI* task;
+    IParcelAPI* parcel;
 };

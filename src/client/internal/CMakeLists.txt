@@ -4,13 +4,13 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -Wextra -O2 -pedantic -Wformat=2 -Wfloat-equal -Wconversion -std=c++17 \
     -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align")
 
-include_directories(include/)
+include_directories(include/ widgets/ navigator/ fragments/ screensfactory/)
 
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 file(GLOB QT_FORMS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ui/*.ui)
-file(GLOB_RECURSE QT_MOC RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINKS include/*.hpp *.h )
+file(GLOB_RECURSE QT_MOC RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINKS include/*.hpp *.h widgets/*.hpp navigator/*.hpp fragments/*.hpp screensfactory/*.hpp)
 file(GLOB QT_RESOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} resources/*.qrc)
 
 QT5_ADD_RESOURCES(QT_RESOURCES_CPP ${QT_RESOURCES})
@@ -19,7 +19,7 @@ QT5_WRAP_CPP(QT_MOC_HPP ${QT_MOC})
 
 
 
-file(GLOB_RECURSE QT_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINKS src/*.cpp)
+file(GLOB_RECURSE QT_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINKS src/*.cpp widgets/*.cpp navigator/*.cpp fragments/*.cpp)
 
 add_executable(what_a_contest_gui ${QT_SOURCES} ${QT_RESOURCES_CPP} ${QT_FORMS_HPP} ${QT_MOC_HPP})
 

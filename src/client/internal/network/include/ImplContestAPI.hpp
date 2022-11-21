@@ -18,5 +18,4 @@ class ImplContestAPI: public IContestAPI {
     virtual void deleteContest(const size_t idContest);
     virtual void deleteUser(const size_t idUser, const size_t idContest);
     virtual void deleteTask(const size_t idTask, const size_t idContest);
-
 };

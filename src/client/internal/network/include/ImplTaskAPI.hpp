@@ -7,5 +7,4 @@ class ImplTaskAPI: public ITaskAPI {
     ImplTaskAPI();
 
     virtual Task getTask(const size_t idTask);
-
 };

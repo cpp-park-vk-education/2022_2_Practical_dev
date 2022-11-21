@@ -27,5 +27,4 @@ class Context: public Entity {
     void setDescription(std::string description);
     void setStartTime(std::time_t start);
     void setEndTime(std::time_t end);
-
 };

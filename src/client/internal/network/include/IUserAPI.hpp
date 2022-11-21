@@ -18,5 +18,4 @@ class IUserAPI {
 
     virtual void deleteUser(const size_t idUser) = 0;
     virtual void deleteContest(const size_t idUser, const size_t idContest) = 0;
-
 };

@@ -20,8 +20,4 @@ class User: public Entity {
     void setId(size_t id);
     void setEmail(std::string email);
     void setNickname(std::string nickname);
-
-
-
-
 };

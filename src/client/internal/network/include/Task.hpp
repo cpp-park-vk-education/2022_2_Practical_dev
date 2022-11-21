@@ -25,5 +25,4 @@ class Task: public Entity {
     void setName(std::string name);
     void setContainer(std::string container);
     void setCost(size_t cost);
-
 };

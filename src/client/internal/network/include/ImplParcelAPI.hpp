@@ -13,5 +13,4 @@ class ImplParcelAPI: public IParcelAPI {
     virtual Parcel modifyParcel(const Parcel& obj);
 
     virtual void deleteParcel(const size_t id);
-
 };

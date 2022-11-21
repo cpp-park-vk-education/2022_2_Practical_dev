@@ -16,5 +16,4 @@ class ImplUserAPI: public IUserAPI {
 
     virtual void deleteUser(const size_t idUser);
     virtual void deleteContest(const size_t idUser, const size_t idContest);
-
 };

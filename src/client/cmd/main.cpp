@@ -8,5 +8,4 @@ int main() {
     print_working();
 
     return 0;
-
 }

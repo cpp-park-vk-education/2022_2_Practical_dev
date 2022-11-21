@@ -21,5 +21,4 @@ class IContestAPI {
     virtual void deleteContest(const size_t idContest) = 0;
     virtual void deleteUser(const size_t idUser, const size_t idContest) = 0;
     virtual void deleteTask(const size_t idTask, const size_t idContest) = 0;
-
 };

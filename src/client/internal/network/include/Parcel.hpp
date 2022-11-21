@@ -35,5 +35,4 @@ class Parcel: public Entity {
     void setRunningMemory(float memory);
     void setFailedTest(size_t failedTest);
     void setPoints(size_t points);
-
 };

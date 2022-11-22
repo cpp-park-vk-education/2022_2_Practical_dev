@@ -1,4 +1,4 @@
-.PHONY: all generate build rebuild lint coverage test valgrind
+.PHONY: all generate build rebuild lint coverage test valgrind testCN
 
 BUILD_DEV := True
 
@@ -30,6 +30,9 @@ client:
 
 test: build-tests
 	cd build && ctest -VV -C $(BUILD_DEV)
+
+testCN: build
+	./build/client/internal/network/tests/network_tests
 
 coverage-stat: build-tests
 	scripts/coverage_stat.sh

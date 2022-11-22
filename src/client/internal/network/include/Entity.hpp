@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <cstddef>
 
 struct Data {
     int year;
@@ -17,6 +18,8 @@ struct Request {
 };
 
 class Entity {
+ public:
+    Entity() = default;
     Request request;
 };
 

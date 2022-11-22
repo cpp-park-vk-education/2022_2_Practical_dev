@@ -6,13 +6,13 @@
 
 class User: public Entity {
  private:
-    size_t uuid;
-    size_t owner_id;
-    std::string name;
-    std::string description;
-    Data start_time;
-    Data end_time;
+    size_t id;
+    std::string nickname;
+    std::string email;
+
  public:
+    User();
+
     size_t getId();
     std::string getEmail();
     std::string getNickname();

@@ -25,8 +25,8 @@ message("${TEST_SOURCES}")
 include(GoogleTest)
 add_executable(${PROJECT_NAME} ${TEST_SOURCES})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE ${DB_Lib_LIB} GTest::gtest_main)
-target_include_directories(${PROJECT_NAME} PUBLIC ${DB_Lib_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${NETWORK_Lib_LIB} GTest::gtest_main)
+target_include_directories(${PROJECT_NAME} PUBLIC ${NETWORK_Lib_INCLUDE_DIRS})
 target_compile_options(${PROJECT_NAME} PUBLIC --coverage)
 target_link_options(${PROJECT_NAME} PUBLIC --coverage)
 

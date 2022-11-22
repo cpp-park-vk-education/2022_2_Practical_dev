@@ -14,17 +14,20 @@ class Contest: public Entity {
     Data end;
 
  public:
+    Contest();
     size_t getUuid();
     size_t getIdContest();
     std::string getName();
     std::string getDescription();
+    std::string getContainer();
     Data getStartTime();
     Data getEndTime();
 
-    void setUuid(size_t uuid);
-    void setIdContest(size_t id);
-    void setName(std::string name);
-    void setDescription(std::string description);
-    void setStartTime(Data start);
-    void setEndTime(Data end);
+    void setUuid(size_t uuidP);
+    void setIdContest(size_t idP);
+    void setName(std::string nameP);
+    void setDescription(std::string descriptionP);
+    void setContainer(std::string containerP);
+    void setStartTime(Data startP);
+    void setEndTime(Data endP);
 };

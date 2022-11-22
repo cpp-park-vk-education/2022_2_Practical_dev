@@ -12,6 +12,8 @@ class Task: public Entity {
     std::string container;
     int cost;
  public:
+    Task();
+
     size_t getId();
     size_t getIdContest();
     std::string getDescription();

@@ -16,6 +16,8 @@ class Parcel: public Entity {
     size_t points;
 
  public:
+    Parcel();
+
     size_t getId();
     size_t getUserId();
     size_t getTaskId();

@@ -8,7 +8,7 @@ class Parcel: public Entity {
     size_t id;
     size_t userId;
     size_t taskId;
-    char result;
+    std::string result;
     bool isBest;
     Data runningTime;
     float runningMemory;
@@ -21,7 +21,7 @@ class Parcel: public Entity {
     size_t getId();
     size_t getUserId();
     size_t getTaskId();
-    char getResult();
+    std::string getResult();
     bool getIsBest();
     Data getRunningTime();
     float getRunningMemory();
@@ -31,7 +31,7 @@ class Parcel: public Entity {
     void setId(size_t id);
     void setUserId(size_t userId);
     void setTaskId(size_t TaskId);
-    void setResult(char result);
+    void setResult(std::string result);
     void setIsBest(bool isBest);
     void setRunningTime(Data runningTime);
     void setRunningMemory(float memory);

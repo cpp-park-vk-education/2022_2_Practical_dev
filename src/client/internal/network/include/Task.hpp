@@ -6,20 +6,19 @@
 class Task: public Entity {
  private:
     int uuid;
-    int contest_id;
+    int contestId;
     std::string name;
     std::string description;
     std::string container;
     int cost;
  public:
     Task();
-
     size_t getId();
     size_t getIdContest();
     std::string getDescription();
     std::string getName();
     std::string getContainer();
-    size_t getCost();
+    int getCost();
 
     void setId(size_t id);
     void setIdContest(size_t contestId);

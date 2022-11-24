@@ -22,4 +22,3 @@ class Entity {
     Entity() = default;
     Request request;
 };
-

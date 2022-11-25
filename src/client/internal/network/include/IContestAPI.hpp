@@ -7,7 +7,8 @@
 
 class IContestAPI {
  public:
-    IContestAPI();
+    IContestAPI() = default;
+    ~IContestAPI() = default;
 
     virtual Contest getContest(const size_t idContest) = 0;
     virtual std::vector<Task> getTask(const size_t idContest) = 0;

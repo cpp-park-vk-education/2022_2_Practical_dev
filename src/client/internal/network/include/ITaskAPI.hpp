@@ -4,7 +4,8 @@
 
 class ITaskAPI {
  public:
-    ITaskAPI();
+    ITaskAPI() = default;
+    ~ITaskAPI() = default;
 
     virtual Task getTask(const size_t idTask) = 0;
 };

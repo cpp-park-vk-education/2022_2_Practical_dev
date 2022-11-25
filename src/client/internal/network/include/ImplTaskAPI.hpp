@@ -5,6 +5,7 @@
 class ImplTaskAPI: public ITaskAPI {
  public:
     ImplTaskAPI();
+    ~ImplTaskAPI();
 
     virtual Task getTask(const size_t idTask);
 };

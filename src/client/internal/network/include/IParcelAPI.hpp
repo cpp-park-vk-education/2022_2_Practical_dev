@@ -4,7 +4,8 @@
 
 class IParcelAPI {
  public:
-    IParcelAPI();
+    IParcelAPI() = default;
+    ~IParcelAPI() = default;
 
     virtual Parcel getParcel(const size_t id) = 0;
 

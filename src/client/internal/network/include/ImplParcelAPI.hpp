@@ -5,6 +5,7 @@
 class ImplParcelAPI: public IParcelAPI {
  public:
     ImplParcelAPI();
+    ~ImplParcelAPI();
 
     virtual Parcel getParcel(const size_t id);
 

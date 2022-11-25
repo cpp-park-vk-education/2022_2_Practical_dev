@@ -5,12 +5,13 @@
 class ImplContestAPI: public IContestAPI {
  public:
     ImplContestAPI();
+    ~ImplContestAPI();
 
     virtual Contest getContest(const size_t idContest);
     virtual std::vector<Task> getTask(const size_t idContest);
     virtual std::vector<User> getUser(const size_t idContest);
 
-    virtual Contest createContest(const Constent& contest);
+    virtual Contest createContest(const Contest& contest);
 
     virtual User addUser(const size_t idContest, const size_t idUser);
     virtual Task addTask(const size_t idContest, const size_t idTask);

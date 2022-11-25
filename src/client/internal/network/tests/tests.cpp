@@ -5,6 +5,12 @@
 #include <Task.hpp>
 #include <Parcel.hpp>
 
+#include <ImplUserAPI.hpp>
+#include <ImplContestAPI.hpp>
+#include <ImplTaskAPI.hpp>
+#include <ImplParcelAPI.hpp>
+
+
 class contestTest: public testing::Test {
  public:
     Contest* contestForTest = new Contest;
@@ -329,3 +335,21 @@ TEST_F(parcelTest, setPoints) {
     int value = parcelForTest->getPoints();
     EXPECT_EQ(value, 11);
 }
+
+TEST(User, constructUserAPI) {
+    ImplUserAPI* userAPI = new ImplUserAPI;
+}
+
+TEST(Contest, constructContestAPI) {
+    ImplContestAPI* contestAPI = new ImplContestAPI;
+}
+
+TEST(Task, constructTaskAPI) {
+    ImplTaskAPI* taskAPI = new ImplTaskAPI;
+}
+
+TEST(Parcel, constructParcelAPI) {
+    ImplParcelAPI* parcelAPI = new ImplParcelAPI;
+}
+
+

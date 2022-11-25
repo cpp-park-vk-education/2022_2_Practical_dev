@@ -1,2 +1,2 @@
-#include "../include/Distribute.hpp"
+#include <Distribute.hpp>
 

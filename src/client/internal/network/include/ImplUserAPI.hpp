@@ -5,6 +5,7 @@
 class ImplUserAPI: public IUserAPI {
  public:
     ImplUserAPI();
+    ~ImplUserAPI();
 
     virtual User getUser(const size_t idUser);
     virtual std::vector<Contest> getContest(const size_t idUser);

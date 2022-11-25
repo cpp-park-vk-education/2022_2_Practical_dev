@@ -6,7 +6,8 @@
 
 class IUserAPI {
  public:
-    IUserAPI();
+    IUserAPI() = default;
+    ~IUserAPI() = default;
 
     virtual User getUser(const size_t idUser) = 0;
     virtual std::vector<Contest> getContest(const size_t idUser) = 0;

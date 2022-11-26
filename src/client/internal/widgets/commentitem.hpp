@@ -9,7 +9,7 @@ class CommentItem : public BaseWidget {
     Q_OBJECT
  public:
     explicit CommentItem(BaseWidget* parent = nullptr);
-    ~CommentItem() override{};
+    ~CommentItem() override {}
 
  private:
     QLabel* text;
@@ -19,11 +19,10 @@ class CommentItem : public BaseWidget {
     QHBoxLayout* layout;
 
  protected:
-    void initLayout() override{};
-    void initStyles() override{};
-    void setData() override{};
+    void initLayout() override {}
+    void initStyles() override {}
  private slots:
-    void onLike(size_t id);
+    void onLike(size_t id) {}
  signals:
     void showSolution();
     void like();

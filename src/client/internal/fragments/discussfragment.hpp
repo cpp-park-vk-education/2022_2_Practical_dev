@@ -8,7 +8,7 @@ class DiscussFragment : public BaseFragment {
     Q_OBJECT
  public:
     DiscussFragment();
-    ~DiscussFragment() override{};
+    ~DiscussFragment() {}
 
  private:
     Header* header;
@@ -16,9 +16,9 @@ class DiscussFragment : public BaseFragment {
     QScrollBar* scrollBar;
     QTextEdit* commentInput;
     QPushButton* commentBtn;
-    void setData();
+    void fetchData();
 
  public slots:
-    void switchTask();
-    void showSolution(size_t id);
+    void switchTask() {}
+    void showSolution(size_t id) {}
 };

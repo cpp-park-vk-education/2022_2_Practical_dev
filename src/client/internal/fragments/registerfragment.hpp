@@ -10,7 +10,7 @@ class RegisterFragment : public BaseFragment {
     Q_OBJECT
  public:
     RegisterFragment();
-    ~RegisterFragment() override{};
+    ~RegisterFragment() {}
 
  private:
     QBoxLayout* layout;
@@ -21,6 +21,6 @@ class RegisterFragment : public BaseFragment {
     QLineEdit* passwordInput;
     QLineEdit* checkPasswordInput;
  public slots:
-    void onLogin();
-    void onRgister();
+    void onLogin() {}
+    void onRgister() {}
 };

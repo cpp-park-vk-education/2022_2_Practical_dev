@@ -10,7 +10,7 @@ class ContestItem : public BaseWidget {
 
  public:
     explicit ContestItem(QWidget* parent = nullptr);
-    ~ContestItem();
+    ~ContestItem() override {}
 
  private:
     QLabel* name;
@@ -20,11 +20,10 @@ class ContestItem : public BaseWidget {
     QPushButton* controlBtn;
 
  protected:
-    void initLayout() override;
-    void initStyles() override;
-    void setData() override;
+    void initLayout() override {}
+    void initStyles() override {}
  signals:
     void showContest(size_t id);
  public slots:
-    void onShowContest(size_t id);
+    void onShowContest(size_t id) {}
 };

@@ -17,8 +17,8 @@ static const QString DISCUSS_TAG = "discuss";
 
 class ScreensFactory {
  public:
-    ScreensFactory();
-    ~ScreensFactory();
-    BaseFragment* create(QString tag);
-    QString getStart();
+    ScreensFactory() = default;
+    ~ScreensFactory() = default;
+    BaseFragment* create(QString tag) { return nullptr; }
+    QString getStart() { return Screens::SIGNIN_TAG; }
 };

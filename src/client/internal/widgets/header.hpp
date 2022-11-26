@@ -11,8 +11,9 @@ class Header : public BaseWidget {
     Q_OBJECT
  public:
     explicit Header(QWidget *parent = nullptr);
+    ~Header() override {}
  public slots:
-    void logout();
+    void logout() {}
 
  private:
     QPushButton *logoutBtn;
@@ -24,7 +25,6 @@ class Header : public BaseWidget {
     void setrightLayout();
 
  protected:
-    void initLayout() override;
-    void initStyles() override;
-    void setData() override;
+    void initLayout() override {}
+    void initStyles() override {}
 };

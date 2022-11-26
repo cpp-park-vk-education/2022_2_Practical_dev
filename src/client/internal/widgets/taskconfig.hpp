@@ -11,7 +11,7 @@ class TaskConfig : public BaseWidget {
 
  public:
     explicit TaskConfig(QWidget* parent = nullptr);
-    ~TaskConfig();
+    ~TaskConfig() {}
 
  private:
     QLineEdit* nameInput;
@@ -24,11 +24,10 @@ class TaskConfig : public BaseWidget {
     QBoxLayout* layout;
 
  protected:
-    void initLayout() override;
-    void initStyles() override;
-    void setData() override;
+    void initLayout() override {}
+    void initStyles() override {}
  public slots:
-    void onAddTest(QString in, QString out);
+    void onAddTest(QString in, QString out) {}
  signals:
     void addTest(QString in, QString out);
     void addTask();

@@ -24,14 +24,13 @@ class SearchMenu : public BaseWidget {
     QCheckBox* myContestsCheckbox;
 
  protected:
-    void initLayout() override;
-    void initStyles() override;
-    void setData() override;
+    void initLayout() override {}
+    void initStyles() override {}
  private slots:
-    void onSearch(QString name);
-    void onShowActive();
-    void onShowFinished();
-    void onShowMyContests();
+    void onSearch(QString name) {}
+    void onShowActive() {}
+    void onShowFinished() {}
+    void onShowMyContests() {}
 
  signals:
     void search(QString name);

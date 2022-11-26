@@ -12,7 +12,7 @@ class TaskWidget : BaseWidget {
     Q_OBJECT
  public:
     explicit TaskWidget(QWidget* parent = nullptr);
-    ~TaskWidget();
+    ~TaskWidget() override{};
 
  private:
     QLabel* taskName;
@@ -24,9 +24,8 @@ class TaskWidget : BaseWidget {
     QPushButton* prevBtn;
 
  protected:
-    void initLayout() override;
-    void initStyles() override;
-    void setData() override;
+    void initLayout() override{};
+    void initStyles() override{};
  signals:
     void nextTask(size_t id);
     void prevTask(size_t id);

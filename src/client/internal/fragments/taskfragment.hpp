@@ -10,7 +10,7 @@ class TaskFragment : public BaseFragment {
     Q_OBJECT
  public:
     TaskFragment();
-    ~TaskFragment() override{};
+    ~TaskFragment() {}
 
  private:
     QHBoxLayout* layout;
@@ -20,7 +20,7 @@ class TaskFragment : public BaseFragment {
     QPushButton* sendBtn;
     void setData();
  public slots:
-    void switchTask(size_t id);
+    void switchTask(size_t id) {}
  signals:
     void send();
 };

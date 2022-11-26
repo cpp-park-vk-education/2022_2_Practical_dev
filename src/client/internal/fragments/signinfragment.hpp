@@ -9,7 +9,7 @@ class SignInFragment : public BaseFragment {
     Q_OBJECT
  public:
     SignInFragment();
-    ~SignInFragment() override{};
+    ~SignInFragment() {}
 
  private:
     QVBoxLayout* layout;
@@ -18,6 +18,6 @@ class SignInFragment : public BaseFragment {
     QPushButton* submitBtn;
     QPushButton* registerBtn;
  public slots:
-    void onRegister();
-    void onLogin();
+    void onRegister() {}
+    void onLogin() {}
 };

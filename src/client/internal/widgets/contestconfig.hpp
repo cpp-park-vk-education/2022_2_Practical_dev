@@ -12,9 +12,10 @@ class ContestConfig : public BaseWidget {
     Q_OBJECT
  public:
     explicit ContestConfig(QWidget* parent);
+    ~ContestConfig() override {}
 
  public slots:
-    void onCreateContest();
+    void onCreateContest() {}
 
  private:
     QVBoxLayout* layout;
@@ -25,4 +26,8 @@ class ContestConfig : public BaseWidget {
     QDateTimeEdit* endDate;
     QPushButton* configBtn;
     bool validate();
+
+ protected:
+    void initLayout() override {}
+    void initStyles() override {}
 };

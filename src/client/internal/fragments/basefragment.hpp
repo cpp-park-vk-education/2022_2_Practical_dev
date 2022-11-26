@@ -13,5 +13,5 @@ class BaseFragment : public QFrame {
 
  public:
     BaseFragment();
-    virtual ~BaseFragment();
+    ~BaseFragment() {}
 };

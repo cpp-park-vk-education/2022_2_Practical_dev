@@ -10,12 +10,12 @@ class ContestCreationFragment : public BaseFragment {
     Q_OBJECT
  public:
     ContestCreationFragment();
-    ~ContestCreationFragment() override{};
+    ~ContestCreationFragment() {}
 
  private:
     QHBoxLayout* layout;
     ContestConfig* contestCofig;
     TaskConfig* taskConfig;
  public slots:
-    void onCreate();
+    void onCreate() {}
 };

@@ -12,7 +12,7 @@ class ParcelsList : BaseWidget {
 
  public:
     explicit ParcelsList(QWidget* parent = nullptr);
-    ~ParcelsList();
+    ~ParcelsList() override {}
 
  private:
     QVBoxLayout* layout;
@@ -22,12 +22,11 @@ class ParcelsList : BaseWidget {
     QLayout* ML;
     QLayout* TL;
     QLayout* status;
-    void fill();
+    void fill() {}
 
  protected:
-    void initLayout() override;
-    void initStyles() override;
-    void setData() override;
+    void initLayout() override {}
+    void initStyles() override {}
  public slots:
-    void send(size_t id);
+    void send(size_t id) {}
 };

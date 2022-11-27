@@ -1,19 +1,20 @@
 #include <gtest/gtest.h>
 
-#include "RepositoryImpl.hpp"
+#include "CommentRepositoryImpl.hpp"
 
 TEST(RepositoryTest, CRUD) {
-    DBComment crud;
+    DBComment repository;
+    Comment source(14, 10, "Сап двач, на днях начал изучать перл...");
+    Comment source_liked(14, 10, "Сап двач, на днях начал изучать перл...");
+    source_liked.setRaiting(-1);
 
-    EXPECT_NO_FATAL_FAILURE(crud.SelectMany("SELECT * FROM Comments", 10));
-    EXPECT_NO_FATAL_FAILURE(crud.Select("SELECT * FROM Comments WHERE id = 1"));
+    EXPECT_NO_FATAL_FAILURE(repository.Insert(source));
 
-    Comment source;
-    source.setText("godnota");
-    source.setRaiting(100);
+    EXPECT_EQ(repository.Sage(source), source_liked);
 
-    EXPECT_NO_FATAL_FAILURE(crud.Insert(source));
-    EXPECT_NO_FATAL_FAILURE(crud.Update(source));
-    EXPECT_NO_FATAL_FAILURE(crud.Delete(source));
+    source_liked.setRaiting(1);
+    EXPECT_EQ(repository.Bump(source), source_liked);
+
+    EXPECT_EQ(repository.Update(source), source);
+    EXPECT_EQ(repository.Delete(source), 0);
 }
-

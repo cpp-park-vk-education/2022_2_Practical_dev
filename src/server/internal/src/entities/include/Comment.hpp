@@ -16,6 +16,7 @@ class Comment {
 
  public:
     Comment();
+    Comment(size_t parcel_id, size_t task_id, const std::string& text);
 
     size_t getId() const noexcept;
     size_t getParcelId() const noexcept;

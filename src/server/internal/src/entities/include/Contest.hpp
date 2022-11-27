@@ -17,6 +17,7 @@ class Contest {
 
  public:
     Contest();
+    Contest(size_t id, const std::string& name, const std::string& description, const std::string& password);
 
     size_t getId() const noexcept;
     std::string getName() const noexcept;

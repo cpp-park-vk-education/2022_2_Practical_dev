@@ -17,6 +17,7 @@ class Task {
 
  public:
     Task();
+    Task(size_t contest_id, const std::string& name, const std::string& desc, size_t cost, float memory_limit);
 
     size_t getId() const noexcept;
     size_t getContestId() const noexcept;

@@ -2,7 +2,7 @@
 
 #include <pqxx/pqxx>
 
-#include "Repository.hpp"
+#include "UserRepository.hpp"
 
 class DBUserImpl: DBUser {
  private:

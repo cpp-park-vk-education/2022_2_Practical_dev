@@ -1,20 +1,23 @@
+#pragma once
+
 #include <pqxx/pqxx>
 
-#include "Parcel.hpp"
+#include "Repository.hpp"
 
-class DBParcel {
+class DBUserImpl: DBUser {
  private:
     pqxx::work worker;
-
  public:
-    DBParcel();
+    DBUserImpl();
 
-    Parcel Select(const std::string& query);
-    std::vector<Parcel> SelectMany(const std::string& query, size_t n, size_t page = 1);
-
-    Parcel Insert(const Parcel& obj);
-
-    Parcel Update(const Parcel& obj);
-
-    void Delete(const Parcel& obj);
+    User Get(const User& user);
+    User GetById(const std::size_t& id);
+    std::vector<User> GetByContest(const size_t& id);
+    std::vector<User> GetByTask(const size_t& id);
+    User Update(const User& obj);
+    int Signin(const User& user);
+    int Signup(const User& user);
+    int DeleteContest(const User& user, const Contest& contest);
+    int AddContest(const User& user, const Contest& contest);
+    std::vector<Contest> GetContestsByUser(const User& user);
 };

@@ -3,17 +3,24 @@
 #include "RepositoryImpl.hpp"
 
 TEST(RepositoryTest, CRUD) {
-    DBUser crud;
+    DBUserImpl repository;
+    User slava(1, "slava", "slava@slava.ru", "qwerty123");
 
-    EXPECT_NO_FATAL_FAILURE(crud.SelectMany("SELECT * FROM Users", 10));
-    EXPECT_NO_FATAL_FAILURE(crud.Select("SELECT * FROM Users WHERE id = 1"));
+    EXPECT_EQ(repository.GetById(1), slava);
+    EXPECT_EQ(repository.Get(slava), slava);
 
-    User source;
-    source.setNickname("Dada");
-    source.setEmail("georgre4ko@ya.ru");
+    EXPECT_EQ(repository.Signup(slava), 10);
+    EXPECT_EQ(repository.Signin(slava), 0);
 
-    EXPECT_NO_FATAL_FAILURE(crud.Insert(source));
-    EXPECT_NO_FATAL_FAILURE(crud.Update(source));
-    EXPECT_NO_FATAL_FAILURE(crud.Delete(source));
+    slava.setNickname("slava123");
+
+    EXPECT_EQ(repository.Update(slava), 0);
+
+    Contest sorevnovanie(1, "learning perl", "very simple", "");
+
+    EXPECT_EQ(repository.AddContest(slava, sorevnovanie), 0);
+
+    EXPECT_EQ(repository.GetContestsByUser(slava)[0], sorevnovanie);
+
+    EXPECT_EQ(repository.DeleteContest(slava, sorevnovanie), 0);
 }
-

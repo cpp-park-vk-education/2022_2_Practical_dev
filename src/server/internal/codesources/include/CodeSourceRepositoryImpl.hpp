@@ -1,13 +1,15 @@
+#pragma once
+
 #include <pqxx/pqxx>
 
-#include "CodeSource.hpp"
+#include "CodeSourceRepository.hpp"
 
-class DBCodeSource {
+class DBCodeSourceImpl : DBCodeSource {
  private:
     pqxx::work worker;
 
  public:
-    DBCodeSource();
+    DBCodeSourceImpl();
 
     CodeSource Select(const std::string& query);
     std::vector<CodeSource> SelectMany(const std::string& query, size_t n, size_t page = 1);

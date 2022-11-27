@@ -1,9 +1,9 @@
 #include <gtest/gtest.h>
 
-#include "RepositoryImpl.hpp"
+#include "CodeSourceRepositoryImpl.hpp"
 
 TEST(RepositoryTest, CRUD) {
-    DBCodeSource crud;
+    DBCodeSourceImpl crud;
 
     EXPECT_NO_FATAL_FAILURE(crud.SelectMany("SELECT * FROM CodeSources", 10));
     EXPECT_NO_FATAL_FAILURE(crud.Select("SELECT * FROM CodeSources WHERE id = 1"));

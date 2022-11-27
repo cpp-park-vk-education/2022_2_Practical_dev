@@ -1,13 +1,16 @@
+#pragma once
+
 #include <pqxx/pqxx>
 
 #include "Parcel.hpp"
+#include "ParcelRepository.hpp"
 
-class DBParcel {
+class DBParcelImpl : DBParcel {
  private:
     pqxx::work worker;
 
  public:
-    DBParcel();
+    DBParcelImpl();
 
     Parcel Select(const std::string& query);
     std::vector<Parcel> SelectMany(const std::string& query, size_t n, size_t page = 1);

@@ -1,9 +1,9 @@
 #include <gtest/gtest.h>
 
-#include "RepositoryImpl.hpp"
+#include "ParcelRepositoryImpl.hpp"
 
 TEST(RepositoryTest, CRUD) {
-    DBParcel crud;
+    DBParcelImpl crud;
 
     EXPECT_NO_FATAL_FAILURE(crud.SelectMany("SELECT * FROM Parcels", 10));
     EXPECT_NO_FATAL_FAILURE(crud.Select("SELECT * FROM Parcels WHERE id = 1"));

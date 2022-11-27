@@ -1,11 +1,11 @@
+#pragma once
+
 #include <pqxx/pqxx>
 
 #include "Parcel.hpp"
 
 class DBParcel {
  private:
-    pqxx::work worker;
-
  public:
     DBParcel();
 

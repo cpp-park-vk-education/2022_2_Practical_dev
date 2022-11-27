@@ -6,15 +6,18 @@
 #include "DBManager.hpp"
 #include "TaskRepository.hpp"
 
-class DBTaskImpl : DBTask {
+class TaskRepositoryImpl : TaskRepository {
  private:
     std::shared_ptr<DBManager> manager;
 
  public:
-    DBTaskImpl();
-    Task Select(const Task& task);
-    std::vector<Parcel> GetParcelsByTask(const Task& task);
-    std::vector<Comment> GetCommentsByTask(const Task& task);
-    Task Update(const Task& obj);
-    void Delete(const Task& obj);
+    TaskRepositoryImpl();
+
+    Task Select(const Task& task) override;
+
+    std::vector<Parcel> GetParcelsByTask(const Task& task) override;
+    std::vector<Comment> GetCommentsByTask(const Task& task) override;
+
+    Task Update(const Task& obj) override;
+    void Delete(const Task& obj) override;
 };

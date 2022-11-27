@@ -3,7 +3,7 @@
 #include "ParcelRepositoryImpl.hpp"
 
 TEST(RepositoryTest, CRUD) {
-    DBParcelImpl crud;
+    ParcelRepositoryImpl crud;
 
     EXPECT_NO_FATAL_FAILURE(crud.SelectMany("SELECT * FROM Parcels", 10));
     EXPECT_NO_FATAL_FAILURE(crud.Select("SELECT * FROM Parcels WHERE id = 1"));

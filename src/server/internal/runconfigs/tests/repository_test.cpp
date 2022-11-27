@@ -3,7 +3,7 @@
 #include "RunConfigRepositoryImpl.hpp"
 
 TEST(RepositoryTest, CRUD) {
-    DBRunConfigImpl crud;
+    RunConfigRepositoryImpl crud;
 
     EXPECT_NO_FATAL_FAILURE(crud.SelectMany("SELECT * FROM RunConfigs", 10));
     EXPECT_NO_FATAL_FAILURE(crud.Select("SELECT * FROM RunConfigs WHERE id = 1"));

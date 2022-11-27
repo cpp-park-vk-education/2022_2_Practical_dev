@@ -6,13 +6,18 @@
 #include "Parcel.hpp"
 #include "Task.hpp"
 
-class DBTask {
+class TaskRepository {
  private:
  public:
-    DBTask();
-    virtual Task Select(const Task& task);
-    virtual std::vector<Parcel> GetParcelsByTask(const Task& task);
-    virtual std::vector<Comment> GetCommentsByTask(const Task& task);
-    virtual Task Update(const Task& obj);
-    virtual void Delete(const Task& obj);
+    TaskRepository() = default;
+
+    virtual Task Select(const Task& task) = 0;
+
+    virtual std::vector<Parcel> GetParcelsByTask(const Task& task) = 0;
+    virtual std::vector<Comment> GetCommentsByTask(const Task& task) = 0;
+
+    virtual Task Update(const Task& obj) = 0;
+    virtual void Delete(const Task& obj) = 0;
+
+    ~TaskRepository() = default;
 };

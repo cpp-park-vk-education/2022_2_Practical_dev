@@ -4,10 +4,10 @@
 
 #include "RunConfig.hpp"
 
-class DBRunConfig {
+class RunConfigRepository {
  private:
  public:
-    DBRunConfig();
+    RunConfigRepository() = default;
 
     virtual RunConfig Select(const std::string& query);
     virtual RunConfig Select(const size_t& id);
@@ -18,4 +18,6 @@ class DBRunConfig {
     virtual RunConfig Update(const RunConfig& obj);
 
     virtual void Delete(const RunConfig& obj);
+
+    ~RunConfigRepository() = default;
 };

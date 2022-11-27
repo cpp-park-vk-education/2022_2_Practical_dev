@@ -4,14 +4,18 @@
 
 #include "Comment.hpp"
 
-class DBComment {
+class CommentRepository {
  private:
  public:
-    DBComment();
-    virtual Comment Select(const std::string& query);
-    virtual Comment Insert(const Comment& obj);
-    virtual Comment Update(const Comment& obj);
-    virtual int Delete(const Comment& obj);
-    virtual Comment Sage(const Comment& obj);
-    virtual Comment Bump(const Comment& obj);
+    CommentRepository() = default;
+
+    virtual Comment Select(const std::string& query) = 0;
+    virtual Comment Insert(const Comment& obj) = 0;
+    virtual Comment Update(const Comment& obj) = 0;
+    virtual int Delete(const Comment& obj) = 0;
+
+    virtual Comment Sage(const Comment& obj) = 0;
+    virtual Comment Bump(const Comment& obj) = 0;
+
+    ~CommentRepository() = default;
 };

@@ -3,7 +3,7 @@
 #include "CommentRepositoryImpl.hpp"
 
 TEST(RepositoryTest, CRUD) {
-    DBComment repository;
+    CommentRepository repository;
     Comment source(14, 10, "Сап двач, на днях начал изучать перл...");
     Comment source_liked(14, 10, "Сап двач, на днях начал изучать перл...");
     source_liked.setRaiting(-1);

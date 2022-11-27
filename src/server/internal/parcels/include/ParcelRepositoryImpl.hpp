@@ -6,19 +6,19 @@
 #include "DBManager.hpp"
 #include "ParcelRepository.hpp"
 
-class DBParcelImpl : DBParcel {
+class ParcelRepositoryImpl : ParcelRepository {
  private:
     std::shared_ptr<DBManager> manager;
 
  public:
-    DBParcelImpl();
+    ParcelRepositoryImpl();
 
-    Parcel Select(const std::string& query);
-    std::vector<Parcel> SelectMany(const std::string& query, size_t n, size_t page = 1);
+    Parcel Select(const std::string& query) override;
+    std::vector<Parcel> SelectMany(const std::string& query, size_t n, size_t page = 1) override;
 
-    Parcel Insert(const Parcel& obj);
+    Parcel Insert(const Parcel& obj) override;
 
-    Parcel Update(const Parcel& obj);
+    Parcel Update(const Parcel& obj) override;
 
-    void Delete(const Parcel& obj);
+    void Delete(const Parcel& obj) override;
 };

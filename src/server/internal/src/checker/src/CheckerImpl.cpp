@@ -63,7 +63,6 @@ CheckerResult CheckerImpl::GenerateTests(const size_t& testAmount) {
         bp::ipstream outputP;
         boost::filesystem::path p = bp::search_path(generator.interpreter.interpreter);
         bp::child c(p, bp::args = {generator.path_to_output}, bp::std_out > outputP, bp::std_err > errorP);
-        std::vector<std::string> data;
         std::string line;
         while (std::getline(outputP, line) && !line.empty())
             tests.push_back(line);
@@ -76,7 +75,7 @@ CheckerResult CheckerImpl::RunTests() {
     if (res.message == "Compilation error") {
         return res;
     }
-    res = CompileSolution();
+    CompileSolution();
     for (size_t i = 0; i < tests.size(); i++) {
         bp::opstream inputSubj;
         bp::opstream inputSol;

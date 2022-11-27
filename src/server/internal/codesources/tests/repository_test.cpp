@@ -3,7 +3,7 @@
 #include "CodeSourceRepositoryImpl.hpp"
 
 TEST(RepositoryTest, CRUD) {
-    DBCodeSourceImpl crud;
+    CodeSourceRepositoryImpl crud;
 
     EXPECT_NO_FATAL_FAILURE(crud.SelectMany("SELECT * FROM CodeSources", 10));
     EXPECT_NO_FATAL_FAILURE(crud.Select("SELECT * FROM CodeSources WHERE id = 1"));

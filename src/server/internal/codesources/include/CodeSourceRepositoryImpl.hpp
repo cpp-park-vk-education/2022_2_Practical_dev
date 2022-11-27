@@ -6,19 +6,19 @@
 #include "CodeSourceRepository.hpp"
 #include "DBManager.hpp"
 
-class DBCodeSourceImpl : DBCodeSource {
+class CodeSourceRepositoryImpl : CodeSourceRepository {
  private:
     std::shared_ptr<DBManager> manager;
 
  public:
-    DBCodeSourceImpl();
+    CodeSourceRepositoryImpl();
 
-    CodeSource Select(const std::string& query);
-    std::vector<CodeSource> SelectMany(const std::string& query, size_t n, size_t page = 1);
+    CodeSource Select(const std::string& query) override;
+    std::vector<CodeSource> SelectMany(const std::string& query, size_t n, size_t page = 1) override;
 
-    CodeSource Insert(const CodeSource& obj);
+    CodeSource Insert(const CodeSource& obj) override;
 
-    CodeSource Update(const CodeSource& obj);
+    CodeSource Update(const CodeSource& obj) override;
 
-    void Delete(const CodeSource& obj);
+    void Delete(const CodeSource& obj) override;
 };

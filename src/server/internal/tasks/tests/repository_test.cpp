@@ -3,7 +3,7 @@
 #include "TaskRepositoryImpl.hpp"
 
 TEST(RepositoryTest, CRUD) {
-    DBTaskImpl repository;
+    TaskRepositoryImpl repository;
     Task perl_task(1, "count meaning of life", "learning perl basics", 100, 0);
 
     EXPECT_EQ(repository.Select(perl_task), perl_task);

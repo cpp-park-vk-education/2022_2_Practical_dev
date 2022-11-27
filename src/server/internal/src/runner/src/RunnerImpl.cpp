@@ -38,7 +38,7 @@ CheckerResult RunnerImpl::Run(const size_t& task_id, const std::string& code, co
     std::cout << ans.get<std::string>() << std::endl;
 
     target = "/v1.41/containers/" + id_str.substr(1, id_str.length() - 2);
-    ans = crud.DELETE(host, target);
+    // ans = crud.DELETE(host, target);
 
     return CheckerResultImpl::OK();
 }

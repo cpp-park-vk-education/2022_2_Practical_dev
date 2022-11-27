@@ -1,12 +1,14 @@
 #pragma once
 
+#include <functional>
 #include <pqxx/pqxx>
 
 #include "CodeSourceRepository.hpp"
+#include "DBManager.hpp"
 
 class DBCodeSourceImpl : DBCodeSource {
  private:
-    pqxx::work worker;
+    std::shared_ptr<DBManager> manager;
 
  public:
     DBCodeSourceImpl();

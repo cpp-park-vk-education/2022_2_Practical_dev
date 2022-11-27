@@ -1,13 +1,14 @@
 #pragma once
 
+#include <functional>
 #include <pqxx/pqxx>
 
-#include "Parcel.hpp"
+#include "DBManager.hpp"
 #include "ParcelRepository.hpp"
 
 class DBParcelImpl : DBParcel {
  private:
-    pqxx::work worker;
+    std::shared_ptr<DBManager> manager;
 
  public:
     DBParcelImpl();

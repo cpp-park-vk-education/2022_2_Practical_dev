@@ -1,6 +1,6 @@
-/* #pragma once
+#pragma once
 
-#include "RunnerCommon.h"
+/* #include "RunnerCommon.h"
 
 boost::asio::io_context io_context;
 using boost::asio::local::stream_protocol;

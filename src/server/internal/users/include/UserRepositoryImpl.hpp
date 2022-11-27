@@ -1,12 +1,15 @@
 #pragma once
 
+#include <functional>
 #include <pqxx/pqxx>
 
+#include "DBManager.hpp"
 #include "UserRepository.hpp"
 
-class DBUserImpl: DBUser {
+class DBUserImpl : DBUser {
  private:
-    pqxx::work worker;
+    std::shared_ptr<DBManager> manager;
+
  public:
     DBUserImpl();
 

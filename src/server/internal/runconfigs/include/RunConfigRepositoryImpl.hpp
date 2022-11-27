@@ -1,12 +1,14 @@
 #pragma once
 
+#include <functional>
 #include <pqxx/pqxx>
 
+#include "DBManager.hpp"
 #include "RunConfigsRepository.hpp"
 
 class DBRunConfigImpl : DBRunConfig {
  private:
-    pqxx::work worker;
+    std::shared_ptr<DBManager> manager;
 
  public:
     DBRunConfigImpl();

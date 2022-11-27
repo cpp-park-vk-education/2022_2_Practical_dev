@@ -1,12 +1,14 @@
 #pragma once
 
+#include <functional>
 #include <pqxx/pqxx>
 
 #include "ContestRepository.hpp"
+#include "DBManager.hpp"
 
 class DBContestImpl : DBContest {
  private:
-    pqxx::work worker;
+    std::shared_ptr<DBManager> manager;
 
  public:
     DBContestImpl();

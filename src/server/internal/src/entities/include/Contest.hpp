@@ -3,7 +3,6 @@
 #include <ctime>
 #include <string>
 
- 
 #include "ValidationError.hpp"
 
 class Contest {

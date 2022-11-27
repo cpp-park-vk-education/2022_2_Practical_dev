@@ -1,12 +1,14 @@
 #pragma once
 
+#include <functional>
 #include <pqxx/pqxx>
 
 #include "CommentRepository.hpp"
+#include "DBManager.hpp"
 
 class DBCommentImpl : DBComment {
  private:
-    pqxx::work worker;
+    std::shared_ptr<DBManager> manager;
 
  public:
     DBCommentImpl();

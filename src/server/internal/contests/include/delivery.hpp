@@ -1,66 +1,77 @@
 #pragma once
 
-#include "handler.hpp"
+#include "namespaces.hpp"
 
-class ContestGetHandler : Handler {
-    void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+#include "api_handler.hpp"
+
+class ContestGetHandler : ApiHandler {
+public:
+    virtual void operator() (
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class ContestModifyHandler : Handler {
-    void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+class ContestModifyHandler : ApiHandler {
+public:
+    virtual void operator() (
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class ContestDeleteHandler : Handler {
-    void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+class ContestDeleteHandler : ApiHandler {
+public:
+    virtual void operator() (
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class ContestGetTasksHandler : Handler {
-    void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+class ContestGetTasksHandler : ApiHandler {
+public:
+    virtual void operator() (
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class ContestSetTaskHandler : Handler {
-    void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+class ContestSetTaskHandler : ApiHandler {
+public:
+    virtual void operator() (
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class ContestDeleteTaskHandler : Handler {
-    void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+class ContestDeleteTaskHandler : ApiHandler {
+public:
+    virtual void operator() (
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class ContestGetUsersHandler : Handler {
-    void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+class ContestGetUsersHandler : ApiHandler {
+public:
+    virtual void operator() (
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class ContestAddUserHandler : Handler {
-    void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+class ContestAddUserHandler : ApiHandler {
+public:
+    virtual void operator() (
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class ContestDeleteUserHandler : Handler {
-    void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+class ContestDeleteUserHandler : ApiHandler {
+public:
+    virtual void operator() (
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };

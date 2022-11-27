@@ -1,45 +1,53 @@
 #pragma once
 
-#include "handler.hpp"
+#include "namespaces.hpp"
 
-class CommentGetHandler : Handler {
-    void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+#include "api_handler.hpp"
+
+class CommentGetHandler : ApiHandler {
+public:
+    virtual void operator() (
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class CommentAddHandler : Handler {
-    void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+class CommentAddHandler : ApiHandler {
+public:
+    virtual void operator() (
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class CommentModifyHandler : Handler {
-    void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+class CommentModifyHandler : ApiHandler {
+public:
+    virtual void operator() (
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class CommentDeleteHandler : Handler {
-    void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+class CommentDeleteHandler : ApiHandler {
+public:
+    virtual void operator() (
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class CommentBumpHandler : Handler {
-    void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+class CommentBumpHandler : ApiHandler {
+public:
+    virtual void operator() (
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class CommentSageHandler : Handler {
-    void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+class CommentSageHandler : ApiHandler {
+public:
+    virtual void operator() (
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };

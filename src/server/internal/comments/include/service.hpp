@@ -1,7 +1,5 @@
 #pragma once
 
-#include "comments/comments.hpp"
-
 class Comment;
 
 class CommentInterface {
@@ -9,7 +7,7 @@ class CommentInterface {
     static void add(Comment &comment);
     static void modify(Comment &comment);
     static void remove(Comment &comment);
-    
+
     static void bump(Comment &comment);
     static void sage(Comment &comment);
 };

@@ -1,24 +1,29 @@
 #pragma once
 
-#include "handler.hpp"
+#include "namespaces.hpp"
 
-class TaskGetHandler : Handler {
-    void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+#include "api_handler.hpp"
+
+class TaskGetHandler : ApiHandler {
+ public:
+    virtual void operator() (
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class TaskGetParcelsHandler : Handler {
-    void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+class TaskGetParcelsHandler : ApiHandler {
+ public:
+    virtual void operator() (
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class TaskGetCommentsHandler : Handler {
-    void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+class TaskGetCommentsHandler : ApiHandler {
+ public:
+    virtual void operator() (
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };

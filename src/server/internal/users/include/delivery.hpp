@@ -1,52 +1,61 @@
 #pragma once
 
-#include "handler.hpp"
+#include "namespaces.hpp"
 
-class UserGetHandler : Handler {
+#include "api_handler.hpp"
+
+class UserGetHandler : public ApiHandler {
+ public:
     void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class UserModifyHandler : Handler {
+class UserModifyHandler : public ApiHandler {
+ public:
     void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class UserContestGetHandler : Handler {
+class UserContestGetHandler : public ApiHandler {
+ public:
     void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class UserContestAddHandler : Handler {
+class UserContestAddHandler : public ApiHandler {
+ public:
     void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class UserContestDeleteHandler : Handler {
+class UserContestDeleteHandler : public ApiHandler {
+ public:
     void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class SignInHandler : Handler {
+class SignInHandler : public ApiHandler {
+ public:
     void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };
 
-class SignUpHandler : Handler {
+class SignUpHandler : public ApiHandler {
+ public:
     void operator() (
-        http::request<http::string_body> &req,
-        http::response<http::string_body> &res,
-        void(*callback)());
+        http::request<http::string_body> request_,
+        http::response<http::string_body> response_,
+        std::unordered_map<std::string, size_t> params);
 };

@@ -1,12 +1,18 @@
 #pragma once
 
-#include "listener.hpp"
-
-class ServerConfig {};
+#include "acceptor.hpp"
+#include "server_cfg.hpp"
+#include "connection_manager.hpp"
 
 class Server {
-    Listener listener;
+    ServerConfig cfg_;
+    Acceptor acceptor_;
+    ConnectionManager conn_manager_;
 
-    void init(const ServerConfig &cfg);
+ public:
+    Server(const ServerConfig& cfg);
+
     void run();
+    void accept();
+    void stop();
 };

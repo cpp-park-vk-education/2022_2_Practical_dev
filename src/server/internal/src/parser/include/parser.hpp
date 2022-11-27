@@ -1,16 +1,12 @@
 #pragma once
 
-#include <boost/beast.hpp>
+#include "namespaces.hpp"
+#include "constants.hpp"
 
-namespace beast = boost::beast;         // from <boost/beast.hpp>
-namespace http = beast::http;           // from <boost/beast/http.hpp>
-namespace net = boost::asio;            // from <boost/asio.hpp>
-using tcp = boost::asio::ip::tcp;
+#include <array>
 
 class Parser {
-    template<typename Body, typename Allocator>
-    void deserialize(char *buf, http::request<Body, http::basic_fields<Allocator>> *req);
-
-    template<typename Body, typename Allocator>
-    void serialize(http::response<Body, http::basic_fields<Allocator>> *res, char *buf);
+ public:
+    void serialize(http::response<http::string_body> &response_, std::array<char, MESSAGE_BUFFER_SIZE> &buffer_);
+    void deserialize(std::array<char, MESSAGE_BUFFER_SIZE> &buffer_, http::request<http::string_body> &request_);
 };

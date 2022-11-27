@@ -1,21 +1,23 @@
 #pragma once
 
-#include <boost/beast.hpp>
-#include <vector>
+#include "namespaces.hpp"
 
-#include "parser.hpp"
-#include "handler.hpp"
+#include <unordered_map>
+#include <utility>
 
-namespace beast = boost::beast;
-namespace http = beast::http;
-namespace net = boost::asio;
-using tcp = boost::asio::ip::tcp;
+#include "connection.hpp"
+#include "api_handler.hpp"
+
+class DeliveryHandler {
+    ApiHandler &handler;
+ public:
+    void operator() (http::request<http::string_body> &request_, http::response<http::string_body> &response_, Connection &conn_);
+    DeliveryHandler();
+};
 
 class Router {
-    std::vector<Handler> hs;
-
-    void route(http::request<http::string_body> req, http::response<http::string_body> res);
-
-    void addHandler(Handler &handler_func);
-    Handler& getHandler(Endpoint ep);
+    std::unordered_map<std::pair<http::verb, std::string>, DeliveryHandler> handlers;
+ public:
+    void add_handler(http::verb method_, std::string target_, ApiHandler &handler_);
+    DeliveryHandler& route(http::verb method_, std::string target_);
 };

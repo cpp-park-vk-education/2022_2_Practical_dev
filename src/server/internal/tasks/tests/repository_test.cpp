@@ -1,19 +1,14 @@
 #include <gtest/gtest.h>
 
-#include "RepositoryImpl.hpp"
+#include "TaskRepositoryImpl.hpp"
 
 TEST(RepositoryTest, CRUD) {
-    DBTask crud;
+    DBTaskImpl repository;
+    Task perl_task(1, "count meaning of life", "learning perl basics", 100, 0);
 
-    EXPECT_NO_FATAL_FAILURE(crud.SelectMany("SELECT * FROM Tasks", 10));
-    EXPECT_NO_FATAL_FAILURE(crud.Select("SELECT * FROM Tasks WHERE id = 1"));
+    EXPECT_EQ(repository.Select(perl_task), perl_task);
 
-    Task source;
-    source.setName("Dada");
-    source.setCost(100);
+    perl_task.setTimeLimit(100);
 
-    EXPECT_NO_FATAL_FAILURE(crud.Insert(source));
-    EXPECT_NO_FATAL_FAILURE(crud.Update(source));
-    EXPECT_NO_FATAL_FAILURE(crud.Delete(source));
+    EXPECT_EQ(repository.Update(perl_task), perl_task);
 }
-

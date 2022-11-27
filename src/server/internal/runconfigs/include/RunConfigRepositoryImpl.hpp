@@ -1,13 +1,15 @@
+#pragma once
+
 #include <pqxx/pqxx>
 
-#include "RunConfig.hpp"
+#include "RunConfigsRepository.hpp"
 
-class DBRunConfig {
+class DBRunConfigImpl : DBRunConfig {
  private:
     pqxx::work worker;
 
  public:
-    DBRunConfig();
+    DBRunConfigImpl();
 
     RunConfig Select(const std::string& query);
     std::vector<RunConfig> SelectMany(const std::string& query, size_t n, size_t page = 1);

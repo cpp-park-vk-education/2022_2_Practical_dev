@@ -6,8 +6,8 @@
 class ConnectionManager {
     std::set<Connection> conns_;
  public:
-    void start();
-    void stop();
+    void start(Connection &conn_);
+    void stop(Connection &conn_);
 
     ConnectionManager();
 };

@@ -4,10 +4,10 @@ class Comment;
 
 class CommentInterface {
     static Comment get(Comment &comment);
-    static void add(Comment &comment);
-    static void modify(Comment &comment);
-    static void remove(Comment &comment);
+    static Comment add(Comment &comment);
+    static Comment modify(Comment &comment);
+    static Comment remove(Comment &comment);
 
-    static void bump(Comment &comment);
-    static void sage(Comment &comment);
+    static int bump(Comment &comment);
+    static int sage(Comment &comment);
 };

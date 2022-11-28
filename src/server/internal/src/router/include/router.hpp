@@ -16,8 +16,13 @@ class DeliveryHandler {
 };
 
 class Router {
-    std::unordered_map<std::pair<http::verb, std::string>, DeliveryHandler> handlers;
+    struct target {
+        http::verb method_;
+        std::string url_;
+    };
+
+    std::unordered_map<target, DeliveryHandler> handlers;
  public:
-    void add_handler(http::verb method_, std::string target_, ApiHandler &handler_);
-    DeliveryHandler& route(http::verb method_, std::string target_);
+    void add_handler(http::verb method_, std::string url_, ApiHandler &handler_);
+    DeliveryHandler& route(http::verb method_, std::string url_);
 };

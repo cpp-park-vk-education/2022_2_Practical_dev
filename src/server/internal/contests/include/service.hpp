@@ -1,6 +1,6 @@
 #pragma once
 
-#include <vector>
+#include <set>
 
 #include "users/users.hpp"
 #include "tasks/tasks.hpp"
@@ -8,15 +8,15 @@
 class Contest;
 
 class ContestInterface {
-    static void get(Contest &contest);
-    static void modify(Contest &contest);
-    static void remove(Contest &contest);
+    static Contest get(Contest &contest);
+    static Contest modify(Contest &contest);
+    static Contest remove(Contest &contest);
 
-    static std::vector<Task> get_tasks(Contest &contest);
-    static void set_task(Contest &contest);
-    static void delete_task(Contest &contest);
+    static std::set<Task> get_tasks(Contest &contest);
+    static Task set_task(Contest &contest, Task &task);
+    static Task delete_task(Contest &contest, Task &task);
 
-    static std::vector<User> get_users(Contest &contest);
-    static void add_user(Contest &contest);
-    static void delete_user(Contest &contest);
+    static std::set<User> get_users(Contest &contest);
+    static User add_user(Contest &contest, User &user);
+    static User delete_user(Contest &contest, User &user);
 };

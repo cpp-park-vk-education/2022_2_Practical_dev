@@ -9,7 +9,7 @@
 
 class Connection {
     std::array<char, MESSAGE_BUFFER_SIZE> buffer;
-    tcp::socket socket_;
+    tcp::socket &socket_;
 
     http::response<http::string_body> response_;
     http::request<http::string_body> request_;
@@ -23,5 +23,5 @@ class Connection {
     void read();
     void write();
 
-    Connection();
+    Connection(tcp::socket &socket_);
 };

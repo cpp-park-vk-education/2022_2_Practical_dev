@@ -1,21 +1,20 @@
 #pragma once
 
-#include <vector>
+#include <set>
 
 #include "contests/contests.hpp"
 
 class User;
 
 class UserInterface {
-    static void signin(User &user);
-    static void signup(User &user);
-    static void auth(User &user);  // authorization
+    static User signin(User &user);
+    static User signup(User &user);
 
     static User get(User &user);
-    static std::vector<Contest> get_contests(User &user);
+    static std::set<Contest> get_contests(User &user);
 
-    static void modify(User &user);
+    static User modify(User &user);
 
-    static void add_contest(User &user);
-    static void delete_contest(User &user);
+    static int add_contest(User &user);
+    static int delete_contest(User &user);
 };

@@ -32,8 +32,7 @@ class Contest {
     void setStartTime(const std::time_t& time) noexcept;
     void setEndTime(const std::time_t& time) noexcept;
 
-    ValidationError Validate() const;
-
+    bool operator==(const Contest& rhs) const noexcept;
     friend std::ostream& operator<<(std::ostream& os, const Contest& it) noexcept;
 
     ~Contest();

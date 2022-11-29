@@ -29,13 +29,13 @@ class Task {
 
     void setId(const size_t& id) noexcept;
     void setContestId(const size_t& id) noexcept;
-    void setName(std::string name) noexcept;
-    void setDescription(std::string desc) noexcept;
+    void setName(const std::string& name) noexcept;
+    void setDescription(const std::string& desc) noexcept;
     void setCost(const size_t& cost) noexcept;
     void setMemoryLimit(const float& lim) noexcept;
     void setTimeLimit(const std::time_t& lim) noexcept;
 
-    ValidationError Validate() const;
+    bool operator==(const Task& rhs) const noexcept;
     friend std::ostream& operator<<(std::ostream& os, const Task& it) noexcept;
 
     ~Task();

@@ -20,5 +20,7 @@ class CodeSource {
     void setRunConfig(const size_t id) noexcept;
     void setSource(const std::string& code) noexcept;
 
+    bool operator==(const CodeSource& rhs) const noexcept;
+
     ~CodeSource() = default;
 };

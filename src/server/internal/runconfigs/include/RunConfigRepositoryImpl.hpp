@@ -14,6 +14,7 @@ class RunConfigRepositoryImpl : RunConfigRepository {
     RunConfigRepositoryImpl();
 
     RunConfig Select(const std::string& query) override;
+    RunConfig Select(const size_t& id) override;
     std::vector<RunConfig> SelectMany(const std::string& query, size_t n, size_t page = 1) override;
 
     RunConfig Insert(const RunConfig& obj) override;

@@ -35,4 +35,4 @@ message("Task_Lib_LIB = ${Task_Lib_LIB}")
 message("Task_Lib_INCLUDE_DIRS = ${Task_Lib_INCLUDE_DIRS}")
 
 enable_testing()
-# add_subdirectory(tests)
+add_subdirectory(tests)

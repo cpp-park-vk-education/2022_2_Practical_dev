@@ -1,9 +1,9 @@
 #include <gtest/gtest.h>
 
-#include "RepositoryImpl.hpp"
+#include "UserRepositoryImpl.hpp"
 
-TEST(RepositoryTest, CRUD) {
-    DBUserImpl repository;
+TEST(UserRepositoryTest, DISABLED_CRUD) {
+    UserRepositoryImpl repository;
     User slava(1, "slava", "slava@slava.ru", "qwerty123");
 
     EXPECT_EQ(repository.GetById(1), slava);
@@ -14,7 +14,7 @@ TEST(RepositoryTest, CRUD) {
 
     slava.setNickname("slava123");
 
-    EXPECT_EQ(repository.Update(slava), 0);
+    EXPECT_EQ(repository.Update(slava), slava);
 
     Contest sorevnovanie(1, "learning perl", "very simple", "");
 

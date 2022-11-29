@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 
-project("CodeSourceLib")
+project("Code_SourceLib")
 
-set(LIB_NAME CodeSource_Lib)
+set(LIB_NAME Code_Source_Lib)
 
 file(GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 file(GLOB_RECURSE HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h ${CMAKE_CURRENT_SOURCE_DIR}/virtual/*.hpp ${CMAKE_CURRENT_SOURCE_DIR}/virtual/*.h)
@@ -26,13 +26,13 @@ add_library(${LIB_NAME} ${SOURCES} ${HEADERS})
 target_include_directories(${LIB_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/virtual ${Entities_Lib_INCLUDE_DIRS} ${DB_Lib_INCLUDE_DIRS})
 target_link_libraries(${LIB_NAME} ${Entities_Lib_LIB} ${DB_Lib_LIB})
 
-set(CodeSource_Lib_LIB ${LIB_NAME})
-set(CodeSource_Lib_LIB ${CodeSource_Lib_LIB} PARENT_SCOPE)
-set(CodeSource_Lib_INCLUDE_DIRS ${LIB_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/virtual)
-set(CodeSource_Lib_INCLUDE_DIRS ${CodeSource_Lib_INCLUDE_DIRS} PARENT_SCOPE)
+set(Code_Source_Lib_LIB ${LIB_NAME})
+set(Code_Source_Lib_LIB ${Code_Source_Lib_LIB} PARENT_SCOPE)
+set(Code_Source_Lib_INCLUDE_DIRS ${LIB_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/virtual)
+set(Code_Source_Lib_INCLUDE_DIRS ${Code_Source_Lib_INCLUDE_DIRS} PARENT_SCOPE)
 
-message("CodeSource_Lib_LIB = ${CodeSource_Lib_LIB}")
-message("CodeSource_Lib_INCLUDE_DIRS = ${CodeSource_Lib_INCLUDE_DIRS}")
+message("Code_Source_Lib_LIB = ${Code_Source_Lib_LIB}")
+message("Code_Source_Lib_INCLUDE_DIRS = ${Code_Source_Lib_INCLUDE_DIRS}")
 
 enable_testing()
-# add_subdirectory(tests)
+add_subdirectory(tests)

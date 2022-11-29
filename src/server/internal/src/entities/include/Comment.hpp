@@ -32,6 +32,7 @@ class Comment {
     void setRaiting(const float& rate) noexcept;
     void setCreationDate(const std::time_t) noexcept;
 
+    bool operator==(const Comment& rhs) const noexcept;
     friend std::ostream& operator<<(std::ostream& os, const Comment& it) noexcept;
 
     ~Comment();

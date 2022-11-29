@@ -35,4 +35,4 @@ message("User_Lib_LIB = ${User_Lib_LIB}")
 message("User_Lib_INCLUDE_DIRS = ${User_Lib_INCLUDE_DIRS}")
 
 enable_testing()
-# add_subdirectory(tests)
+add_subdirectory(tests)

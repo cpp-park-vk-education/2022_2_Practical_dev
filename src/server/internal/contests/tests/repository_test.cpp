@@ -2,8 +2,8 @@
 
 #include "ContestRepositoryImpl.hpp"
 
-TEST(RepositoryTest, CRUD) {
-    ContestRepository repository;
+TEST(ContestRepositoryTest, DISABLED_CRUD) {
+    ContestRepositoryImpl repository;
     Contest sorevnovanie(1, "learning perl", "very simple", "");
     Task zadacha(1, "find intelligent life", "It probably exists somewhere in the outer space", 100, 0);
 

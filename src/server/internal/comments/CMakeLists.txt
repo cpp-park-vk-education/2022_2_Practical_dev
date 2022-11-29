@@ -35,4 +35,4 @@ message("Comment_Lib_LIB = ${Comment_Lib_LIB}")
 message("Comment_Lib_INCLUDE_DIRS = ${Comment_Lib_INCLUDE_DIRS}")
 
 enable_testing()
-# add_subdirectory(tests)
+add_subdirectory(tests)

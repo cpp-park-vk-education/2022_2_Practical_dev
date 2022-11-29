@@ -4,11 +4,11 @@
 #include <string>
 #include <vector>
 
-#include "CheckerResultImpl.hpp"
 #include "Checker.hpp"
+#include "CheckerResultImpl.hpp"
 #include "CodeObject.hpp"
 
-class CheckerImpl: public Checker {
+class CheckerImpl : public Checker {
  private:
     CodeObject subject;
     CodeObject solution;
@@ -17,7 +17,6 @@ class CheckerImpl: public Checker {
     std::vector<std::string> tests;
 
     CheckerResult compile(const CodeObject& obj);
-
 
  public:
     CheckerImpl(const CodeObject& subject, const CodeObject& solution, const CodeObject& generator);

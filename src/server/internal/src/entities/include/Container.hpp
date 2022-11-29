@@ -21,6 +21,7 @@ class Container {
     void setTaskId(const size_t& id) noexcept;
     void setDockerId(const std::string& docker_id) noexcept;
 
+    bool operator==(const Container& rhs) const noexcept;
     friend std::ostream& operator<<(std::ostream& os, const Container& it) noexcept;
 
     ~Container();

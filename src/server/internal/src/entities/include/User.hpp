@@ -13,7 +13,7 @@ class User {
 
  public:
     User();
-    User(size_t, std::string nickname, std::string email, std::string password);
+    User(size_t, const std::string& nickname, const std::string& email, const std::string& password);
 
     size_t getId() const noexcept;
     std::string getNickname() const noexcept;
@@ -21,13 +21,12 @@ class User {
     std::string getPassword() const noexcept;
 
     void setId(size_t id) noexcept;
-    void setNickname(std::string nickname) noexcept;
-    void setEmail(std::string email) noexcept;
-    void setPassword(std::string old_password, std::string new_password) noexcept;
+    void setNickname(const std::string& nickname) noexcept;
+    void setEmail(const std::string& email) noexcept;
+    void setPassword(const std::string& old_password, const std::string& new_password) noexcept;
 
-    ValidationError Validate() const;
-
-    friend std::ostream &operator<<(std::ostream &os, const User &it) noexcept;
+    bool operator==(const User& rhs) const noexcept;
+    friend std::ostream& operator<<(std::ostream& os, const User& it) noexcept;
 
     ~User();
 };

@@ -2,7 +2,7 @@
 
 #include "CheckerImpl.hpp"
 
-TEST(CheckerTest, Basework) {
+TEST(CheckerTest, DISABLED_Basework) {
     Compiler cmp;
     cmp.compiler = "g++";
     Interpreter intr;

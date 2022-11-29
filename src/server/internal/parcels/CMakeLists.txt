@@ -35,4 +35,4 @@ message("Parcel_Lib_LIB = ${Parcel_Lib_LIB}")
 message("Parcel_Lib_INCLUDE_DIRS = ${Parcel_Lib_INCLUDE_DIRS}")
 
 enable_testing()
-# add_subdirectory(tests)
+add_subdirectory(tests)

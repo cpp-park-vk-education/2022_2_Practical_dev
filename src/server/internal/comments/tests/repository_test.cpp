@@ -2,8 +2,8 @@
 
 #include "CommentRepositoryImpl.hpp"
 
-TEST(RepositoryTest, CRUD) {
-    CommentRepository repository;
+TEST(CommentRepositoryTest, DISABLED_CRUD) {
+    CommentRepositoryImpl repository;
     Comment source(14, 10, "Сап двач, на днях начал изучать перл...");
     Comment source_liked(14, 10, "Сап двач, на днях начал изучать перл...");
     source_liked.setRaiting(-1);

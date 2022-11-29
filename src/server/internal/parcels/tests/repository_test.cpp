@@ -2,7 +2,7 @@
 
 #include "ParcelRepositoryImpl.hpp"
 
-TEST(RepositoryTest, CRUD) {
+TEST(ParcelRepositoryTest, DISABLED_CRUD) {
     ParcelRepositoryImpl crud;
 
     EXPECT_NO_FATAL_FAILURE(crud.SelectMany("SELECT * FROM Parcels", 10));
@@ -16,4 +16,3 @@ TEST(RepositoryTest, CRUD) {
     EXPECT_NO_FATAL_FAILURE(crud.Update(source));
     EXPECT_NO_FATAL_FAILURE(crud.Delete(source));
 }
-

@@ -2,9 +2,9 @@
 
 #include "CheckerResult.hpp"
 #include "Container.hpp"
-#include "TaskConfig.hpp"
 #include "RunnerCommon.h"
 #include "SocketCRUD.hpp"
+#include "TaskConfig.hpp"
 
 class Runner {
  private:

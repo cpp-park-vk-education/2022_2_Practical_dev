@@ -1,11 +1,11 @@
 #pragma once
 
-#include "CheckerResultImpl.hpp"
 #include "CheckerResult.hpp"
+#include "CheckerResultImpl.hpp"
 #include "Container.hpp"
-#include "TaskConfig.hpp"
 #include "RunnerCommon.h"
 #include "SocketCRUD.hpp"
+#include "TaskConfig.hpp"
 
 class RunnerImpl {
  private:

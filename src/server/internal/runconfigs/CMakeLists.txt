@@ -35,4 +35,4 @@ message("Run_Config_Lib_LIB = ${Run_Config_Lib_LIB}")
 message("Run_Config_Lib_INCLUDE_DIRS = ${Run_Config_Lib_INCLUDE_DIRS}")
 
 enable_testing()
-# add_subdirectory(tests)
+add_subdirectory(tests)

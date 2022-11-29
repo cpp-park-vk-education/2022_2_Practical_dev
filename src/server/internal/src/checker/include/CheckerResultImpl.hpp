@@ -23,7 +23,7 @@ struct CheckerResultImpl : public CheckerResult {
     size_t failed_test;
     size_t points;
 
-    CheckerResultImpl(_checkererror code, std::string message) : code(code) {this->message = message;}
+    CheckerResultImpl(_checkererror code, std::string message) : code(code) { this->message = message; }
 
     friend std::ostream& operator<<(std::ostream& stream, const CheckerResultImpl& obj) {
         stream << obj.message << std::endl;

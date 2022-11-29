@@ -35,4 +35,4 @@ message("Contest_Lib_LIB = ${Contest_Lib_LIB}")
 message("Contest_Lib_INCLUDE_DIRS = ${Contest_Lib_INCLUDE_DIRS}")
 
 enable_testing()
-# add_subdirectory(tests)
+add_subdirectory(tests)

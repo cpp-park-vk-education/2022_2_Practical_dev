@@ -2,7 +2,7 @@
 
 #include "RunConfigRepositoryImpl.hpp"
 
-TEST(RepositoryTest, CRUD) {
+TEST(RunConfigRepositoryTest, DISABLED_CRUD) {
     RunConfigRepositoryImpl crud;
 
     EXPECT_NO_FATAL_FAILURE(crud.SelectMany("SELECT * FROM RunConfigs", 10));
@@ -16,4 +16,3 @@ TEST(RepositoryTest, CRUD) {
     EXPECT_NO_FATAL_FAILURE(crud.Update(source));
     EXPECT_NO_FATAL_FAILURE(crud.Delete(source));
 }
-

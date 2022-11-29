@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Task.hpp"
 #include "SocketCRUD.hpp"
+#include "Task.hpp"
 
 class TaskCreatorImpl {
  private:

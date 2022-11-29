@@ -45,8 +45,7 @@ class Parcel {
     void setFailedTest(const size_t& num) noexcept;
     void setPoints(const size_t& points) noexcept;
 
-    ValidationError Validate() const;
-
+    bool operator==(const Parcel& rhs) const noexcept;
     friend std::ostream& operator<<(std::ostream& os, const Parcel& it) noexcept;
 
     ~Parcel();

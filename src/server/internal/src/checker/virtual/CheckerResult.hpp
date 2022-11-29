@@ -4,7 +4,6 @@
 #include <string>
 #include <vector>
 
-
 struct CheckerResult {
     // _checkererror code;
     std::string message;

@@ -2,7 +2,7 @@
 
 #include "CodeSourceRepositoryImpl.hpp"
 
-TEST(RepositoryTest, CRUD) {
+TEST(CodeSourceRepositoryTest, DISABLED_CRUD) {
     CodeSourceRepositoryImpl crud;
 
     EXPECT_NO_FATAL_FAILURE(crud.SelectMany("SELECT * FROM CodeSources", 10));
@@ -16,4 +16,3 @@ TEST(RepositoryTest, CRUD) {
     EXPECT_NO_FATAL_FAILURE(crud.Update(source));
     EXPECT_NO_FATAL_FAILURE(crud.Delete(source));
 }
-

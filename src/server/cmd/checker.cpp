@@ -1,6 +1,7 @@
 #include "Checker.hpp"
-#include "CheckerImpl.hpp"
+
 #include "CheckerBuilder.hpp"
+#include "CheckerImpl.hpp"
 
 int main() {
     /* Checker chk("g++", "--std=c++17");
@@ -40,8 +41,8 @@ int main() {
 
     CheckerImpl chk(subj, sol, gen);
     chk.GenerateTests(10);
-    std::cout << chk.RunTests().message << std::endl << "cpp test done\n";
-
+    std::cout << chk.RunTests().message << std::endl
+              << "cpp test done\n";
 
     cmp.compiler = "javac";
     intr.interpreter = "java";
@@ -53,5 +54,6 @@ int main() {
 
     CheckerImpl chk2(subj, sol, gen);
     chk2.GenerateTests(10);
-    std::cout << chk2.RunTests().message << std::endl << "java test done\n";
+    std::cout << chk2.RunTests().message << std::endl
+              << "java test done\n";
 }

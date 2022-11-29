@@ -17,7 +17,7 @@ build:
 	@make -s silent-build 
 
 build-tests:
-	cmake -S src/ -B build/ -DSANITIZE_BUILD=ON
+	cmake -S src/ -B build/ -DSANITIZE_BUILD=OFF
 	cmake --build build/ --target db_tests
 
 rebuild: clean generate
@@ -47,7 +47,7 @@ format:
 	./run_format.sh
 
 valgrind: build-tests
-	cmake --build build/ --target full_test_VALGRIND || sh -c 'exit 0'
+	cmake --build build/ --target full_test_VALGRIND
 
 build-docker:
 	docker build . -f Dockerfile -t app 

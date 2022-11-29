@@ -4,7 +4,7 @@
 
 #include "DBConnection.hpp"
 
-TEST(DBConnectionTest, BaseWork) {
+TEST(DBConnectionTest, DISABLED_BaseWork) {
     pqxx::work worker(*DBConnection::getInstance().conn);
 
     pqxx::result response = worker.exec("SELECT * FROM users");

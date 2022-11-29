@@ -7,8 +7,19 @@
 
 class Task;
 
-class TaskInterface {
-    static Task get(Task &task);
-    static std::set<Parcel> get_parcels(Task &task);
-    static std::set<Comment> get_comments(Task &task);
+class TaskServiceInterface {
+ public:
+    virtual Task get(Task &task) = 0;
+    virtual std::set<Parcel> get_parcels(Task &task) = 0;
+    virtual std::set<Comment> get_comments(Task &task) = 0;
+};
+
+class DBTask;
+
+class TaskService : TaskServiceInterface {
+    DBTask &repository;
+ public:
+    Task get(Task &task);
+    std::set<Parcel> get_parcels(Task &task);
+    std::set<Comment> get_comments(Task &task);
 };

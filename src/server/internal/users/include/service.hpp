@@ -7,14 +7,32 @@
 class User;
 
 class UserInterface {
-    static User signin(User &user);
-    static User signup(User &user);
+ public:
+    virtual User signin(User &user) = 0;
+    virtual User signup(User &user) = 0;
 
-    static User get(User &user);
-    static std::set<Contest> get_contests(User &user);
+    virtual User get(User &user) = 0;
+    virtual std::set<Contest> get_contests(User &user) = 0;
 
-    static User modify(User &user);
+    virtual User modify(User &user) = 0;
 
-    static int add_contest(User &user);
-    static int delete_contest(User &user);
+    virtual int add_contest(User &user) = 0;
+    virtual int delete_contest(User &user) = 0;
+};
+
+class DBUser;
+
+class UserInterface {
+    DBUser &repository;
+ public:
+    User signin(User &user);
+    User signup(User &user);
+
+    User get(User &user);
+    std::set<Contest> get_contests(User &user);
+
+    User modify(User &user);
+
+    int add_contest(User &user);
+    int delete_contest(User &user);
 };

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <vector>
 #include "IUserAPI.hpp"
 
 class ImplUserAPI: public IUserAPI {
@@ -7,14 +8,14 @@ class ImplUserAPI: public IUserAPI {
     ImplUserAPI();
     ~ImplUserAPI();
 
-    virtual User getUser(const size_t idUser);
-    virtual std::vector<Contest> getContest(const size_t idUser);
+    User getUser(const size_t idUser) override;
+    std::vector<Contest> getContest(const size_t idUser) override;
 
-    virtual User createUser(const User& user);
-    virtual User modifyUser(const size_t idUser);
+    User createUser(const User& user) override;
+    User modifyUser(const size_t idUser) override;
 
-    virtual Contest addContestToUser(const size_t idUser, const size_t idContest);
+    Contest addContestToUser(const size_t idUser, const size_t idContest) override;
 
-    virtual void deleteUser(const size_t idUser);
-    virtual void deleteContest(const size_t idUser, const size_t idContest);
+    void deleteUser(const size_t idUser) override;
+    void deleteContest(const size_t idUser, const size_t idContest) override;
 };

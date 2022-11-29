@@ -52,13 +52,13 @@ TEST_F(contestTest, getDescription) {
 
 TEST_F(contestTest, getStartTime) {  // TODO(data): For Data structure
     GTEST_SKIP();
-    Data value = contestForTest->getStartTime();
+    // Data value = contestForTest->getStartTime();
     // EXPECT_EQ();
 }
 
 TEST_F(contestTest, getEndTime) {
     GTEST_SKIP();
-    Data value = contestForTest->getEndTime();
+    // Data value = contestForTest->getEndTime();
     // EXPECT_EQ(value, );
 }
 
@@ -88,13 +88,13 @@ TEST_F(contestTest, setDescription) {
 
 TEST_F(contestTest, setStartTime) {  // TODO(data): For Data structure
     GTEST_SKIP();
-    Data value = contestForTest->getStartTime();
+    // Data value = contestForTest->getStartTime();
     // EXPECT_EQ();
 }
 
 TEST_F(contestTest, setEndTime) {
     GTEST_SKIP();
-    Data value = contestForTest->getEndTime();
+    // Data value = contestForTest->getEndTime();
     // EXPECT_EQ(value, );
 }
 
@@ -337,19 +337,19 @@ TEST_F(parcelTest, setPoints) {
 }
 
 TEST(User, constructUserAPI) {
-    ImplUserAPI* userAPI = new ImplUserAPI;
+    // ImplUserAPI* userAPI;
 }
 
 TEST(Contest, constructContestAPI) {
-    ImplContestAPI* contestAPI = new ImplContestAPI;
+    // ImplContestAPI* contestAPI;
 }
 
 TEST(Task, constructTaskAPI) {
-    ImplTaskAPI* taskAPI = new ImplTaskAPI;
+    // ImplTaskAPI* taskAPI;
 }
 
 TEST(Parcel, constructParcelAPI) {
-    ImplParcelAPI* parcelAPI = new ImplParcelAPI;
+    // ImplParcelAPI* parcelAPI;
 }
 
 

@@ -6,7 +6,7 @@ ImplContestAPI::~ImplContestAPI() = default;
 
 
 Contest ImplContestAPI::getContest(const size_t idContest) {
-    Contest* contest = new Contest;
+    Contest* contest;
     return *contest;
 }
 
@@ -21,28 +21,25 @@ std::vector<User> ImplContestAPI::getUser(const size_t idContest) {
 }
 
 Contest ImplContestAPI::createContest(const Contest& contest) {
-    Contest* _contest = new Contest;
+    Contest* _contest;
     return *_contest;
 }
 
 User ImplContestAPI::addUser(const size_t idContest, const size_t idUser) {
-    User* user = new User;
+    User* user;
     return *user;
 }
 
 Task ImplContestAPI::addTask(const size_t idContest, const size_t idTask) {
-    Task* task = new Task;
+    Task* task;
     return *task;
 }
 
-void deleteContest(const size_t idContest) {
-
+void ImplContestAPI::deleteContest(const size_t idContest) {
 }
 
-void deleteUser(const size_t idUser, const size_t idContest) {
-
+void ImplContestAPI::deleteUser(const size_t idUser, const size_t idContest) {
 }
 
-void deleteTask(const size_t idTask, const size_t idContest) {
-
+void ImplContestAPI::deleteTask(const size_t idTask, const size_t idContest) {
 }

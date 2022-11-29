@@ -26,8 +26,8 @@ int Task::getCost() {
     return cost;
 }
 
-void Task::setId(size_t idP) {
-    uuid = idP;
+void Task::setId(size_t uuidP) {
+    uuid = uuidP;
 }
 
 void Task::setIdContest(size_t contestIdP) {
@@ -46,6 +46,6 @@ void Task::setContainer(std::string containerP) {
     container = std::move(containerP);
 }
 
-void Task::setCost(size_t costP) {
+void Task::setCost(int costP) {
     cost = costP;
 }

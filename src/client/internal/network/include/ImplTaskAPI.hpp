@@ -7,5 +7,5 @@ class ImplTaskAPI: public ITaskAPI {
     ImplTaskAPI();
     ~ImplTaskAPI();
 
-    virtual Task getTask(const size_t idTask);
+    Task getTask(const size_t idTask) override;
 };

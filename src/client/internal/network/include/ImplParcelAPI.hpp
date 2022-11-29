@@ -7,11 +7,11 @@ class ImplParcelAPI: public IParcelAPI {
     ImplParcelAPI();
     ~ImplParcelAPI();
 
-    virtual Parcel getParcel(const size_t id);
+    Parcel getParcel(const size_t id) override;
 
-    virtual Parcel addParcel(const Parcel& obj);
+    Parcel addParcel(const Parcel& obj) override;
 
-    virtual Parcel modifyParcel(const Parcel& obj);
+    Parcel modifyParcel(const Parcel& obj) override;
 
-    virtual void deleteParcel(const size_t id);
+    void deleteParcel(const size_t id) override;
 };

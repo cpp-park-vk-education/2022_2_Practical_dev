@@ -5,6 +5,6 @@ ImplTaskAPI::ImplTaskAPI() = default;
 ImplTaskAPI::~ImplTaskAPI() = default;
 
 Task ImplTaskAPI::getTask(const size_t idTask) {
-    Task* task = new Task;
+    Task* task;
     return *task;
 }

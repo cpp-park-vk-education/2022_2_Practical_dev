@@ -37,5 +37,5 @@ set(NETWORK_Lib_INCLUDE_DIRS ${NETWORK_Lib_INCLUDE_DIRS} PARENT_SCOPE)
 message("NETWORK_Lib_LIB = ${NETWORK_Lib_LIB}")
 message("NETWORK_Lib_INCLUDE_DIRS = ${NETWORK_Lib_INCLUDE_DIRS}")
 
-enable_testing()
-add_subdirectory(tests)
+# enable_testing()
+# add_subdirectory(tests)

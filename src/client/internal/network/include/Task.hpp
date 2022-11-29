@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <cstddef>
 #include "Entity.hpp"
 
 class Task: public Entity {
@@ -25,5 +26,5 @@ class Task: public Entity {
     void setDescription(std::string description);
     void setName(std::string name);
     void setContainer(std::string container);
-    void setCost(size_t cost);
+    void setCost(int cost);
 };

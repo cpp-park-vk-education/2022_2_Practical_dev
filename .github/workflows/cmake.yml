@@ -9,6 +9,12 @@ on:
 env:
   # Customize the CMake build type
   BUILD_DEV: True
+  PGHOST: grechkogv.ru
+  PGPORT: 5432
+  PGDATABASE: slavadb
+  PGUSER: slava
+  PGPASSWORD: slavapswd
+
 
 jobs:
   Format:

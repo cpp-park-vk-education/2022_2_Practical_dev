@@ -23,8 +23,8 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}")
 
 include_directories(${Boost_INCLUDE_DIR})
 add_library(${LIB_NAME} ${SOURCES} ${HEADERS})
-target_include_directories(${LIB_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(${LIB_NAME} ${Boost_LIBRARIES} nlohmann_json::nlohmann_json)
+target_include_directories(${LIB_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/virtual ${Entities_Lib_INCLUDE_DIRS} ${DB_Lib_INCLUDE_DIRS})
+target_link_libraries(${LIB_NAME} ${Entities_Lib_LIB} ${DB_Lib_LIB})
 
 set(Task_Lib_LIB ${LIB_NAME})
 set(Task_Lib_LIB ${Task_Lib_LIB} PARENT_SCOPE)
@@ -35,4 +35,4 @@ message("Task_Lib_LIB = ${Task_Lib_LIB}")
 message("Task_Lib_INCLUDE_DIRS = ${Task_Lib_INCLUDE_DIRS}")
 
 enable_testing()
-add_subdirectory(tests)
+# add_subdirectory(tests)

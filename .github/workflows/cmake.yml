@@ -9,9 +9,9 @@ on:
 env:
   # Customize the CMake build type
   BUILD_DEV: True
-  QT_DEBUG_PLUGINS:1
-  QT_QPA_PLATFORM:xcb
-  DISPLAY=:1
+  QT_DEBUG_PLUGINS: 1
+  QT_QPA_PLATFORM: xcb
+  DISPLAY: :1
 
 jobs:
   Format:

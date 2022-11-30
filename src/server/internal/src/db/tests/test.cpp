@@ -35,7 +35,7 @@ class DBManagerTest : public DBManager {
     }
 };
 
-TEST(DB, BaseTest) {
+TEST(DB, DISABLED_BaseTest) {
     DBManagerTest manager;
     EXPECT_NO_THROW(manager.InsertIntoSlavaParams());
     EXPECT_NO_THROW(manager.SelectOutOfSlava());

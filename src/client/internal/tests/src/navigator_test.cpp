@@ -3,7 +3,7 @@
 #include <QStackedWidget>
 #include <navigator.hpp>
 
-TEST(NavigatorTest, creation) {
+TEST(NavigatorTest, DISABLED_creation) {
     QStackedWidget* container = new QStackedWidget();
     ScreensFactory* factory = new ScreensFactory;
     Navigator* n = new Navigator(container, factory);
@@ -13,7 +13,7 @@ TEST(NavigatorTest, creation) {
     delete factory;
 }
 
-TEST(NavigatorTest, startCreation) {
+TEST(NavigatorTest, DISABLED_startCreation) {
     QStackedWidget* container = new QStackedWidget;
     ScreensFactory* factory = new ScreensFactory;
     Navigator* n = new Navigator(container, factory);
@@ -26,7 +26,7 @@ TEST(NavigatorTest, startCreation) {
     delete factory;
 }
 
-TEST(NavigatorTest, emptyNavigator) {
+TEST(NavigatorTest, DISABLED_emptyNavigator) {
     QStackedWidget* container = new QStackedWidget;
     ScreensFactory* factory = new ScreensFactory;
     Navigator* n = new Navigator(container, factory);
@@ -37,7 +37,7 @@ TEST(NavigatorTest, emptyNavigator) {
     delete factory;
 }
 
-TEST(NavigatorTest, addFragment) {
+TEST(NavigatorTest, DISABLED_addFragment) {
     QStackedWidget* container = new QStackedWidget;
     ScreensFactory* factory = new ScreensFactory;
     Navigator* n = new Navigator(container, factory);
@@ -49,7 +49,7 @@ TEST(NavigatorTest, addFragment) {
     delete factory;
 }
 
-TEST(NavigatorTest, backFragment) {
+TEST(NavigatorTest, DISABLED_backFragment) {
     QStackedWidget* container = new QStackedWidget;
     ScreensFactory* factory = new ScreensFactory;
     Navigator* n = new Navigator(container, factory);
@@ -63,7 +63,7 @@ TEST(NavigatorTest, backFragment) {
     delete n;
 }
 
-TEST(NavigatorTest, navigateToTest) {
+TEST(NavigatorTest, DISABLED_navigateToTest) {
     QStackedWidget* container = new QStackedWidget;
     ScreensFactory* factory = new ScreensFactory;
     Navigator* n = new Navigator(container, factory);
@@ -75,7 +75,7 @@ TEST(NavigatorTest, navigateToTest) {
     delete n;
 }
 
-TEST(NavigatorTest, emptyBack) {
+TEST(NavigatorTest, DISABLED_emptyBack) {
     QStackedWidget* container = new QStackedWidget;
     ScreensFactory* factory = new ScreensFactory;
     Navigator* n = new Navigator(container, factory);
@@ -86,7 +86,7 @@ TEST(NavigatorTest, emptyBack) {
     delete factory;
 }
 
-TEST(NavigatorTest, emptyReplace) {
+TEST(NavigatorTest, DISABLED_emptyReplace) {
     QStackedWidget* container = new QStackedWidget;
     ScreensFactory* factory = new ScreensFactory;
     Navigator* n = new Navigator(container, factory);
@@ -97,7 +97,7 @@ TEST(NavigatorTest, emptyReplace) {
     delete factory;
 }
 
-TEST(NavigatorTest, overflowTest) {
+TEST(NavigatorTest, DISABLED_overflowTest) {
     QStackedWidget* container = new QStackedWidget;
     ScreensFactory* factory = new ScreensFactory;
     Navigator* n = new Navigator(container, factory);
@@ -110,7 +110,7 @@ TEST(NavigatorTest, overflowTest) {
     delete factory;
 }
 
-TEST(NavigatorTest, replaceTest) {
+TEST(NavigatorTest, DISABLED_replaceTest) {
     QStackedWidget* container = new QStackedWidget;
     ScreensFactory* factory = new ScreensFactory;
     Navigator* n = new Navigator(container, factory);
@@ -124,7 +124,7 @@ TEST(NavigatorTest, replaceTest) {
     delete factory;
 }
 
-TEST(NavigatorTest, newRootEmptyTest) {
+TEST(NavigatorTest, DISABLED_newRootEmptyTest) {
     QStackedWidget* container = new QStackedWidget;
     ScreensFactory* factory = new ScreensFactory;
     Navigator* n = new Navigator(container, factory);
@@ -136,7 +136,7 @@ TEST(NavigatorTest, newRootEmptyTest) {
     delete n;
 }
 
-TEST(NavigatorTest, newRootTest) {
+TEST(NavigatorTest, DISABLED_newRootTest) {
     QStackedWidget* container = new QStackedWidget;
     ScreensFactory* factory = new ScreensFactory;
     Navigator* n = new Navigator(container, factory);

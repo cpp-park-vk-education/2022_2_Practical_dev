@@ -2,20 +2,20 @@
 
 #include <screensfactory.hpp>
 
-TEST(ScreensFactoryTest, creationTest) {
+TEST(ScreensFactoryTest, DISABLED_creationTest) {
     ScreensFactory* s = new ScreensFactory();
     ASSERT_TRUE(s);
     delete s;
 }
 
-TEST(ScreensFactoryTest, getStartTest) {
+TEST(ScreensFactoryTest, DISABLED_getStartTest) {
     ScreensFactory* s = new ScreensFactory();
     ASSERT_TRUE(s);
     ASSERT_EQ(s->getStart(), Screens::SIGNIN_TAG);
     delete s;
 }
 
-TEST(ScreensFactoryTest, signinCreation) {
+TEST(ScreensFactoryTest, DISABLED_signinCreation) {
     ScreensFactory* s = new ScreensFactory();
     ASSERT_TRUE(s);
     BaseFragment* f = s->create(s->getStart());
@@ -24,7 +24,7 @@ TEST(ScreensFactoryTest, signinCreation) {
     delete f;
 }
 
-TEST(ScreensFactoryTest, registerCreation) {
+TEST(ScreensFactoryTest, DISABLED_registerCreation) {
     ScreensFactory* s = new ScreensFactory();
     ASSERT_TRUE(s);
     BaseFragment* f = s->create(Screens::REGISTER_TAG);
@@ -33,7 +33,7 @@ TEST(ScreensFactoryTest, registerCreation) {
     delete f;
 }
 
-TEST(ScreensFactoryTest, mainCreation) {
+TEST(ScreensFactoryTest, DISABLED_mainCreation) {
     ScreensFactory* s = new ScreensFactory();
     ASSERT_TRUE(s);
     BaseFragment* f = s->create(Screens::MAIN_TAG);
@@ -42,7 +42,7 @@ TEST(ScreensFactoryTest, mainCreation) {
     delete f;
 }
 
-TEST(ScreensFactoryTest, taskCreation) {
+TEST(ScreensFactoryTest, DISABLED_taskCreation) {
     ScreensFactory* s = new ScreensFactory();
     ASSERT_TRUE(s);
     BaseFragment* f = s->create(Screens::TASK_TAG);
@@ -51,7 +51,7 @@ TEST(ScreensFactoryTest, taskCreation) {
     delete f;
 }
 
-TEST(ScreensFactoryTest, configCreation) {
+TEST(ScreensFactoryTest, DISABLED_configCreation) {
     ScreensFactory* s = new ScreensFactory();
     ASSERT_TRUE(s);
     BaseFragment* f = s->create(Screens::CONTEST_CONFIGURATION_TAG);
@@ -60,7 +60,7 @@ TEST(ScreensFactoryTest, configCreation) {
     delete f;
 }
 
-TEST(ScreensFactoryTest, contestCreation) {
+TEST(ScreensFactoryTest, DISABLED_contestCreation) {
     ScreensFactory* s = new ScreensFactory();
     ASSERT_TRUE(s);
     BaseFragment* f = s->create(Screens::CONTEST_TAG);
@@ -69,7 +69,7 @@ TEST(ScreensFactoryTest, contestCreation) {
     delete f;
 }
 
-TEST(ScreensFactoryTest, discussCreation) {
+TEST(ScreensFactoryTest, DISABLED_discussCreation) {
     ScreensFactory* s = new ScreensFactory();
     ASSERT_TRUE(s);
     BaseFragment* f = s->create(Screens::DISCUSS_TAG);

@@ -96,6 +96,7 @@ jobs:
         with:
           name: test-artifact
           path: build/
-
+      - name: Set Screen
+        run: ./set_screen.sh
       - name: Coverage
         run: make coverage-stat

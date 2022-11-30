@@ -8,7 +8,7 @@ clean:
 	rm -rf build
 
 generate:
-	cmake -S src/ -B build/ -DBUILD_DEV=$(BUILD_DEV)
+	cmake -S src/ -B build/
 
 silent-build:
 	cmake --build build/ --config $(BUILD_DEV)
@@ -17,8 +17,8 @@ build:
 	@make -s silent-build 
 
 build-tests:
-	cmake -S src/ -B build/ -DSANITIZE_BUILD=OFF
-	cmake --build build/ --target db_tests
+	cmake -S src/ -B build/  -DBUILD_DEV=$(BUILD_DEV) -DSANITIZE_BUILD=False
+	cmake --build build/
 
 rebuild: clean generate
 
@@ -31,7 +31,7 @@ client:
 checker:
 	./build/server/cmd/Checker
 
-test: build-tests
+test: build
 	cd build && ctest -VV -C $(BUILD_DEV)
 
 coverage-stat: build-tests

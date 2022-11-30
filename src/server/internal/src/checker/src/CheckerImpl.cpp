@@ -3,6 +3,10 @@
 #include <boost/process.hpp>
 #include <sstream>
 
+#define BOOST_NO_CXX11_SCOPED_ENUMS
+#include <boost/filesystem.hpp>
+#undef BOOST_NO_CXX11_SCOPED_ENUMS
+
 namespace bp = boost::process;
 
 CheckerImpl::CheckerImpl(const CodeObject& subject, const CodeObject& solution, const CodeObject& generator) : subject(subject), solution(solution), generator(generator) {}  // NOLINT

@@ -16,12 +16,15 @@ if(BUILD_DEV)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  --coverage -O0 -fprofile-arcs -ftest-coverage")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -g -Wall -Wextra -pedantic -Wformat=2 -Wfloat-equal -Wconversion \
         -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -lpq -lpqxx")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage")
+    
     if(SANITIZE_BUILD)
         message("Sanitizers ON")
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fsanitize=address,undefined -fno-sanitize-recover=all -fsanitize-undefined-trap-on-error")
     endif(SANITIZE_BUILD)
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage -lgcov -lpq -lpqxx  -lboost_filesystem")
 endif(BUILD_DEV)
+
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lgcov -lpq -lpqxx  -lboost_filesystem")
 
 set(BUILD_SERVER "BUILD_SERVER")
 set(BUILD_CLIENT "BUILD_CLIENT")
@@ -29,15 +32,17 @@ set(BUILD_ALL "BUILD_ALL")
 
 set(BUILD_MODE ${BUILD_SERVER})
 
-if((BUILD_MODE STREQUAL ${BUILD_SERVER}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}))
+message("${BUILD_DEV} ${SANITIZE_BUILD} ${CMAKE_EXE_LINKER_FLAGS}")
+
+if((BUILD_MODE STREQUAL ${BUILD_CLIENT}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}))
     add_subdirectory(client)
 endif()
 
-if((BUILD_MODE STREQUAL ${BUILD_CLIENT}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}) OR True)
+if((BUILD_MODE STREQUAL ${BUILD_SERVER}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}) OR True)
     add_subdirectory(server)
 endif()
 
-set(TEST_TARGETS db_tests)
+set(TEST_TARGETS db_tests checker_tests Code_Source_tests Comment_tests Contest_tests Parcel_tests Run_Config_tests Task_tests User_tests runner_tests)
 set(TARGET_TYPES TEST COVERAGE COVERAGE_FILE VALGRIND)
 
 foreach(TEST_TARGET IN LISTS TEST_TARGETS)

@@ -19,12 +19,12 @@ find_package(nlohmann_json 3.7.0 REQUIRED)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -g -Wall -Wextra -O2 -pedantic -Wformat=2 -Wfloat-equal -Wconversion \
 -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align")
 
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lboost_filesystem")
 
 include_directories(${Boost_INCLUDE_DIR})
 add_library(${LIB_NAME} ${SOURCES} ${HEADERS})
 target_include_directories(${LIB_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/virtual)
-target_link_libraries(${LIB_NAME} ${Boost_LIBRARIES} nlohmann_json::nlohmann_json)
+target_link_libraries(${LIB_NAME} ${Boost_LIBRARIES} nlohmann_json::nlohmann_json boost_filesystem boost_system)
 
 set(Checker_Lib_LIB ${LIB_NAME})
 set(Checker_Lib_LIB ${Checker_Lib_LIB} PARENT_SCOPE)

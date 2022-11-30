@@ -3,6 +3,8 @@
 #include "namespaces.hpp"
 
 #include <unordered_map>
+#include <array>
+#include <mutex>
 #include <utility>
 
 #include "connection.hpp"
@@ -21,7 +23,14 @@ class Router {
         std::string url_;
     };
 
-    std::unordered_map<target, DeliveryHandler> handlers;
+    class RouterWorker {
+        std::unordered_map<target, DeliveryHandler&> handlers;
+        DeliveryHandler& route(http::verb method_, std::string url_);
+    };
+
+    std::unordered_map<target, DeliveryHandler&> handlers;
+    std::array<std::mutex, 10> worker_mutexes;
+    std::array<RouterWorker, 10> workers;
  public:
     void add_handler(http::verb method_, std::string url_, ApiHandler &handler_);
     DeliveryHandler& route(http::verb method_, std::string url_);

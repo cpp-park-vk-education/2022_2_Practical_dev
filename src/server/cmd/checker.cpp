@@ -4,16 +4,6 @@
 #include "CheckerImpl.hpp"
 
 int main() {
-    /* Checker chk("g++", "--std=c++17");
-    std::cout << chk.CompileSubject("misc/main.cpp", "main.out", "-omain.out");
-    std::cout << chk.CompileSolution("misc/solution.cpp", "solution.out", "-osolution.out");
-    std::cout << chk.CompileGenerator("misc/gen_test.cpp", "gen_test.out", "-ogen_test.out");
-    std::cout << chk.GenerateTests("tests/", 3);
-    std::cout << chk.RunTests(); */
-    /* CheckerImpl chk = CheckerBuilder()
-    .addGeneratorCompilator("g++", "-ogen_test.out")
-    .a
-    .build(); */
     Compiler cmp;
     cmp.compiler = "g++";
     Interpreter intr;

@@ -41,7 +41,7 @@ set(TEST_TARGETS
     acceptor_tests
     connection_tests
     connection_manager_tests
-    db_tests
+#   db_tests
     parser_tests
     router_tests
     server_tests)

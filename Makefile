@@ -17,8 +17,8 @@ build:
 	@make -s silent-build 
 
 build-tests:
-	cmake -S src/ -B build/ -DSANITIZE_BUILD=ON
-	cmake --build build/ --target db_tests
+	cmake -S src/ -B build/ -DSANITIZE_BUILD=FALSE
+	cmake --build build/
 
 rebuild: clean generate
 
@@ -28,7 +28,7 @@ server:
 client:
 	./build/client/cmd/Client
 
-test: build-tests
+test: build
 	cd build && ctest -VV -C $(BUILD_DEV)
 
 coverage-stat: build-tests

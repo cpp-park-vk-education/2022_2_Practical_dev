@@ -1,77 +1,76 @@
 #pragma once
 
 #include "namespaces.hpp"
+#include "src/router/router.hpp"
 
-#include "api_handler.hpp"
-
-class ContestGetHandler : ApiHandler {
+class ContestGetHandler : DeliveryHandler {
 public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class ContestModifyHandler : ApiHandler {
+class ContestModifyHandler : DeliveryHandler {
 public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class ContestDeleteHandler : ApiHandler {
+class ContestDeleteHandler : DeliveryHandler {
 public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class ContestGetTasksHandler : ApiHandler {
+class ContestGetTasksHandler : DeliveryHandler {
 public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class ContestSetTaskHandler : ApiHandler {
+class ContestSetTaskHandler : DeliveryHandler {
 public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class ContestDeleteTaskHandler : ApiHandler {
+class ContestDeleteTaskHandler : DeliveryHandler {
 public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class ContestGetUsersHandler : ApiHandler {
+class ContestGetUsersHandler : DeliveryHandler {
 public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class ContestAddUserHandler : ApiHandler {
+class ContestAddUserHandler : DeliveryHandler {
 public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class ContestDeleteUserHandler : ApiHandler {
+class ContestDeleteUserHandler : DeliveryHandler {
 public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };

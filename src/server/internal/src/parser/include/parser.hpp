@@ -1,7 +1,7 @@
 #pragma once
 
-#include "namespaces.hpp"
-#include "constants.hpp"
+#include "utils/namespaces.hpp"
+#include "utils/constants.hpp"
 
 #include <array>
 

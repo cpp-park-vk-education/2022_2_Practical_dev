@@ -1,61 +1,60 @@
 #pragma once
 
 #include "namespaces.hpp"
+#include "src/router/router.hpp"
 
-#include "api_handler.hpp"
-
-class UserGetHandler : public ApiHandler {
+class UserGetHandler : public DeliveryHandler {
  public:
     void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class UserModifyHandler : public ApiHandler {
+class UserModifyHandler : public DeliveryHandler {
  public:
     void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class UserContestGetHandler : public ApiHandler {
+class UserContestGetHandler : public DeliveryHandler {
  public:
     void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class UserContestAddHandler : public ApiHandler {
+class UserContestAddHandler : public DeliveryHandler {
  public:
     void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class UserContestDeleteHandler : public ApiHandler {
+class UserContestDeleteHandler : public DeliveryHandler {
  public:
     void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class SignInHandler : public ApiHandler {
+class SignInHandler : public DeliveryHandler {
  public:
     void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class SignUpHandler : public ApiHandler {
+class SignUpHandler : public DeliveryHandler {
  public:
     void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };

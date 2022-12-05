@@ -1,21 +1,20 @@
 #pragma once
 
 #include "namespaces.hpp"
+#include "src/router/router.hpp"
 
-#include "api_handler.hpp"
-
-class ParcelGetHandler : ApiHandler {
+class ParcelGetHandler : DeliveryHandler {
  public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class ParcelAddHandler : ApiHandler {
+class ParcelAddHandler : DeliveryHandler {
  public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };

@@ -29,15 +29,22 @@ set(BUILD_ALL "BUILD_ALL")
 
 set(BUILD_MODE ${BUILD_SERVER})
 
-if((BUILD_MODE STREQUAL ${BUILD_SERVER}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}))
-    add_subdirectory(client)
-endif()
+# if((BUILD_MODE STREQUAL ${BUILD_SERVER}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}))
+#     add_subdirectory(client)
+# endif()
 
 if((BUILD_MODE STREQUAL ${BUILD_CLIENT}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}) OR True)
     add_subdirectory(server)
 endif()
 
-set(TEST_TARGETS db_tests)
+set(TEST_TARGETS
+    acceptor_tests
+    connection_tests
+    connection_manager_tests
+    db_tests
+    parser_tests
+    router_tests
+    server_tests)
 set(TARGET_TYPES TEST COVERAGE COVERAGE_FILE VALGRIND)
 
 foreach(TEST_TARGET IN LISTS TEST_TARGETS)

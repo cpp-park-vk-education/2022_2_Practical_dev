@@ -4,16 +4,20 @@
 
 #include <unordered_map>
 #include <array>
+#include <stack>
+
 #include <mutex>
-#include <utility>
 
 #include "connection.hpp"
-#include "api_handler.hpp"
 
 class DeliveryHandler {
-    ApiHandler &handler;
  public:
-    void operator() (http::request<http::string_body> &request_, http::response<http::string_body> &response_, Connection &conn_);
+    void operator() (
+        http::request<http::string_body> &request,
+        http::response<http::string_body> &response,
+        std::unordered_map<std::string, size_t> params
+    );
+
     DeliveryHandler();
 };
 
@@ -29,9 +33,15 @@ class Router {
     };
 
     std::unordered_map<target, DeliveryHandler&> handlers;
-    std::array<std::mutex, 10> worker_mutexes;
+
+    std::mutex mutex_;
     std::array<RouterWorker, 10> workers;
+    std::stack<RouterWorker&> free_workers;
+
+    RouterWorker& get();
+    void free(RouterWorker &worker);
+
  public:
-    void add_handler(http::verb method_, std::string url_, ApiHandler &handler_);
+    void add_handler(http::verb method_, std::string url_, DeliveryHandler &handler_);
     DeliveryHandler& route(http::verb method_, std::string url_);
 };

@@ -1,53 +1,52 @@
 #pragma once
 
 #include "namespaces.hpp"
+#include "src/router/router.hpp"
 
-#include "api_handler.hpp"
-
-class CommentGetHandler : ApiHandler {
+class CommentGetHandler : DeliveryHandler {
 public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class CommentAddHandler : ApiHandler {
+class CommentAddHandler : DeliveryHandler {
 public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class CommentModifyHandler : ApiHandler {
+class CommentModifyHandler : DeliveryHandler {
 public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class CommentDeleteHandler : ApiHandler {
+class CommentDeleteHandler : DeliveryHandler {
 public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class CommentBumpHandler : ApiHandler {
+class CommentBumpHandler : DeliveryHandler {
 public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class CommentSageHandler : ApiHandler {
+class CommentSageHandler : DeliveryHandler {
 public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };

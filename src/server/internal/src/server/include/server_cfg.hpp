@@ -2,10 +2,7 @@
 
 #include "namespaces.hpp"
 
-class ServerConfig { 
- public:
+struct ServerConfig {
     asio::io_context ioc;
     tcp::endpoint ep;
-    std::string doc_root;
-    // etc...
 };

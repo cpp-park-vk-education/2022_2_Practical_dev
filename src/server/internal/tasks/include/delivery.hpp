@@ -1,29 +1,28 @@
 #pragma once
 
 #include "namespaces.hpp"
+#include "src/router/router.hpp"
 
-#include "api_handler.hpp"
-
-class TaskGetHandler : ApiHandler {
+class TaskGetHandler : DeliveryHandler {
  public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class TaskGetParcelsHandler : ApiHandler {
+class TaskGetParcelsHandler : DeliveryHandler {
  public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };
 
-class TaskGetCommentsHandler : ApiHandler {
+class TaskGetCommentsHandler : DeliveryHandler {
  public:
     virtual void operator() (
-        http::request<http::string_body> request_,
-        http::response<http::string_body> response_,
+        http::request<http::string_body> request,
+        http::response<http::string_body> response,
         std::unordered_map<std::string, size_t> params);
 };

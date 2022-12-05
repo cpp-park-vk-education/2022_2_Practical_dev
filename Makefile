@@ -1,4 +1,5 @@
-.PHONY: all generate build rebuild lint coverage test valgrind testCN
+
+.PHONY: all generate build rebuild lint coverage test valgrind
 
 BUILD_DEV := True
 
@@ -30,6 +31,7 @@ client:
 test: build-tests
 	cd build && ctest -VV -C $(BUILD_DEV)
 
+
 testCN: build
 	./build/client/internal/network/tests/network_tests
 
@@ -45,8 +47,8 @@ lint:
 format:
 	./run_format.sh
 
-valgrind: build-tests
 	cmake --build build/
+
 
 build-docker:
 	docker build . -f Dockerfile -t app 

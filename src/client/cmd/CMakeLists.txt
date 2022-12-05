@@ -7,6 +7,7 @@ set(PROJECT_NAME "Client")
 project(${PROJECT_NAME})
 
 add_executable(Client main.cpp)
+
 target_link_libraries(Client PRIVATE ${NETWORK_Lib_LIB})
 target_include_directories(Client PUBLIC ${NETWORK_Lib_INCLUDE_DIRS})
 

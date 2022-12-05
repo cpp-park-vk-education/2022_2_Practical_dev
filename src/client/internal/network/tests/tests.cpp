@@ -348,7 +348,7 @@ TEST(Task, DISABLED_constructTaskAPI) {
     // ImplTaskAPI* taskAPI;
 }
 
-TEST(Parcel, constructParcelAPI) {
+TEST(Parcel, DISABLED_constructParcelAPI) {
     // ImplParcelAPI* parcelAPI;
 }
 

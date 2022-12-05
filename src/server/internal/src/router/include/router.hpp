@@ -15,8 +15,7 @@ class DeliveryHandler {
     void operator() (
         http::request<http::string_body> &request,
         http::response<http::string_body> &response,
-        std::unordered_map<std::string, size_t> params
-    );
+        std::unordered_map<std::string, size_t> params);
 
     DeliveryHandler();
 };

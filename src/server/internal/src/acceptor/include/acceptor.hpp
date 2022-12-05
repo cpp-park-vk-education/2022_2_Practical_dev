@@ -5,5 +5,5 @@
 class Acceptor {
  public:
     tcp::socket& listen();
-    Acceptor(const tcp::endpoint& ep);
+    explicit Acceptor(const tcp::endpoint& ep);
 };

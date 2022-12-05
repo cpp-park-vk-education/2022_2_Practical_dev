@@ -1,7 +1,7 @@
 #pragma once
 
 #include <set>
-#include "connection.hpp"
+#include "connection/connection.hpp"
 
 class ConnectionManager {
     std::set<Connection> conns_;

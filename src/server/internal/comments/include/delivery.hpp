@@ -4,7 +4,7 @@
 #include "src/router/router.hpp"
 
 class CommentGetHandler : DeliveryHandler {
-public:
+ public:
     virtual void operator() (
         http::request<http::string_body> request,
         http::response<http::string_body> response,
@@ -12,7 +12,7 @@ public:
 };
 
 class CommentAddHandler : DeliveryHandler {
-public:
+ public:
     virtual void operator() (
         http::request<http::string_body> request,
         http::response<http::string_body> response,
@@ -20,7 +20,7 @@ public:
 };
 
 class CommentModifyHandler : DeliveryHandler {
-public:
+ public:
     virtual void operator() (
         http::request<http::string_body> request,
         http::response<http::string_body> response,
@@ -28,7 +28,7 @@ public:
 };
 
 class CommentDeleteHandler : DeliveryHandler {
-public:
+ public:
     virtual void operator() (
         http::request<http::string_body> request,
         http::response<http::string_body> response,
@@ -36,7 +36,7 @@ public:
 };
 
 class CommentBumpHandler : DeliveryHandler {
-public:
+ public:
     virtual void operator() (
         http::request<http::string_body> request,
         http::response<http::string_body> response,
@@ -44,7 +44,7 @@ public:
 };
 
 class CommentSageHandler : DeliveryHandler {
-public:
+ public:
     virtual void operator() (
         http::request<http::string_body> request,
         http::response<http::string_body> response,

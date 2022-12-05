@@ -23,5 +23,5 @@ class Connection {
     void read();
     void write();
 
-    Connection(tcp::socket &socket_);
+    explicit Connection(tcp::socket &socket_);
 };

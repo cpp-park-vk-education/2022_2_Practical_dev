@@ -1,8 +1,8 @@
 #pragma once
 
-#include "acceptor.hpp"
+#include "acceptor/acceptor.hpp"
 #include "server_cfg.hpp"
-#include "connection_manager.hpp"
+#include "connection_manager/connection_manager.hpp"
 
 class Server {
     ServerConfig cfg_;
@@ -10,7 +10,7 @@ class Server {
     ConnectionManager conn_manager_;
 
  public:
-    Server(const ServerConfig& cfg);
+    explicit Server(const ServerConfig& cfg);
 
     void run();
     void accept();

@@ -4,7 +4,7 @@
 #include "src/router/router.hpp"
 
 class ContestGetHandler : DeliveryHandler {
-public:
+ public:
     virtual void operator() (
         http::request<http::string_body> request,
         http::response<http::string_body> response,
@@ -12,7 +12,7 @@ public:
 };
 
 class ContestModifyHandler : DeliveryHandler {
-public:
+ public:
     virtual void operator() (
         http::request<http::string_body> request,
         http::response<http::string_body> response,
@@ -20,7 +20,7 @@ public:
 };
 
 class ContestDeleteHandler : DeliveryHandler {
-public:
+ public:
     virtual void operator() (
         http::request<http::string_body> request,
         http::response<http::string_body> response,
@@ -28,7 +28,7 @@ public:
 };
 
 class ContestGetTasksHandler : DeliveryHandler {
-public:
+ public:
     virtual void operator() (
         http::request<http::string_body> request,
         http::response<http::string_body> response,
@@ -36,7 +36,7 @@ public:
 };
 
 class ContestSetTaskHandler : DeliveryHandler {
-public:
+ public:
     virtual void operator() (
         http::request<http::string_body> request,
         http::response<http::string_body> response,
@@ -44,7 +44,7 @@ public:
 };
 
 class ContestDeleteTaskHandler : DeliveryHandler {
-public:
+ public:
     virtual void operator() (
         http::request<http::string_body> request,
         http::response<http::string_body> response,
@@ -52,7 +52,7 @@ public:
 };
 
 class ContestGetUsersHandler : DeliveryHandler {
-public:
+ public:
     virtual void operator() (
         http::request<http::string_body> request,
         http::response<http::string_body> response,
@@ -60,7 +60,7 @@ public:
 };
 
 class ContestAddUserHandler : DeliveryHandler {
-public:
+ public:
     virtual void operator() (
         http::request<http::string_body> request,
         http::response<http::string_body> response,
@@ -68,7 +68,7 @@ public:
 };
 
 class ContestDeleteUserHandler : DeliveryHandler {
-public:
+ public:
     virtual void operator() (
         http::request<http::string_body> request,
         http::response<http::string_body> response,

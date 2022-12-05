@@ -1,5 +1,5 @@
 
-.PHONY: all generate build rebuild lint coverage test valgrind
+.PHONY: all generate build rebuild lint coverage test valgrind testCN
 
 BUILD_DEV := True
 
@@ -47,8 +47,8 @@ lint:
 format:
 	./run_format.sh
 
+valgrind: build-tests
 	cmake --build build/
-
 
 build-docker:
 	docker build . -f Dockerfile -t app 

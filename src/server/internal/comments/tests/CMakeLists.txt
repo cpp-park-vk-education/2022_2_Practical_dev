@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
-project(Comment_tests)
+
+project(comments_tests)
 
 # GoogleTest requires at least C++14
 set(CMAKE_CXX_STANDARD 14)
@@ -25,7 +26,7 @@ message("${TEST_SOURCES}")
 include(GoogleTest)
 add_executable(${PROJECT_NAME} ${TEST_SOURCES})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE ${Comment_Lib_LIB} GTest::gtest_main)
+target_link_libraries(${PROJECT_NAME} PRIVATE acceptor ${Comment_Lib_LIB} GTest::gtest_main)
 target_include_directories(${PROJECT_NAME} PUBLIC ${Comment_Lib_INCLUDE_DIRS})
 target_compile_options(${PROJECT_NAME} PUBLIC --coverage)
 target_link_options(${PROJECT_NAME} PUBLIC --coverage)

@@ -40,7 +40,24 @@ if((BUILD_MODE STREQUAL ${BUILD_SERVER}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}) O
     add_subdirectory(server)
 endif()
 
-set(TEST_TARGETS db_tests checker_tests Code_Source_tests Comment_tests Contest_tests Parcel_tests Run_Config_tests Task_tests User_tests runner_tests)
+set(TEST_TARGETS 
+    db_tests 
+    checker_tests 
+    Code_Source_tests 
+    Comment_tests 
+    Contest_tests 
+    Parcel_tests 
+    Run_Config_tests 
+    Task_tests 
+    User_tests 
+    runner_tests
+    acceptor_tests
+    connection_tests
+    connection_manager_tests
+    parser_tests
+    router_tests
+    server_tests)
+
 set(TARGET_TYPES TEST COVERAGE COVERAGE_FILE VALGRIND)
 
 foreach(TEST_TARGET IN LISTS TEST_TARGETS)

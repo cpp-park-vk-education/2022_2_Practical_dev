@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-
-project(contests_tests)
+project(connection_tests)
 
 # GoogleTest requires at least C++14
 set(CMAKE_CXX_STANDARD 14)
@@ -26,8 +25,7 @@ message("${TEST_SOURCES}")
 include(GoogleTest)
 add_executable(${PROJECT_NAME} ${TEST_SOURCES})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE ${Contest_Lib_LIB} GTest::gtest_main)
-target_include_directories(${PROJECT_NAME} PUBLIC ${Contest_Lib_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} PRIVATE acceptor GTest::gtest_main)
 target_compile_options(${PROJECT_NAME} PUBLIC --coverage)
 target_link_options(${PROJECT_NAME} PUBLIC --coverage)
 

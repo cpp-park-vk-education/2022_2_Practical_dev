@@ -43,13 +43,13 @@ endif()
 set(TEST_TARGETS 
     db_tests 
     checker_tests 
-    Code_Source_tests 
-    Comment_tests 
-    Contest_tests 
-    Parcel_tests 
-    Run_Config_tests 
-    Task_tests 
-    User_tests 
+    code_source_tests 
+    comments_tests 
+    contests_tests 
+    parcels_tests 
+    run_config_tests 
+    tasks_tests 
+    users_tests 
     runner_tests
     acceptor_tests
     connection_tests

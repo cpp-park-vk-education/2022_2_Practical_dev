@@ -5,6 +5,12 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O2 -pedantic -Wformat=2 -Wfloat-equa
     -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align")
 
 include_directories(include/ widgets/ navigator/ fragments/ screensfactory/)
+add_subdirectory(network)
+
+set(NETWORK_Lib_LIB ${NETWORK_Lib_LIB} PARENT_SCOPE)
+set(NETWORK_Lib_INCLUDE_DIRS ${NETWORK_Lib_INCLUDE_DIRS} PARENT_SCOPE)
+
+include_directories(include/)
 
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
@@ -25,4 +31,3 @@ target_link_libraries(what_a_contest_gui Qt5::Widgets)
 
 ENABLE_TESTING()
 ADD_SUBDIRECTORY(tests)
-

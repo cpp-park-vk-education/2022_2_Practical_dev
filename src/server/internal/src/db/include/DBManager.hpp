@@ -1,19 +1,17 @@
 #pragma once
 
 #include <pqxx/pqxx>
-
-#include "DBConnection.hpp"
-#include "DBQueryHandler.hpp"
+#include <vector>
 
 class DBManager {
  private:
+    std::vector<pqxx::work> workers_pool;
+
  public:
     DBManager();
 
-    pqxx::result Query(const std::string& query, bool commit = false);
+    pqxx::work GetFreeWorker();
+    void ReturnWorker(pqxx::work& obj);
 
-    template <typename... Args>
-    pqxx::result Query(const std::string& query, bool commit, Args&&... args);
-
-    // ~DBManager();
+    ~DBManager();
 };

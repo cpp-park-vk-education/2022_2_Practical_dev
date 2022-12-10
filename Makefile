@@ -8,7 +8,8 @@ clean:
 	rm -rf build
 
 generate:
-	cmake -S src/ -B build/ -DBUILD_DEV=$(BUILD_DEV)
+	./set_screen.sh
+	cmake -S src/ -B build/
 
 silent-build:
 	cmake --build build/ --config $(BUILD_DEV)
@@ -17,8 +18,8 @@ build:
 	@make -s silent-build 
 
 build-tests:
-	cmake -S src/ -B build/ -DSANITIZE_BUILD=ON
-	cmake --build build/ --target db_tests
+	cmake -S src/ -B build/  -DBUILD_DEV=$(BUILD_DEV) -DSANITIZE_BUILD=False
+	cmake --build build/
 
 rebuild: clean generate
 
@@ -28,14 +29,18 @@ server:
 client:
 	./build/client/cmd/Client
 
-test: build-tests
+checker:
+	./build/server/cmd/Checker
+
+test: build
+	./set_screen.sh
 	cd build && ctest -VV -C $(BUILD_DEV)
 
 coverage-stat: build-tests
 	scripts/coverage_stat.sh
 
 coverage: build-tests
-	cmake --build build/ --target full_test_COVERAGE_FILE
+	cmake --build build/ --target full_test_COVERAGE_FILE -s
 
 lint:
 	./run_linters.sh
@@ -59,5 +64,6 @@ dev:
 dev-sudo:
 	docker run --rm -it \
 		-v $(PWD):/project \
+		-v /var/run/docker.sock:/var/run/docker.sock \
 		--env-file .env \
 		app

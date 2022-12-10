@@ -9,6 +9,8 @@ if(BUILD_TYPE)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage -lgcov" )
 endif(BUILD_TYPE)
 
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage -lgcov" )
+
 include(FetchContent)
 FetchContent_Declare(
   googletest

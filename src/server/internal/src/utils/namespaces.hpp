@@ -5,6 +5,7 @@
 #include <boost/beast.hpp>
 
 namespace asio = boost::asio;
+namespace ip = asio::ip;
 using tcp = asio::ip::tcp;
 
 namespace beast = boost::beast;

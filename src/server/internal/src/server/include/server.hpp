@@ -1,18 +1,13 @@
 #pragma once
 
+#include "server/server.hpp"
 #include "acceptor/acceptor.hpp"
-#include "server_cfg.hpp"
-#include "connection_manager/connection_manager.hpp"
 
-class Server {
-    ServerConfig cfg_;
-    Acceptor acceptor_;
-    ConnectionManager conn_manager_;
-
+class Server : IServer {
+    asio::io_context &io_context;
+    Acceptor acceptor;
  public:
-    explicit Server(const ServerConfig& cfg);
-
+    Server(asio::io_context &ioc, tcp::endpoint ep);
     void run();
-    void accept();
     void stop();
 };

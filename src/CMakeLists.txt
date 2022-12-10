@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-set(CMAKE_CXX_STANDARD 20)
+# set(CMAKE_CXX_STANDARD 20)
 
 set(PROJECT_NAME "What a contest!")
 
@@ -40,23 +40,23 @@ if((BUILD_MODE STREQUAL ${BUILD_SERVER}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}) O
     add_subdirectory(server)
 endif()
 
-set(TEST_TARGETS 
-    db_tests 
-    checker_tests 
-    code_source_tests 
-    comments_tests 
-    contests_tests 
-    parcels_tests 
-    run_config_tests 
-    tasks_tests 
-    users_tests 
-    runner_tests
-    acceptor_tests
-    connection_tests
-    connection_manager_tests
-    parser_tests
-    router_tests
-    server_tests)
+# set(TEST_TARGETS 
+#     db_tests 
+#     checker_tests 
+#     code_source_tests 
+#     comments_tests 
+#     contests_tests 
+#     parcels_tests 
+#     run_config_tests 
+#     tasks_tests 
+#     users_tests 
+#     runner_tests
+#     acceptor_tests
+#     connection_tests
+#     connection_manager_tests
+#     parser_tests
+#     router_tests
+#     server_tests)
 
 set(TARGET_TYPES TEST COVERAGE COVERAGE_FILE VALGRIND)
 

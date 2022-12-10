@@ -1,6 +1,5 @@
 #pragma once
 
-#include "namespaces.hpp"
 
 #include <unordered_map>
 #include <array>
@@ -8,6 +7,8 @@
 
 #include <mutex>
 
+#include "namespaces.hpp"
+#include "router/router.hpp"
 #include "connection.hpp"
 
 class DeliveryHandler {
@@ -20,13 +21,13 @@ class DeliveryHandler {
     DeliveryHandler();
 };
 
-class Router {
+class RouterPool : IRouterPool {
     struct target {
         http::verb method_;
         std::string url_;
     };
 
-    class RouterWorker {
+    class Router {
         std::unordered_map<target, DeliveryHandler&> handlers;
         DeliveryHandler& route(http::verb method_, std::string url_);
     };
@@ -34,13 +35,14 @@ class Router {
     std::unordered_map<target, DeliveryHandler&> handlers;
 
     std::mutex mutex_;
-    std::array<RouterWorker, 10> workers;
-    std::stack<RouterWorker&> free_workers;
+    std::array<Router, 10> routers;
+    std::stack<Router&> free_routers;
 
-    RouterWorker& get();
-    void free(RouterWorker &worker);
+    Router& get();
+    void free(Router &router);
 
  public:
+    RouterPool();
     void add_handler(http::verb method_, std::string url_, DeliveryHandler &handler_);
     DeliveryHandler& route(http::verb method_, std::string url_);
 };

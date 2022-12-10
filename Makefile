@@ -55,6 +55,7 @@ build-docker:
 dev:
 	docker run --rm -it \
 		-v $(PWD):/project \
+		-p 8888:8888 \
 		--user $$(id -u):$$(id -g) \
 		--env-file .env \
 		app 

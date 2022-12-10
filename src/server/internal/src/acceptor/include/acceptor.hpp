@@ -1,9 +1,17 @@
 #pragma once
 
 #include "namespaces.hpp"
+#include "acceptor/acceptor.hpp"
 
-class Acceptor {
+class Acceptor : IAcceptor {
+    asio::io_context &io_context;
+
+    tcp::endpoint endpoint;
+    tcp::acceptor acceptor;
+
+    void on_accept(beast::error_code ec, tcp::socket socket);
+
  public:
-    tcp::socket& listen();
-    explicit Acceptor(const tcp::endpoint& ep);
+    void accept();
+    Acceptor(asio::io_context &ioc, tcp::endpoint ep);
 };

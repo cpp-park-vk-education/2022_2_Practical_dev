@@ -1,4 +1,4 @@
-.PHONY: all generate build rebuild lint coverage test valgrind testCN
+.PHONY: all generate build rebuild lint coverage test valgrind
 
 BUILD_DEV := True
 
@@ -8,7 +8,6 @@ clean:
 	rm -rf build
 
 generate:
-	./set_screen.sh
 	cmake -S src/ -B build/
 
 silent-build:
@@ -33,12 +32,7 @@ checker:
 	./build/server/cmd/Checker
 
 test: build
-	./set_screen.sh
 	cd build && ctest -VV -C $(BUILD_DEV)
-
-
-testCN: build
-	./build/client/internal/network/tests/network_tests
 
 coverage-stat: build-tests
 	scripts/coverage_stat.sh
@@ -53,7 +47,7 @@ format:
 	./run_format.sh
 
 valgrind: build-tests
-	cmake --build build/
+	cmake --build build/ --target full_test_VALGRIND
 
 build-docker:
 	docker build . -f Dockerfile -t app 

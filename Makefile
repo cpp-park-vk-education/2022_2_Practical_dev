@@ -8,6 +8,7 @@ clean:
 	rm -rf build
 
 generate:
+	./set_screen.sh
 	cmake -S src/ -B build/
 
 silent-build:
@@ -32,6 +33,7 @@ checker:
 	./build/server/cmd/Checker
 
 test: build
+	./set_screen.sh
 	cd build && ctest -VV -C $(BUILD_DEV)
 
 coverage-stat: build-tests

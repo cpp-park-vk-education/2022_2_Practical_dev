@@ -28,15 +28,15 @@ set(BUILD_SERVER "BUILD_SERVER")
 set(BUILD_CLIENT "BUILD_CLIENT")
 set(BUILD_ALL "BUILD_ALL")
 
-set(BUILD_MODE ${BUILD_SERVER})
 
 message("${BUILD_DEV} ${SANITIZE_BUILD} ${CMAKE_EXE_LINKER_FLAGS}")
+set(BUILD_MODE ${BUILD_ALL})
 
 if((BUILD_MODE STREQUAL ${BUILD_CLIENT}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}))
     add_subdirectory(client)
 endif()
 
-if((BUILD_MODE STREQUAL ${BUILD_SERVER}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}) OR True)
+if((BUILD_MODE STREQUAL ${BUILD_SERVER}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}))
     add_subdirectory(server)
 endif()
 
@@ -56,7 +56,8 @@ set(TEST_TARGETS
     connection_manager_tests
     parser_tests
     router_tests
-    server_tests)
+    server_tests
+    gui_tests)
 
 set(TARGET_TYPES TEST COVERAGE COVERAGE_FILE VALGRIND)
 

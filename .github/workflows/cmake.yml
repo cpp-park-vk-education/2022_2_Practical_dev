@@ -15,6 +15,9 @@ env:
   PGUSER: slava
   PGPASSWORD: slavapswd
 
+  QT_DEBUG_PLUGINS: 1
+  QT_QPA_PLATFORM: xcb
+  DISPLAY: :1
 
 jobs:
   Format:
@@ -76,7 +79,8 @@ jobs:
         with:
           name: build-artifact
           path: build/
-
+      - name: Set Screen
+        run: ./set_screen.sh
       - name: Run tests
         run: make test
 
@@ -98,6 +102,7 @@ jobs:
         with:
           name: test-artifact
           path: build/
-
+      - name: Set Screen
+        run: ./set_screen.sh
       - name: Coverage
         run: make coverage-stat

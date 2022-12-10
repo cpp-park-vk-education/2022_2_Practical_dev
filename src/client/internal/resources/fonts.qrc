@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+    <file>fonts/JetBrainsMono-Light.ttf</file>
+    <file>fonts/Hack-Regular.ttf</file>
+    </qresource>
+</RCC>

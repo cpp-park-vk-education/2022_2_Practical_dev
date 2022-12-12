@@ -2,16 +2,15 @@
 
 #include <string>
 
-#include "ValidationError.hpp"
-
-class Container {
+class Image {
  private:
     size_t id;
     size_t fk_task_id;
     std::string docker_id;
 
  public:
-    Container();
+    Image() = default;
+    Image(const size_t& fk_task_id, const std::string& docker_id);
 
     size_t getId() const noexcept;
     size_t getTaskId() const noexcept;
@@ -21,8 +20,8 @@ class Container {
     void setTaskId(const size_t& id) noexcept;
     void setDockerId(const std::string& docker_id) noexcept;
 
-    bool operator==(const Container& rhs) const noexcept;
-    friend std::ostream& operator<<(std::ostream& os, const Container& it) noexcept;
+    bool operator==(const Image& rhs) const noexcept;
+    friend std::ostream& operator<<(std::ostream& os, const Image& it) noexcept;
 
-    ~Container();
+    ~Image() = default;
 };

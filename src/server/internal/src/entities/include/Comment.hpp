@@ -3,8 +3,6 @@
 #include <ctime>
 #include <string>
 
-#include "ValidationError.hpp"
-
 class Comment {
  private:
     size_t id;
@@ -15,7 +13,7 @@ class Comment {
     std::time_t created_on;
 
  public:
-    Comment();
+    Comment() = default;
     Comment(size_t parcel_id, size_t task_id, const std::string& text);
 
     size_t getId() const noexcept;
@@ -35,5 +33,5 @@ class Comment {
     bool operator==(const Comment& rhs) const noexcept;
     friend std::ostream& operator<<(std::ostream& os, const Comment& it) noexcept;
 
-    ~Comment();
+    ~Comment() = default;
 };

@@ -5,7 +5,7 @@
 TEST(UserModel, BaseTest) {
     User user;
     user.setEmail("georgre4ko@ya.ru");
-    user.setPassword("12345678", "12345678");
+    user.setPassword("12345678");
     user.setNickname("georgre4ko");
 
     EXPECT_EQ(user.getEmail(), "georgre4ko@ya.ru");

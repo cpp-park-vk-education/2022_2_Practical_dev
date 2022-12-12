@@ -10,7 +10,7 @@ class CodeSource {
     std::string source;
 
  public:
-    CodeSource();
+    CodeSource() = default;
 
     size_t getId() const noexcept;
     size_t getRunConfig() const noexcept;

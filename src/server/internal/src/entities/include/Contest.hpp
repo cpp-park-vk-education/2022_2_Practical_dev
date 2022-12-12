@@ -3,8 +3,6 @@
 #include <ctime>
 #include <string>
 
-#include "ValidationError.hpp"
-
 class Contest {
  private:
     size_t id;
@@ -15,7 +13,7 @@ class Contest {
     std::time_t end_time;
 
  public:
-    Contest();
+    Contest() = default;
     Contest(size_t id, const std::string& name, const std::string& description, const std::string& password);
 
     size_t getId() const noexcept;
@@ -35,5 +33,5 @@ class Contest {
     bool operator==(const Contest& rhs) const noexcept;
     friend std::ostream& operator<<(std::ostream& os, const Contest& it) noexcept;
 
-    ~Contest();
+    ~Contest() = default;
 };

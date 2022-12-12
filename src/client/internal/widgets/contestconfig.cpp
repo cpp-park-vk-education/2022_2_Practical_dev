@@ -1,10 +1,13 @@
 #include "contestconfig.hpp"
 
 ContestConfig::ContestConfig(QWidget* parent) : BaseWidget(parent),
-    layout(new QVBoxLayout(this)), nameInput(new QLineEdit(this)),
-    descriptionInput(new QTextEdit(this)), passwordInput(new QLineEdit(this)),
-    startDateInput(new QDateTimeEdit(this)), endDate(new QDateTimeEdit(this)),
-    configBtn(new QPushButton("Создать", this)) {
+                                                layout(new QVBoxLayout(this)),
+                                                nameInput(new QLineEdit(this)),
+                                                descriptionInput(new QTextEdit(this)),
+                                                passwordInput(new QLineEdit(this)),
+                                                startDateInput(new QDateTimeEdit(this)),
+                                                endDate(new QDateTimeEdit(this)),
+                                                configBtn(new QPushButton("Создать", this)) {
     nameInput->setObjectName("nameInput");
     descriptionInput->setObjectName("descriptionInput");
     passwordInput->setObjectName("passwordInput");

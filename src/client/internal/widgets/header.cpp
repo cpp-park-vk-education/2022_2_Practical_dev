@@ -8,9 +8,10 @@
 #include <QWidget>
 
 Header::Header(QWidget* parent)
-    : BaseWidget(parent), logoutBtn(new QPushButton("выйти", this)),
-      nickname(new QLabel("Nickname", this)), icon(new QLabel), logo(new QLabel(this)),
-      mainLayout(new QHBoxLayout), rightLayout(new QVBoxLayout) {
+    : BaseWidget(parent),
+      logoutBtn(new QPushButton("выйти", this)),
+      nickname(new QLabel("Nickname", this)), icon(new QLabel),
+      logo(new QLabel(this)), mainLayout(new QHBoxLayout), rightLayout(new QVBoxLayout) {
     nickname->setObjectName("nickname");
     initAvatar();
     mainLayout->setContentsMargins(0, 0, 0, 0);

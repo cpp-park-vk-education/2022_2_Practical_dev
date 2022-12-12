@@ -9,6 +9,7 @@ class DiscussFragment : public BaseFragment {
  public:
     DiscussFragment() {}
     ~DiscussFragment() {}
+
  private:
     Header* header;
     QHBoxLayout* layout;

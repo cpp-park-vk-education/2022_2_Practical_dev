@@ -12,20 +12,25 @@ class SearchMenu : public BaseWidget {
 
  public:
     explicit SearchMenu(QWidget* parent = nullptr);
-    ~SearchMenu() override{};
+    ~SearchMenu() override {}
 
  private:
     ContestsList* list;
     QVBoxLayout* layout;
+    QHBoxLayout* searchLayout;
+    QHBoxLayout* btnLayout;
     QLineEdit* searchInput;
     QPushButton* searchBtn;
     QPushButton* showActiveContests;
     QPushButton* showFinishedContests;
     QCheckBox* myContestsCheckbox;
+    void initBtnLayout();
+    void initSearchLayout();
+    void initMenuLayout();
 
  protected:
     void initLayout() override {}
-    void initStyles() override {}
+    void initStyles() override;
  private slots:
     void onSearch(QString name) {}
     void onShowActive() {}

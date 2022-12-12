@@ -1,9 +1,14 @@
 #pragma once  // NOLINT
 
 #include <QFrame>
+#include <QPainter>
+#include <QStyleOption>
 
 class BaseFragment : public QFrame {
     Q_OBJECT
+
+ private:
+    void paintEvent(QPaintEvent *);
 
  signals:
     void back();
@@ -12,6 +17,6 @@ class BaseFragment : public QFrame {
     void replace(QString tag);
 
  public:
-    BaseFragment();
+    BaseFragment() {}
     ~BaseFragment() {}
 };

@@ -2,7 +2,7 @@
 
 #include "ITaskAPI.hpp"
 
-class ImplTaskAPI: public ITaskAPI {
+class ImplTaskAPI : public ITaskAPI {
  public:
     ImplTaskAPI();
     ~ImplTaskAPI();

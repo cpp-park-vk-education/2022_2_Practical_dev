@@ -1,11 +1,11 @@
 #pragma once
 
-#include <iostream>
 #include <cstddef>
+#include <iostream>
+
 #include "Entity.hpp"
 
-
-class User: public Entity {
+class User : public Entity {
  private:
     size_t id;
     std::string nickname;

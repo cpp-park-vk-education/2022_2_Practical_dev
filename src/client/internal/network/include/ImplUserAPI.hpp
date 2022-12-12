@@ -1,9 +1,10 @@
 #pragma once
 
 #include <vector>
+
 #include "IUserAPI.hpp"
 
-class ImplUserAPI: public IUserAPI {
+class ImplUserAPI : public IUserAPI {
  public:
     ImplUserAPI();
     ~ImplUserAPI();

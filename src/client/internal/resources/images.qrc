@@ -1,7 +1,8 @@
 <RCC>
     <qresource prefix="/">
     <file>images/logout.png</file>
+    <file>images/logo.png</file>
+    <file>images/logo_resized.png</file>
     <file>images/search.png</file>
-    <file>fonts/JetBrainsMono-Light.ttf</file>
     </qresource>
 </RCC>

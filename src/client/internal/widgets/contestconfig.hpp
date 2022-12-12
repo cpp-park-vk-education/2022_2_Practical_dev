@@ -28,6 +28,6 @@ class ContestConfig : public BaseWidget {
     bool validate();
 
  protected:
-    void initLayout() override {}
-    void initStyles() override {}
+    void initLayout() override;
+    void initStyles() override;
 };

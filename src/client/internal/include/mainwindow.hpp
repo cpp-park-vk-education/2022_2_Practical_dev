@@ -22,7 +22,7 @@ class MainWindow : public QMainWindow {
 
  private:
     Ui::MainWindow* ui;
-    QStackedWidget* conatiner;
-    ScreensFactory* screensFactory;
+    QStackedWidget* container;
+    ScreensFactory* factory;
     Navigator* navigator;
 };

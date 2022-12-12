@@ -1,21 +1,23 @@
 #include <gtest/gtest.h>
 
 #include <Contest.hpp>
-#include <User.hpp>
-#include <Task.hpp>
-#include <Parcel.hpp>
-
-#include <ImplUserAPI.hpp>
 #include <ImplContestAPI.hpp>
-#include <ImplTaskAPI.hpp>
 #include <ImplParcelAPI.hpp>
+#include <ImplTaskAPI.hpp>
+#include <ImplUserAPI.hpp>
+#include <Parcel.hpp>
+#include <Task.hpp>
+#include <User.hpp>
 
-
-class contestTest: public testing::Test {
+class contestTest : public testing::Test {
  public:
     Contest* contestForTest = new Contest;
     Data data = {
-        2022, 11, 21, 22, 10,
+        2022,
+        11,
+        21,
+        22,
+        10,
     };
     void SetUp() {
         contestForTest->setUuid(15);
@@ -98,8 +100,7 @@ TEST_F(contestTest, DISABLED_setEndTime) {
     // EXPECT_EQ(value, );
 }
 
-
-class userTest: public testing::Test {
+class userTest : public testing::Test {
  public:
     User* userForTest = new User;
     void SetUp() {
@@ -146,7 +147,7 @@ TEST_F(userTest, DISABLED_setEmail) {
     EXPECT_EQ(value, "gosha@mail.ru");
 }
 
-class taskTest: public testing::Test {
+class taskTest : public testing::Test {
  public:
     Task* taskForTest = new Task;
     void SetUp() {
@@ -229,7 +230,7 @@ TEST_F(taskTest, DISABLED_setCost) {
     EXPECT_EQ(value, 19);
 }
 
-class parcelTest: public testing::Test {
+class parcelTest : public testing::Test {
  public:
     Parcel* parcelForTest = new Parcel;
     void SetUp() {
@@ -351,5 +352,3 @@ TEST(Task, DISABLED_constructTaskAPI) {
 TEST(Parcel, DISABLED_constructParcelAPI) {
     // ImplParcelAPI* parcelAPI;
 }
-
-

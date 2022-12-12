@@ -8,7 +8,7 @@
 class SignInFragment : public BaseFragment {
     Q_OBJECT
  public:
-    SignInFragment();
+    SignInFragment() {}
     ~SignInFragment() {}
 
  private:

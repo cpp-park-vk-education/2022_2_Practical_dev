@@ -1,5 +1,6 @@
 add_subdirectory(entities)
 add_subdirectory(db)
+add_subdirectory(images)
 add_subdirectory(checker)
 add_subdirectory(runner)
 add_subdirectory(taskcreator)

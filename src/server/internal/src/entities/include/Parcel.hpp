@@ -3,8 +3,6 @@
 #include <ctime>
 #include <string>
 
-#include "ValidationError.hpp"
-
 class Parcel {
  private:
     size_t id;
@@ -21,7 +19,8 @@ class Parcel {
     size_t points;
 
  public:
-    Parcel();
+    Parcel() = default;
+    Parcel(const size_t& user_id, const size_t& task_id, const size_t& source_id, const std::string& result);
 
     size_t getId() const noexcept;
     size_t getUserId() const noexcept;
@@ -39,14 +38,14 @@ class Parcel {
     void setTaskId(const size_t& id) noexcept;
     void setSourceCodeId(const size_t& id) noexcept;
     void setResult(const std::string& result) noexcept;
-    void setIfBest(const bool& is) const noexcept;
-    void setRunTime(const std::time_t& usage) const noexcept;
-    void setRunMemory(const float& usage) const noexcept;
+    void setIfBest(const bool& is) noexcept;
+    void setRunTime(const std::time_t& usage) noexcept;
+    void setRunMemory(const float& usage) noexcept;
     void setFailedTest(const size_t& num) noexcept;
     void setPoints(const size_t& points) noexcept;
 
     bool operator==(const Parcel& rhs) const noexcept;
     friend std::ostream& operator<<(std::ostream& os, const Parcel& it) noexcept;
 
-    ~Parcel();
+    ~Parcel() = default;
 };

@@ -39,14 +39,14 @@ json SocketCRUD::GET(const std::string& host, const std::string& target) {
     return ans;
 }
 
-json SocketCRUD::POST(const std::string& host, const std::string& target, json data) {
+json SocketCRUD::POST(const std::string& host, const std::string& target, json data, const std::string& content_type) {
     auto msg = data.dump();
 
     http::request<http::string_body> req{http::verb::post, target, version};
     req.set(http::field::host, host);
     req.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
     req.set(http::field::accept, "*/*");
-    req.set(http::field::content_type, "application/json");
+    req.set(http::field::content_type, content_type);
     req.set(http::field::content_length, boost::lexical_cast<std::string>(msg.length()));
     req.body() = msg;
 
@@ -67,6 +67,47 @@ json SocketCRUD::POST(const std::string& host, const std::string& target, json d
 
     std::string buf_str = beast::buffers_to_string(res.body().data());
     auto ans = buf_str != "" ? json::parse(buf_str) : json();
+
+    return ans;
+}
+
+json SocketCRUD::POST(const std::string& host, const std::string& target, const std::string& data,
+                      const std::string& content_type) {
+    auto msg = data;
+
+    http::request<http::string_body> req{http::verb::post, target, version};
+    req.set(http::field::host, host);
+    req.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
+    req.set(http::field::accept, "*/*");
+    req.set(http::field::content_type, content_type);
+    req.set(http::field::content_length, boost::lexical_cast<std::string>(msg.length()));
+    req.body() = msg;
+
+    // Send the HTTP request to the remote host
+    http::write(s, req);
+
+    // This buffer is used for reading and must be persisted
+    beast::flat_buffer buffer;
+
+    // Declare a container to hold the response
+    http::response<http::dynamic_body> res;
+
+    // Receive the HTTP response
+    http::read(s, buffer, res);
+
+    // Write the message to standard out
+    // std::cout << res << std::endl;
+
+    std::string buf_str = beast::buffers_to_string(res.body().data());
+
+    json ans;
+    if (content_type == "application/json") {
+        ans = buf_str != "" ? json::parse(buf_str) : json();
+    } else {
+        if (buf_str.find("Successfully built") <= buf_str.size())
+            buf_str = buf_str.substr(buf_str.find("Successfully built"));
+        ans = buf_str;
+    }
 
     return ans;
 }

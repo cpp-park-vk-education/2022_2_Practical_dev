@@ -1,29 +1,29 @@
 #include "CodeSource.hpp"
 
-CodeSource::CodeSource() {
-}
-
 size_t CodeSource::getId() const noexcept {
-    return size_t();
+    return id;
 }
 
 size_t CodeSource::getRunConfig() const noexcept {
-    return size_t();
+    return fk_run_config_id;
 }
 
 std::string CodeSource::getSource() const noexcept {
-    return std::string();
+    return source;
 }
 
-void CodeSource::setId(const size_t& id) noexcept {
+void CodeSource::setId(const size_t& _id) noexcept {
+    id = _id;
 }
 
-void CodeSource::setRunConfig(const size_t id) noexcept {
+void CodeSource::setRunConfig(const size_t _id) noexcept {
+    fk_run_config_id = _id;
 }
 
-void CodeSource::setSource(const std::string& code) noexcept {
+void CodeSource::setSource(const std::string& _code) noexcept {
+    source = _code;
 }
 
 bool CodeSource::operator==(const CodeSource& rhs) const noexcept {
-    return false;
+    return source == rhs.source && fk_run_config_id == rhs.fk_run_config_id;
 }

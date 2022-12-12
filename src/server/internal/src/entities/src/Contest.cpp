@@ -1,59 +1,59 @@
 #include "Contest.hpp"
 
-Contest::Contest() {
-}
-
 Contest::Contest(size_t id, const std::string& name, const std::string& description,
-                 const std::string& password) {
+                 const std::string& password) : id(id), name(name), description(description), password(password) {
 }
 
 size_t Contest::getId() const noexcept {
-    return size_t();
+    return id;
 }
 
 std::string Contest::getName() const noexcept {
-    return std::string();
+    return name;
 }
 
 std::string Contest::getDescription() const noexcept {
-    return std::string();
+    return description;
 }
 
 std::string Contest::getPassword() const noexcept {
-    return std::string();
+    return password;
 }
 
 std::time_t Contest::getStartTime() const noexcept {
-    return std::time_t();
+    return start_time;
 }
 
 std::time_t Contest::getEndTime() const noexcept {
-    return std::time_t();
+    return end_time;
 }
 
-void Contest::setId(const size_t& id) noexcept {
+void Contest::setId(const size_t& _id) noexcept {
+    id = _id;
 }
 
-void Contest::setName(const std::string& name) noexcept {
+void Contest::setName(const std::string& _name) noexcept {
+    name = _name;
 }
 
-void Contest::setDescription(const std::string& description) noexcept {
+void Contest::setDescription(const std::string& _description) noexcept {
+    description = _description;
 }
 
-void Contest::setPassword(const std::string& password) noexcept {
+void Contest::setPassword(const std::string& _password) noexcept {
+    password = _password;
 }
 
-void Contest::setStartTime(const std::time_t& time) noexcept {
+void Contest::setStartTime(const std::time_t& _time) noexcept {
+    start_time = _time;
 }
 
-void Contest::setEndTime(const std::time_t& time) noexcept {
+void Contest::setEndTime(const std::time_t& _time) noexcept {
+    end_time = _time;
 }
 
 bool Contest::operator==(const Contest& rhs) const noexcept {
-    return false;
-}
-
-Contest::~Contest() noexcept {
+    return name == rhs.name && description == rhs.description && start_time == rhs.start_time && end_time == rhs.end_time;  //NOLINT
 }
 
 std::ostream& operator<<(std::ostream& os, const Contest& it) noexcept {

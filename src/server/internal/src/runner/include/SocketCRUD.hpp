@@ -15,7 +15,10 @@ class SocketCRUD {
     explicit SocketCRUD(const std::string& endpoint);
     SocketCRUD(const SocketCRUD& obj);
     json GET(const std::string& host, const std::string& target);
-    json POST(const std::string& host, const std::string& target, json data = json());
+    json POST(const std::string& host, const std::string& target, json data = json(),
+              const std::string& content_type = "application/json");
+    json POST(const std::string& host, const std::string& target, const std::string& data,
+              const std::string& content_type = "application/json");
     json DELETE(const std::string& host, const std::string& target, json data = json());
     ~SocketCRUD();
 };

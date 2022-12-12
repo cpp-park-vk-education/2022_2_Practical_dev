@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
-project(runner_tests)
+
+project(images_tests)
 
 # GoogleTest requires at least C++14
 set(CMAKE_CXX_STANDARD 14)
@@ -19,14 +20,14 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-file(GLOB TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/test.cpp)
+file(GLOB TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 message("${TEST_SOURCES}")
 
 include(GoogleTest)
 add_executable(${PROJECT_NAME} ${TEST_SOURCES})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE ${Runner_Lib_LIB} ${Entities_Lib_LIB} GTest::gtest_main)
-target_include_directories(${PROJECT_NAME} PUBLIC ${Runner_Lib_INCLUDE_DIRS} ${Entities_Lib_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${Image_Lib_LIB} GTest::gtest_main)
+target_include_directories(${PROJECT_NAME} PUBLIC ${Image_Lib_INCLUDE_DIRS})
 target_compile_options(${PROJECT_NAME} PUBLIC --coverage)
 target_link_options(${PROJECT_NAME} PUBLIC --coverage)
 

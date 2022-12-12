@@ -2,17 +2,20 @@
 
 #include "CodeSourceRepositoryImpl.hpp"
 
-TEST(CodeSourceRepositoryTest, DISABLED_CRUD) {
+TEST(CodeSourceRepositoryTest, CRUD) {
     CodeSourceRepositoryImpl crud;
 
-    EXPECT_NO_FATAL_FAILURE(crud.SelectMany("SELECT * FROM CodeSources", 10));
-    EXPECT_NO_FATAL_FAILURE(crud.Select("SELECT * FROM CodeSources WHERE id = 1"));
+    EXPECT_NO_FATAL_FAILURE(crud.SelectById(1));
 
     CodeSource source;
     source.setRunConfig(10);
     source.setSource("print(\"test\"");
 
-    EXPECT_NO_FATAL_FAILURE(crud.Insert(source));
-    EXPECT_NO_FATAL_FAILURE(crud.Update(source));
-    EXPECT_NO_FATAL_FAILURE(crud.Delete(source));
+    CodeSource new_source = crud.Insert(source);
+    EXPECT_EQ(new_source, source);
+
+    new_source.setSource("print(\"test\" + 1");
+    EXPECT_EQ(crud.Update(new_source), 0);
+
+    EXPECT_EQ(crud.Delete(new_source), 0);
 }

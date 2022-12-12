@@ -66,7 +66,8 @@ CheckerResult CheckerImpl::GenerateTests(const size_t& testAmount) {
         bp::ipstream errorP;
         bp::ipstream outputP;
         boost::filesystem::path p = bp::search_path(generator.interpreter.interpreter);
-        bp::child c(p, bp::args = {generator.path_to_output}, bp::std_out > outputP, bp::std_err > errorP);
+        bp::child c(p, bp::args = {generator.interpreter.flags}, bp::std_out > outputP, bp::std_err > errorP);
+
         std::string line;
         while (std::getline(outputP, line) && !line.empty())
             tests.push_back(line);
@@ -87,10 +88,12 @@ CheckerResult CheckerImpl::RunTests() {
         bp::ipstream outputSubj;
         bp::ipstream errorSol;
         bp::ipstream outputSol;
+
         boost::filesystem::path p1 = bp::search_path(solution.interpreter.interpreter);
-        bp::child sol(p1, bp::args = {solution.path_to_output}, bp::std_out > outputSol, bp::std_in < inputSol);
+        bp::child sol(p1, bp::args = {solution.interpreter.flags}, bp::std_out > outputSol, bp::std_in < inputSol);
+
         boost::filesystem::path p2 = bp::search_path(subject.interpreter.interpreter);
-        bp::child subj(p2, bp::args = {subject.path_to_output}, bp::std_out > outputSubj, bp::std_in < inputSubj);
+        bp::child subj(p2, bp::args = {subject.interpreter.flags}, bp::std_out > outputSubj, bp::std_in < inputSubj);
 
         inputSol << tests[i] << std::endl;
         inputSubj << tests[i] << std::endl;

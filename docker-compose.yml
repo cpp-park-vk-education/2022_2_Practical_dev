@@ -11,4 +11,10 @@ services:
         POSTGRES_PASSWORD: "slavapswd"
     ports:
       - "5432:5432"
+    networks:
+      - contest-network
+
+networks:
+  contest-network:
+    driver: bridge
       

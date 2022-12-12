@@ -13,12 +13,12 @@ class CodeSourceRepositoryImpl : CodeSourceRepository {
  public:
     CodeSourceRepositoryImpl();
 
-    CodeSource Select(const std::string& query) override;
+    CodeSource SelectById(const size_t& id) override;
     std::vector<CodeSource> SelectMany(const std::string& query, size_t n, size_t page = 1) override;
 
     CodeSource Insert(const CodeSource& obj) override;
 
-    CodeSource Update(const CodeSource& obj) override;
+    int Update(const CodeSource& obj) override;
 
-    void Delete(const CodeSource& obj) override;
+    int Delete(const CodeSource& obj) override;
 };

@@ -1,17 +1,23 @@
 #pragma once
 
 #include <pqxx/pqxx>
-#include <vector>
+#include <stack>
 
 class DBManager {
  private:
-    std::vector<pqxx::work> workers_pool;
+    std::vector<std::unique_ptr<pqxx::connection> > connections_pool;
+    std::stack<std::unique_ptr<pqxx::work> > workers_pool;
 
  public:
     DBManager();
 
-    pqxx::work GetFreeWorker();
-    void ReturnWorker(pqxx::work& obj);
+    static DBManager& getInstance();
 
-    ~DBManager();
+    std::unique_ptr<pqxx::work> GetFreeWorker();
+    void ReturnWorker(std::unique_ptr<pqxx::work> obj);
+
+    DBManager(const DBManager&) = delete;
+    void operator=(const DBManager&) = delete;
+
+    ~DBManager() = default;
 };

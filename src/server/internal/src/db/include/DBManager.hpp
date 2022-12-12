@@ -2,11 +2,15 @@
 
 #include <pqxx/pqxx>
 #include <stack>
+#include <chrono>
+#include <thread>
+#include <mutex>
 
 class DBManager {
  private:
     std::vector<std::unique_ptr<pqxx::connection> > connections_pool;
     std::stack<std::unique_ptr<pqxx::work> > workers_pool;
+    std::mutex db_mutex;
 
  public:
     DBManager();

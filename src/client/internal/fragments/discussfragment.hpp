@@ -7,7 +7,7 @@
 class DiscussFragment : public BaseFragment {
     Q_OBJECT
  public:
-    DiscussFragment();
+    DiscussFragment() {}
     ~DiscussFragment() {}
 
  private:

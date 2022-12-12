@@ -1,9 +1,11 @@
 #pragma once  // NOLINT
 
 #include <QHBoxLayout>
+#include <QSizePolicy>
 
 #include "basefragment.hpp"
 #include "contestconfig.hpp"
+#include "header.hpp"
 #include "taskconfig.hpp"
 
 class ContestCreationFragment : public BaseFragment {
@@ -13,8 +15,8 @@ class ContestCreationFragment : public BaseFragment {
     ~ContestCreationFragment() {}
 
  private:
-    QHBoxLayout* layout;
-    ContestConfig* contestCofig;
+    QVBoxLayout* layout;
+    ContestConfig* contestConfig;
     TaskConfig* taskConfig;
  public slots:
     void onCreate() {}

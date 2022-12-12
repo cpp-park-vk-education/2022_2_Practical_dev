@@ -1,10 +1,11 @@
 #pragma once
 
-#include <iostream>
 #include <cstddef>
+#include <iostream>
+
 #include "Entity.hpp"
 
-class Task: public Entity {
+class Task : public Entity {
  private:
     int uuid;
     int contestId;
@@ -12,6 +13,7 @@ class Task: public Entity {
     std::string description;
     std::string container;
     int cost;
+
  public:
     Task();
     size_t getId();

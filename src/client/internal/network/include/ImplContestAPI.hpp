@@ -1,9 +1,10 @@
 #pragma once
 
 #include <vector>
+
 #include "IContestAPI.hpp"
 
-class ImplContestAPI: public IContestAPI {
+class ImplContestAPI : public IContestAPI {
  public:
     ImplContestAPI();
     ~ImplContestAPI();

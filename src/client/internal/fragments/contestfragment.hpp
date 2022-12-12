@@ -9,7 +9,7 @@
 class ContestFragment : public BaseFragment {
     Q_OBJECT
  public:
-    ContestFragment();
+    ContestFragment() {}
     ~ContestFragment() {}
 
  private:
@@ -21,5 +21,5 @@ class ContestFragment : public BaseFragment {
     QVBoxLayout* layout;
     void setData();
  public slots:
-    void switchTask(size_t id){}
+    void switchTask(size_t id) {}
 };

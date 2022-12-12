@@ -1,5 +1,7 @@
 #pragma once  // NOLINT
 #include <QHBoxLayout>
+#include <QSpacerItem>
+#include <iostream>
 
 #include "basefragment.hpp"
 #include "contestslist.hpp"
@@ -16,9 +18,12 @@ class MainFragment : public BaseFragment {
     Header* header;
     ContestsList* contestList;
     SearchMenu* searchMenu;
-    QHBoxLayout* layout;
- private slots:
-    void onSearch(QString name) {}
+    QVBoxLayout* layout;
+ public slots:
+    void onSearch() {}
+    void onCreateContest() {
+        emit navigateTo("contest_configuration");
+    }
     void onShowActive() {}
     void onShowFinished() {}
     void onShowMyContests() {}

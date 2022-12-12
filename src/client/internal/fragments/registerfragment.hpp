@@ -9,7 +9,7 @@
 class RegisterFragment : public BaseFragment {
     Q_OBJECT
  public:
-    RegisterFragment();
+    RegisterFragment() {}
     ~RegisterFragment() {}
 
  private:

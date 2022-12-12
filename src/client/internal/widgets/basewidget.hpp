@@ -4,11 +4,11 @@
 class BaseWidget : public QWidget {
     Q_OBJECT
  public:
-    explicit BaseWidget(QWidget* parent = nullptr);
+    explicit BaseWidget(QWidget* parent = nullptr) : QWidget(parent) {}
     virtual ~BaseWidget() {}
 
  protected:
-    void paintEvent(QPaintEvent* event) {}
+    void paintEvent(QPaintEvent* event);
     virtual void initLayout() = 0;
     virtual void initStyles() = 0;
 };

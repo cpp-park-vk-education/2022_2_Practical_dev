@@ -2,7 +2,7 @@
 
 #include "IParcelAPI.hpp"
 
-class ImplParcelAPI: public IParcelAPI {
+class ImplParcelAPI : public IParcelAPI {
  public:
     ImplParcelAPI();
     ~ImplParcelAPI();

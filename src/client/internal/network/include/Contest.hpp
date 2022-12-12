@@ -1,10 +1,11 @@
 #pragma once
 
-#include <iostream>
 #include <cstddef>
+#include <iostream>
+
 #include "Entity.hpp"
 
-class Contest: public Entity {
+class Contest : public Entity {
  private:
     size_t uuid;
     size_t id;

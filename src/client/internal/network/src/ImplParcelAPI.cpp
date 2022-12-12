@@ -4,7 +4,6 @@ ImplParcelAPI::ImplParcelAPI() = default;
 
 ImplParcelAPI::~ImplParcelAPI() = default;
 
-
 Parcel ImplParcelAPI::getParcel(const size_t id) {
     Parcel* _parcel;
     return *_parcel;

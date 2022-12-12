@@ -1,9 +1,10 @@
 #pragma once
 
 #include <iostream>
-#include "User.hpp"
-#include "Task.hpp"
+
 #include "Contest.hpp"
+#include "Task.hpp"
+#include "User.hpp"
 
 class IContestAPI {
  public:

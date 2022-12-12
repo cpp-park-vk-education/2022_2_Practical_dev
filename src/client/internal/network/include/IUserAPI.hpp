@@ -1,8 +1,9 @@
 #pragma once
 
 #include <iostream>
-#include "User.hpp"
+
 #include "Contest.hpp"
+#include "User.hpp"
 
 class IUserAPI {
  public:

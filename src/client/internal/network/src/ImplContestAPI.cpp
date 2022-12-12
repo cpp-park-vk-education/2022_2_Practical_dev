@@ -4,7 +4,6 @@ ImplContestAPI::ImplContestAPI() = default;
 
 ImplContestAPI::~ImplContestAPI() = default;
 
-
 Contest ImplContestAPI::getContest(const size_t idContest) {
     Contest* contest;
     return *contest;

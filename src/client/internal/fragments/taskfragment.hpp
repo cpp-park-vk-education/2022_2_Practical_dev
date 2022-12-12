@@ -9,7 +9,7 @@
 class TaskFragment : public BaseFragment {
     Q_OBJECT
  public:
-    TaskFragment();
+    TaskFragment() {}
     ~TaskFragment() {}
 
  private:

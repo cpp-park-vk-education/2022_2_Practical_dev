@@ -22,9 +22,11 @@ class Header : public BaseWidget {
     QLabel *logo;
     QHBoxLayout *mainLayout;
     QVBoxLayout *rightLayout;
-    void setrightLayout();
+    void setRightLayout();
+    void initAvatar();
+    void initBtn(QPushButton *btn, QString iconPath);
 
  protected:
-    void initLayout() override {}
-    void initStyles() override {}
+    void initLayout() override;
+    void initStyles() override;
 };

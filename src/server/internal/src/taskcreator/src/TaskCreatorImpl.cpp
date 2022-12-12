@@ -12,7 +12,9 @@ int TaskCreatorImpl::Setup(const Task& cfg, const RunConfig& sol_conf, const Run
     gen_out << gen_conf;
     gen_out.close();
 
-    system("cd /project/misc && tar -czf ../taskconf.tar.gz solution.* gen_test.* Dockerfile Checker sol.conf gen.conf");
+    system(
+        "cd /project/misc && tar -czf ../taskconf.tar.gz solution.* gen_test.*"
+        "Dockerfile Checker sol.conf gen.conf");
 
     boost::filesystem::ifstream tar("/project/taskconf.tar.gz", std::ios::binary);
 

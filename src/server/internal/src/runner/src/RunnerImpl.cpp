@@ -18,9 +18,11 @@ CheckerResult RunnerImpl::Run(const size_t& task_id, const std::string& code, co
         {"Image", image.getDockerId()},
     };
 
-    std::string out_file_name = (subj_conf.compiler == "g++" ? "main.cpp" : subj_conf.name == "python" ? "main.py" : subj_conf.name == "java" ? "Main.class" : "main.txt");
+    std::string out_file_name = (subj_conf.compiler == "g++" ? "main.cpp" : subj_conf.name == "python" ? "main.py"
+                                                                        : subj_conf.name == "java"     ? "Main.class"
+                                                                                                       : "main.txt");
     data["Cmd"] = {"/bin/sh", "-c", "echo '" + code + std::string("' > " + out_file_name + " && ./Checker")};
-    data["Env"] = {"SUBJECT_LANGUAGE=" + subj_conf.name, "SUBJECT_COMPILER=" + subj_conf.compiler, "SUBJECT_COMPILER_FLAGS=" + subj_conf.compiler_flags, "SUBJECT_INTERPRETER=" + subj_conf.interpreter, "SUBJECT_INTERPRETER_FLAGS=" + subj_conf.interpreter_flags};
+    data["Env"] = {"SUBJECT_LANGUAGE=" + subj_conf.name, "SUBJECT_COMPILER=" + subj_conf.compiler, "SUBJECT_COMPILER_FLAGS=" + subj_conf.compiler_flags, "SUBJECT_INTERPRETER=" + subj_conf.interpreter, "SUBJECT_INTERPRETER_FLAGS=" + subj_conf.interpreter_flags}; //NOLINT
 
     target = "/v1.41/containers/create";
     std::cout << data << std::endl;

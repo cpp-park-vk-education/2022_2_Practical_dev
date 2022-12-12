@@ -1,6 +1,6 @@
 #include "Parcel.hpp"
 
-Parcel::Parcel(const size_t& user_id, const size_t& task_id, const size_t& source_id, const std::string& result) : fk_user_id(user_id), fk_tasks_id(task_id), fk_source_code_id(source_id) {
+Parcel::Parcel(const size_t& user_id, const size_t& task_id, const size_t& source_id, const std::string& result) : fk_user_id(user_id), fk_tasks_id(task_id), fk_source_code_id(source_id) { //NOLINT
 }
 
 size_t Parcel::getId() const noexcept {

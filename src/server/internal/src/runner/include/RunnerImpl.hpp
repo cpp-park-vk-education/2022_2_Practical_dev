@@ -2,12 +2,14 @@
 
 #include "CheckerResult.hpp"
 #include "CheckerResultImpl.hpp"
-#include "Container.hpp"
+#include "Image.hpp"
+#include "RunConfig.hpp"
+#include "Runner.hpp"
 #include "RunnerCommon.h"
 #include "SocketCRUD.hpp"
 #include "TaskConfig.hpp"
 
-class RunnerImpl {
+class RunnerImpl : Runner {
  private:
     std::string host = "localhost";
     std::string port = "80";
@@ -17,5 +19,5 @@ class RunnerImpl {
     RunnerImpl();
     ~RunnerImpl();
 
-    CheckerResult Run(const size_t& task_id, const std::string& code, const std::string& language);
+    CheckerResult Run(const size_t& task_id, const std::string& code, const RunConfig& subj_conf) override;
 };

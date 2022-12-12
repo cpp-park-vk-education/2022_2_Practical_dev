@@ -49,10 +49,14 @@ format:
 	./run_format.sh
 
 valgrind: build-tests
-	cmake --build build/ --target full_test_VALGRIND
+	cmake --build build/ --target full_test_VALGRIND || sh -c "exit 0"
+	cmake --build build/ --target full_test_VALGRIND | ./scripts/check_valgrind.py
+
+mock-db:
+	PGPASSWORD=slavapswd psql -h 0.0.0.0 -U slava -d slavadb -f sql/mock.sql 
 
 build-docker:
-	docker build . -f Dockerfile -t app 
+	docker build . -f Dockerfile --rm -t app 
 	
 dev:
 	docker run --rm -it \
@@ -61,9 +65,18 @@ dev:
 		--env-file .env \
 		app 
 
+dev-db:
+	docker run --rm -it \
+		-v $(PWD):/project \
+		--user $$(id -u):$$(id -g) \
+		--env-file .env \
+		--network 2022_2_practical_dev_contest-network \
+		app 
+
 dev-sudo:
 	docker run --rm -it \
 		-v $(PWD):/project \
 		-v /var/run/docker.sock:/var/run/docker.sock \
 		--env-file .env \
+		--network 2022_2_practical_dev_contest-network \
 		app

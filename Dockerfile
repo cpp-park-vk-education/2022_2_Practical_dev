@@ -19,7 +19,9 @@ RUN apt install -y clang-format
 RUN apt install -y valgrind
 RUN apt install -y git
 RUN apt install -y qt5-default
-
+RUN apt install -y libboost-all-dev
+RUN apt-get update -y
+RUN apt install -y xvfb
 RUN pip install gcovr
 RUN pip install cpplint
 

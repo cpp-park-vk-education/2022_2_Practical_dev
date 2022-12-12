@@ -18,6 +18,8 @@ if(BUILD_DEV)
         -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -lpq -lpqxx")
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage -lgcov")
     
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage -lgcov")
+    
     if(SANITIZE_BUILD)
         message("Sanitizers ON")
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fsanitize=address,undefined -fno-sanitize-recover=all -fsanitize-undefined-trap-on-error")
@@ -28,8 +30,12 @@ set(BUILD_SERVER "BUILD_SERVER")
 set(BUILD_CLIENT "BUILD_CLIENT")
 set(BUILD_ALL "BUILD_ALL")
 
+
+message("${BUILD_DEV} ${SANITIZE_BUILD} ${CMAKE_EXE_LINKER_FLAGS}")
 set(BUILD_MODE ${BUILD_SERVER})
 
+
+if((BUILD_MODE STREQUAL ${BUILD_CLIENT}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}))
 message("${BUILD_DEV} ${SANITIZE_BUILD} ${CMAKE_EXE_LINKER_FLAGS}")
 
 if((BUILD_MODE STREQUAL ${BUILD_CLIENT}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}))

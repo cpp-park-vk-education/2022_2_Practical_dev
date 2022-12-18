@@ -1,6 +1,6 @@
 #pragma once
 
-#include "namespaces.hpp"
+#include "utils/namespaces.hpp"
 #include "src/router/router.hpp"
 
 class ParcelGetHandler : DeliveryHandler {

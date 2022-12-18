@@ -1,10 +1,9 @@
 #pragma once
 
 #include <memory>
-#include <array>
 
-#include "namespaces.hpp"
-#include "constants.hpp"
+#include "utils/namespaces.hpp"
+#include "utils/constants.hpp"
 #include "connection/connection.hpp"
 
 class Connection : public IConnection, public std::enable_shared_from_this<Connection> {

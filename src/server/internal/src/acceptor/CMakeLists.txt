@@ -12,7 +12,10 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}")
 
 
 add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
-target_link_libraries(${PROJECT_NAME} connection namespaces)
+target_link_libraries(
+    ${PROJECT_NAME}
+    utils
+    connection)
 
 enable_testing()
 add_subdirectory(tests)

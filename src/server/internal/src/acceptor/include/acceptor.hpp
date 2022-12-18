@@ -1,6 +1,6 @@
 #pragma once
 
-#include "namespaces.hpp"
+#include "utils/namespaces.hpp"
 #include "acceptor/acceptor.hpp"
 
 class Acceptor : IAcceptor {

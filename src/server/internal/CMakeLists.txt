@@ -5,7 +5,12 @@ add_subdirectory(src)
 # add_subdirectory(users)
 # add_subdirectory(tasks)
 # add_subdirectory(comments)
-# add_subdirectory(contests)
+add_subdirectory(contests)
+target_include_directories(
+    contests
+    PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
 # add_subdirectory(codesources)
 # add_subdirectory(runconfigs)
 

@@ -5,21 +5,43 @@
 # add_subdirectory(taskcreator)
 
 add_subdirectory(acceptor)
-target_include_directories(acceptor PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(
+    acceptor
+    PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
 
 add_subdirectory(connection)
-target_include_directories(connection PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(
+    connection
+    PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
 # add_subdirectory(connection_manager)
 # add_subdirectory(parser)
 # add_subdirectory(router)
+
 add_subdirectory(server)
-target_include_directories(server PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(
+    server
+    PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
 
 add_subdirectory(router)
-target_include_directories(rotuer PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(
+    router
+    PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
 
 add_subdirectory(utils)
-target_include_directories(namespaces INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(
+    utils
+    INTERFACE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
 
 # set(DB_Lib_LIB ${DB_Lib_LIB} PARENT_SCOPE)
 # set(DB_Lib_INCLUDE_DIRS ${DB_Lib_INCLUDE_DIRS} PARENT_SCOPE)

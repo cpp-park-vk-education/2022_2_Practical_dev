@@ -11,8 +11,12 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -g -Wall -Wextra -O2 -pedantic -Wformat
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}")
 
 
-add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
-target_link_libraries(${PROJECT_NAME} namespaces)
+add_library(${PROJECT_NAME} ${SOURCES})
+
+target_link_libraries(
+    ${PROJECT_NAME}
+    utils
+)
 
 enable_testing()
 add_subdirectory(tests)

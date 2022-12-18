@@ -1,4 +1,6 @@
-#include "namespaces.hpp"
+#pragma once
+
+#include "utils/namespaces.hpp"
 
 template<typename Handler>
 struct IRouter {

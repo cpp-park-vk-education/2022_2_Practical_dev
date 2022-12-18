@@ -1,6 +1,6 @@
 #pragma once
 
-#include "namespaces.hpp"
+#include "utils/namespaces.hpp"
 
 struct ServerConfig {
     asio::io_context ioc;

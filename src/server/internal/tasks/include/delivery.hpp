@@ -1,7 +1,7 @@
 #pragma once
 
-#include "namespaces.hpp"
-#include "src/router/router.hpp"
+#include "utils/namespaces.hpp"
+#include "router/router.hpp"
 
 class TaskGetHandler : DeliveryHandler {
  public:

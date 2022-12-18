@@ -5,7 +5,7 @@
 
 Connection::Connection(tcp::socket &&socket) : stream(std::move(socket)) {}
 
-void Connection::start() {
+void Connection::do_read() {
     this->request = {};
 
     http::async_read(
@@ -26,6 +26,10 @@ void Connection::on_read(beast::error_code, size_t bytes_transferred) {
     response.result(http::status::ok);
     response.body() = "\nHello?\n";
 
+    this->do_write();
+}
+
+void Connection::do_write() {
     http::async_write(
         this->stream,
         std::move(response),
@@ -42,4 +46,8 @@ void Connection::on_write(beast::error_code, size_t bytes_transferred) {
 
 void Connection::stop() {
     this->stream.socket().shutdown(tcp::socket::shutdown_send);
+}
+
+void Connection::start() {
+    this->do_read();
 }

@@ -1,15 +1,11 @@
 #pragma once
 
 
-#include <unordered_map>
-#include <array>
-#include <stack>
-
-#include <mutex>
+#include <map>
 
 #include "namespaces.hpp"
 #include "router/router.hpp"
-#include "connection.hpp"
+#include "connection/connection.hpp"
 
 class DeliveryHandler {
  public:
@@ -21,28 +17,18 @@ class DeliveryHandler {
     DeliveryHandler();
 };
 
-class RouterPool : IRouterPool {
+
+template<typename Handler>
+class Router : IRouter<Handler> {
     struct target {
         http::verb method_;
         std::string url_;
     };
 
-    class Router {
-        std::unordered_map<target, DeliveryHandler&> handlers;
-        DeliveryHandler& route(http::verb method_, std::string url_);
-    };
-
-    std::unordered_map<target, DeliveryHandler&> handlers;
-
-    std::mutex mutex_;
-    std::array<Router, 10> routers;
-    std::stack<Router&> free_routers;
-
-    Router& get();
-    void free(Router &router);
+    std::map<target, Handler> handlers;
 
  public:
-    RouterPool();
-    void add_handler(http::verb method_, std::string url_, DeliveryHandler &handler_);
-    DeliveryHandler& route(http::verb method_, std::string url_);
+    Router();
+    void add_handler(http::verb method, std::string url, Handler handler);
+    Handler route(http::verb method, std::string url) override;
 };

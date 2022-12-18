@@ -15,6 +15,9 @@ target_include_directories(connection PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 add_subdirectory(server)
 target_include_directories(server PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
+add_subdirectory(router)
+target_include_directories(rotuer PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
 add_subdirectory(utils)
 target_include_directories(namespaces INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "namespaces.hpp"
-#include "src/router/router.hpp"
+#include "router/router.hpp"
 
 class ContestGetHandler : DeliveryHandler {
  public:

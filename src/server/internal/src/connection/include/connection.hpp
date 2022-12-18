@@ -14,15 +14,15 @@ class Connection : public IConnection, public std::enable_shared_from_this<Conne
     http::response<http::string_body> response;
     http::request<http::string_body> request;
 
+    void do_read();
     void on_read(beast::error_code ec, size_t bytes_transferred);
+
+    void do_write();
     void on_write(beast::error_code ec, size_t bytes_transferred);
 
  public:
     void start();
     void stop();
-
-    // void read();
-    // void write();
 
     explicit Connection(tcp::socket &&socket);
 };

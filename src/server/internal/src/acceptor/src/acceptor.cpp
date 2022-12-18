@@ -12,13 +12,7 @@ Acceptor::Acceptor(asio::io_context &ioc, tcp::endpoint ep) : io_context(ioc), e
 }
 
 void Acceptor::accept() {
-    this->acceptor.async_accept(
-        this->io_context,
-        beast::bind_front_handler(
-            &Acceptor::on_accept,
-            this
-        )
-    );
+    this->do_accept();
 }
 
 void Acceptor::on_accept(beast::error_code ec, tcp::socket socket) {
@@ -30,4 +24,14 @@ void Acceptor::on_accept(beast::error_code ec, tcp::socket socket) {
     )->start();
     
     this->accept();
+}
+
+void Acceptor::do_accept() {
+    this->acceptor.async_accept(
+        this->io_context,
+        beast::bind_front_handler(
+            &Acceptor::on_accept,
+            this
+        )
+    );
 }

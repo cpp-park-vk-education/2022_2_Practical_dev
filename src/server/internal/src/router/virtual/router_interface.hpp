@@ -1,6 +1,6 @@
-struct IRouterPool {
-    virtual void get_router() = 0;
-    // static get instance
-private:
-    IRouterPool() = delete;
+#include "namespaces.hpp"
+
+template<typename Handler>
+struct IRouter {
+    virtual Handler route(http::verb method, std::string url) = 0;
 };

@@ -10,6 +10,7 @@ class Acceptor : IAcceptor {
     tcp::acceptor acceptor;
 
     void on_accept(beast::error_code ec, tcp::socket socket);
+    void do_accept();
 
  public:
     void accept();

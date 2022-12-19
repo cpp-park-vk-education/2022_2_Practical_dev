@@ -1,22 +1,38 @@
 #pragma once
 
-#include "namespaces.hpp"
-#include "src/router/router.hpp"
+#include "utils/namespaces.hpp"
+#include "router/router.hpp"
 
-class ContestGetHandler : DeliveryHandler {
+class ContestGetHandler : public DeliveryHandler {
  public:
-    virtual void operator() (
-        http::request<http::string_body> request,
-        http::response<http::string_body> response,
-        std::unordered_map<std::string, size_t> params);
+    virtual void handle (
+        http::request<http::string_body> &request,
+        http::response<http::string_body> &response) {
+            response.body() = "contests get";
+        }
+
+    virtual void handle (
+        http::request<http::string_body> &request,
+        http::response<http::string_body> &response,
+        std::unordered_map<std::string, size_t> params) {
+            response.body() = "contests get";
+        }
 };
 
-class ContestModifyHandler : DeliveryHandler {
+class ContestModifyHandler : public DeliveryHandler {
  public:
-    virtual void operator() (
-        http::request<http::string_body> request,
-        http::response<http::string_body> response,
-        std::unordered_map<std::string, size_t> params);
+    virtual void handle (
+        http::request<http::string_body> &request,
+        http::response<http::string_body> &response) {
+            response.body() = "contests modify";
+        }
+
+    virtual void handle (
+        http::request<http::string_body> &request,
+        http::response<http::string_body> &response,
+        std::unordered_map<std::string, size_t> params) {
+            response.body() = "contests modify";
+        }
 };
 
 class ContestDeleteHandler : DeliveryHandler {

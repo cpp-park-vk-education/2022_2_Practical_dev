@@ -8,7 +8,6 @@ clean:
 	rm -rf build
 
 generate:
-	./set_screen.sh
 	cmake -S src/ -B build/
 
 silent-build:
@@ -33,7 +32,6 @@ checker:
 	./build/server/cmd/Checker
 
 test: build
-	./set_screen.sh
 	cd build && ctest -VV -C $(BUILD_DEV)
 
 coverage-stat: build-tests
@@ -57,6 +55,7 @@ build-docker:
 dev:
 	docker run --rm -it \
 		-v $(PWD):/project \
+		-p 8888:8888 \
 		--user $$(id -u):$$(id -g) \
 		--env-file .env \
 		app 

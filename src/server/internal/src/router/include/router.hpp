@@ -1,46 +1,57 @@
 #pragma once
 
-#include "namespaces.hpp"
+#include <map>
+#include <memory>
 
-#include <unordered_map>
-#include <array>
-#include <stack>
-
-#include <mutex>
-
-#include "connection.hpp"
+#include "utils/namespaces.hpp"
+#include "router/router.hpp"
 
 class DeliveryHandler {
  public:
-    void operator() (
+    virtual void handle (
+        http::request<http::string_body> &request,
+        http::response<http::string_body> &response) = 0;
+    virtual void handle (
         http::request<http::string_body> &request,
         http::response<http::string_body> &response,
-        std::unordered_map<std::string, size_t> params);
+        std::unordered_map<std::string, size_t> params) = 0;
 
-    DeliveryHandler();
+    DeliveryHandler() = default;
 };
 
-class Router {
-    struct target {
-        http::verb method_;
-        std::string url_;
-    };
+struct target {
+    http::verb method_;
+    std::string url_;
 
-    class RouterWorker {
-        std::unordered_map<target, DeliveryHandler&> handlers;
-        DeliveryHandler& route(http::verb method_, std::string url_);
-    };
+    bool operator<(const target &other) const {
+        if (this->method_ != other.method_)
+            return this->method_ < other.method_;
 
-    std::unordered_map<target, DeliveryHandler&> handlers;
+        return this->url_ < other.url_;
+    }
+};
 
-    std::mutex mutex_;
-    std::array<RouterWorker, 10> workers;
-    std::stack<RouterWorker&> free_workers;
+template<typename Handler>
+class Router : public IRouter<Handler> {
+    using handler_type = Handler;
 
-    RouterWorker& get();
-    void free(RouterWorker &worker);
+    std::map<target, Handler> handlers;
 
  public:
-    void add_handler(http::verb method_, std::string url_, DeliveryHandler &handler_);
-    DeliveryHandler& route(http::verb method_, std::string url_);
+    Router();
+    void add_handler(http::verb method, std::string url, Handler handler);
+    Handler route(http::verb method, std::string url) override;
 };
+
+template<typename Handler>
+Handler Router<Handler>::route(http::verb method, std::string url) {
+    return this->handlers[{method, url}];
+}
+
+template<typename Handler>
+Router<Handler>::Router() : handlers() {}
+
+template<typename Handler>
+void Router<Handler>::add_handler(http::verb method, std::string url, Handler handler) {
+    this->handlers[{method, url}] = handler;
+}

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-set(CMAKE_CXX_STANDARD 20)
+# set(CMAKE_CXX_STANDARD 20)
 
 set(PROJECT_NAME "What a contest!")
 
@@ -18,6 +18,8 @@ if(BUILD_DEV)
         -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -lpq -lpqxx")
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage -lgcov")
     
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage -lgcov")
+    
     if(SANITIZE_BUILD)
         message("Sanitizers ON")
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fsanitize=address,undefined -fno-sanitize-recover=all -fsanitize-undefined-trap-on-error")
@@ -30,34 +32,37 @@ set(BUILD_ALL "BUILD_ALL")
 
 
 message("${BUILD_DEV} ${SANITIZE_BUILD} ${CMAKE_EXE_LINKER_FLAGS}")
-set(BUILD_MODE ${BUILD_ALL})
+set(BUILD_MODE ${BUILD_SERVER})
+
+
+# if((BUILD_MODE STREQUAL ${BUILD_CLIENT}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}))
+# message("${BUILD_DEV} ${SANITIZE_BUILD} ${CMAKE_EXE_LINKER_FLAGS}")
 
 if((BUILD_MODE STREQUAL ${BUILD_CLIENT}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}))
     add_subdirectory(client)
 endif()
 
-if((BUILD_MODE STREQUAL ${BUILD_SERVER}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}))
+if((BUILD_MODE STREQUAL ${BUILD_SERVER}) OR (BUILD_MODE STREQUAL ${BUILD_ALL}) OR True)
     add_subdirectory(server)
 endif()
 
-set(TEST_TARGETS 
-    db_tests 
-    checker_tests 
-    code_source_tests 
-    comments_tests 
-    contests_tests 
-    parcels_tests 
-    run_config_tests 
-    tasks_tests 
-    users_tests 
-    runner_tests
-    acceptor_tests
-    connection_tests
-    connection_manager_tests
-    parser_tests
-    router_tests
-    server_tests
-    gui_tests)
+# set(TEST_TARGETS 
+#     db_tests 
+#     checker_tests 
+#     code_source_tests 
+#     comments_tests 
+#     contests_tests 
+#     parcels_tests 
+#     run_config_tests 
+#     tasks_tests 
+#     users_tests 
+#     runner_tests
+#     acceptor_tests
+#     connection_tests
+#     connection_manager_tests
+#     parser_tests
+#     router_tests
+#     server_tests)
 
 set(TARGET_TYPES TEST COVERAGE COVERAGE_FILE VALGRIND)
 

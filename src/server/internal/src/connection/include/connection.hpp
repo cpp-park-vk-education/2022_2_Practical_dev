@@ -1,27 +1,30 @@
 #pragma once
 
-#include "namespaces.hpp"
-#include "constants.hpp"
+#include <memory>
 
-#include <array>
+#include "utils/namespaces.hpp"
+#include "utils/constants.hpp"
+#include "connection/connection.hpp"
+#include "router/router.hpp"
 
-#include "parser.hpp"
+class Connection : public IConnection, public std::enable_shared_from_this<Connection> {
+    beast::tcp_stream stream;
+    beast::flat_buffer buffer;
 
-class Connection {
-    std::array<char, MESSAGE_BUFFER_SIZE> buffer;
-    tcp::socket &socket_;
+    http::response<http::string_body> response;
+    http::request<http::string_body> request;
 
-    http::response<http::string_body> response_;
-    http::request<http::string_body> request_;
+    Router<DeliveryHandler*> &router;
 
-    Parser parser;
+    void do_read();
+    void on_read(beast::error_code ec, size_t bytes_transferred);
+
+    void do_write();
+    void on_write(beast::error_code ec, size_t bytes_transferred);
 
  public:
     void start();
     void stop();
 
-    void read();
-    void write();
-
-    explicit Connection(tcp::socket &socket_);
+    Connection(tcp::socket &&socket, Router<DeliveryHandler*> &router);
 };

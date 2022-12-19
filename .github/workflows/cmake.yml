@@ -15,9 +15,6 @@ env:
   PGUSER: slava
   PGPASSWORD: slavapswd
 
-  QT_DEBUG_PLUGINS: 1
-  QT_QPA_PLATFORM: xcb
-  DISPLAY: :1
 
 jobs:
   Format:

@@ -1,10 +1,11 @@
 #include "utils/namespaces.hpp"
 #include "acceptor/acceptor.hpp"
 #include "connection/connection.hpp"
+#include "router/router.hpp"
 
 #include <memory>
 
-Acceptor::Acceptor(asio::io_context &ioc, tcp::endpoint ep) : io_context(ioc), endpoint(ep), acceptor(ioc) {
+Acceptor::Acceptor(asio::io_context &ioc, tcp::endpoint ep, Router<DeliveryHandler*> &router) : io_context(ioc), endpoint(ep), acceptor(ioc), router(router) {
     acceptor.open(this->endpoint.protocol());
     acceptor.set_option(tcp::acceptor::reuse_address(true));
     acceptor.bind(this->endpoint);
@@ -20,7 +21,8 @@ void Acceptor::on_accept(beast::error_code ec, tcp::socket socket) {
         return;
 
     std::make_shared<Connection>(
-        std::move(socket)
+        std::move(socket),
+        this->router
     )->start();
     
     this->accept();

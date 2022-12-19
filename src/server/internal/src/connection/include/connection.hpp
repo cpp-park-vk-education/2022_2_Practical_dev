@@ -5,6 +5,7 @@
 #include "utils/namespaces.hpp"
 #include "utils/constants.hpp"
 #include "connection/connection.hpp"
+#include "router/router.hpp"
 
 class Connection : public IConnection, public std::enable_shared_from_this<Connection> {
     beast::tcp_stream stream;
@@ -12,6 +13,8 @@ class Connection : public IConnection, public std::enable_shared_from_this<Conne
 
     http::response<http::string_body> response;
     http::request<http::string_body> request;
+
+    Router<DeliveryHandler*> &router;
 
     void do_read();
     void on_read(beast::error_code ec, size_t bytes_transferred);
@@ -23,5 +26,5 @@ class Connection : public IConnection, public std::enable_shared_from_this<Conne
     void start();
     void stop();
 
-    explicit Connection(tcp::socket &&socket);
+    Connection(tcp::socket &&socket, Router<DeliveryHandler*> &router);
 };

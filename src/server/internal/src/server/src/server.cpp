@@ -8,8 +8,9 @@
 
 #include "contests/contests.hpp"
 
-Server::Server(asio::io_context &ioc, tcp::endpoint ep) : io_context(ioc), router(), acceptor(ioc, ep) {
-    router.add_handler(http::verb::get, "/contests", std::shared_ptr<DeliveryHandler>(new ContestGetHandler()));
+Server::Server(asio::io_context &ioc, tcp::endpoint ep) : io_context(ioc), router(), acceptor(ioc, ep, router) {
+    router.add_handler(http::verb::get, "/contests", new ContestGetHandler());
+    router.add_handler(http::verb::post, "/contests", new ContestModifyHandler());
 }
 
 void Server::run() {

@@ -15,7 +15,9 @@ add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 target_link_libraries(
     ${PROJECT_NAME}
     utils
-    connection)
+    connection
+    router
+)
 
 enable_testing()
 add_subdirectory(tests)

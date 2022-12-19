@@ -8,7 +8,7 @@
 
 class Server : IServer {
     asio::io_context &io_context;
-    Router<std::shared_ptr<DeliveryHandler>> router;
+    Router<DeliveryHandler*> router;
     Acceptor acceptor;
 
  public:

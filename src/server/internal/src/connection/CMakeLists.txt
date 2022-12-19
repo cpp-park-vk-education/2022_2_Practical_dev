@@ -16,6 +16,7 @@ add_library(${PROJECT_NAME} ${SOURCES})
 target_link_libraries(
     ${PROJECT_NAME}
     utils
+    router
 )
 
 enable_testing()
